@@ -1,8 +1,9 @@
 import json
 import os
 ## Open the JSON file of movie data
-movies = open("./movies.json", encoding="utf8")
+movies = open("./data.json", encoding="utf8")
 ## create variable "data" that represents the enitre movie list
+playerstatpoint=60
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
         self.attack=attack
@@ -13,6 +14,20 @@ class character_data():
         self.intellgence=intellgence
     def __str__(self):
         return f"{self.attack}, {self.defense}, {self.health}, {self.rizz}, {self.score_mutipler}, {self.intellgence}"
+def compare(z):
+    global playerstatpoint
+    add_minus=int(input("How much point do you want to spend"))
+    if add_minus <= playerstatpoint and add_minus >=1:
+        z+=add_minus
+        playerstatpoint-=add_minus
+        return z
+    elif abs(add_minus) <= z:
+        z+=add_minus
+        playerstatpoint-=add_minus
+        return z
+    else:
+        print("Try again")
+    player_choice="none"
 try:
     data = json.load(movies)
     game_life=100
@@ -35,11 +50,30 @@ try:
         menu_location="stat_creation"
         x=character_data(10, 10, 10, 10, 10, 10)
         while menu_location=="stat_creation":
-            print(f"attack: {x.attack}")
-            print(f"defense: {x.defense}")
-            print(f"health: {x.health}")
-            print(f"rizz: {x.rizz}")
-            print(f"attack: {x.attack}")
-            print(f"attack: {x.attack}")
+            print(f"Point to spend: {playerstatpoint}")
+            print(f"1. attack: {x.attack}")
+            print(f"2. defense: {x.defense}")
+            print(f"3. health: {x.health}")
+            print(f"4. rizz: {x.rizz}")
+            print(f"5. score mutipler: {x.score_mutipler}")
+            print(f"6. intellgence: {x.intellgence}")
+            player_choice=input("Select the stat you want to change.")
+            os.system('cls')
+            if player_choice=="1":
+                x.attack=compare(x.attack)
+            elif player_choice=="2":
+                x.defense=compare(x.defense)
+            elif player_choice=="3":
+                x.health=compare(x.health)
+            elif player_choice=="4":
+                x.rizz=compare(x.rizz)
+            elif player_choice=="5":
+                x.score_mutipler=compare(x.score_mutipler)
+            elif player_choice=="6":
+                x.intellgence=compare(x.intellgence)
+            elif playerstatpoint=="7":
+                menu_location="Game_start"
+            os.system('cls')
 except:
-    print("ERROR!!!!")
+    if not player_choice=="2":
+        print("ERROR!!!!")

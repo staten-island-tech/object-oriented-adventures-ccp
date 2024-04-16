@@ -28,8 +28,8 @@ def compare(z):
     else:
         print("Try again")
     player_choice="none"
+data = json.load(movies)
 try:
-    data = json.load(movies)
     game_life=100
     menu_location="starting"
     while game_life>=1:
@@ -75,5 +75,4 @@ try:
                 menu_location="Game_start"
             os.system('cls')
 except:
-    if not player_choice=="2":
-        print("ERROR!!!!")
+    print("ERROR!!!!")

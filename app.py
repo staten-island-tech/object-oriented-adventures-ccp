@@ -1,7 +1,7 @@
 import json
 import os
 ## Open the JSON file of movie data
-movies = open("./data.json", encoding="utf8")
+movies = open("./movies.json", encoding="utf8")
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 class character_data():

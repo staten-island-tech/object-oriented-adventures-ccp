@@ -1,4 +1,3 @@
-import random
 class enemy():
     def __init__(self, name, health, attack):
         self.name = name
@@ -11,4 +10,3 @@ class ingredient(enemy):
         self.drops = drops
     def __str__(self):
         return f"{self.name}, {self.health}, {self.attack}"
-print(round(50*1*random.random(), 1))

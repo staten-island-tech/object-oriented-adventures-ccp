@@ -5,6 +5,9 @@ import random
 movies = open("./movies.json", encoding="utf8")
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
+inventory=[{'itemh1': 0, 
+            'itemh2': 0,
+            'item'}]
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
         self.attack=attack

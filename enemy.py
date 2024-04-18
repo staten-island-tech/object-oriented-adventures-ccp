@@ -23,8 +23,8 @@ with open("enemy.json", "r") as f:
 
 while True:
     name = input("Name of enemy: ")
-    health = input("health of enemy: ")
-    attack = input("Attack power: ")
+    health = input(int("health of enemy: "))
+    attack = input(int("Attack power: "))
     moveset = input("moveset: ")
     drops = input("drops: ")
     newenemy = ingredient(name, health, attack, moveset, drops)

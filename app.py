@@ -7,7 +7,40 @@ movies = open("./movies.json", encoding="utf8")
 playerstatpoint=60
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
-            'item'}]
+            'itemh3': 0, 
+            'itema1': 0, 
+            'itema2': 0,
+            'itema3': 0,
+            'itemb1': 0, 
+            'itemb2': 0,
+            'itemb3': 0}, 
+            {
+            #sword, axe, spear, bow, helment, body armor, legging, boot
+            'tier1eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
+            }, 
+            #body armor equidment
+            {
+                'head': "none", 
+                'body': "none", 
+                'leg': "none", 
+                'toe': "none", 
+                'weapon': "sword1"
+            }]
+def inven():
+    for i in inventory:
+        for x in i:
+            print(x, i[x])
+def equidingstuff():
+    for x in inventory[1-2]:
+        for y in inventory[1][x]:
+            if inventory[1][x][y]>=1:
+                print(y, inventory[1][x][y])
+    for x in inventory[2]:
+        print(y, inventory[2][x])
+    player_choice=input("What equidment do you want to equid?")
+equidingstuff()
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
         self.attack=attack

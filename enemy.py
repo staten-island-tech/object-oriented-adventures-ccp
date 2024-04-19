@@ -2,18 +2,18 @@ import json
 import os
 
 class typeenemy():
-    def __init__(self, name, health, attack, moveset):
+    def __init__(self, name, health, damage, moveset):
         self.name = name
         self.health = health
-        self.attack = attack
+        self.damage = damage
         self.moveset = moveset
 
 class ingredient(typeenemy):
-    def __init__(self, name, health, attack, moveset, drops):
-        super().__init__(name, health, attack, moveset)
+    def __init__(self, name, health, damage, moveset, drops):
+        super().__init__(name, health, damage, moveset)
         self.drops = drops
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.attack}, {self.moveset}, {self.drops}"
+        return f"{self.name}, {self.health}, {self.damage}, {self.moveset}, {self.drops}"
     
 
 with open("enemy.json", "r") as f:
@@ -21,17 +21,12 @@ with open("enemy.json", "r") as f:
     enemy = json.load(f)
     ##Call classes in here
 
-while True:
-    name = input("Name of enemy: ")
-    health = input(int("health of enemy: "))
-    attack = input(int("Attack power: "))
-    moveset = input("moveset: ")
-    drops = input("drops: ")
-    newenemy = ingredient(name, health, attack, moveset, drops)
-    enemy.append(newenemy.__dict__)
-    addanotherenemy = input("Do you want to add another character? Y/N: ")
-    if addanotherenemy.upper() != "Y":
-        break
+
+
+
+
+
+
 
 #No code needed below this line
 # Creates a new JSON file with the updated data

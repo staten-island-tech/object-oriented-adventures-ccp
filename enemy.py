@@ -8,7 +8,7 @@ class typeenemy():
         self.damage = damage
         self.moveset = moveset
 
-class ingredient(typeenemy):
+class chef(typeenemy):
     def __init__(self, name, health, damage, moveset, drops):
         super().__init__(name, health, damage, moveset)
         self.drops = drops

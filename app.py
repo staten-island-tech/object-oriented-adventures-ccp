@@ -16,7 +16,7 @@ inventory=[{'itemh1': 0,
             'itemb3': 0}, 
             {
             #sword, axe, spear, bow, helment, body armor, legging, boot
-            'tier1eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier1eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
             'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
             'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
             }, 
@@ -33,13 +33,77 @@ def inven():
         for x in i:
             print(x, i[x])
 def equidingstuff():
-    for x in inventory[1-2]:
+    for x in inventory[1]:
         for y in inventory[1][x]:
             if inventory[1][x][y]>=1:
                 print(y, inventory[1][x][y])
     for x in inventory[2]:
-        print(y, inventory[2][x])
-    player_choice=input("What equidment do you want to equid?")
+        print(x, inventory[2][x])
+    player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n")
+    if player_choice=="1":
+        print(f"1. helment1: {inventory[1]['tier1eq']['armorh']}")
+        print(f"2. helment2: {inventory[1]['tier2eq']['armorh']}")
+        print(f"3. helment3: {inventory[1]['tier3eq']['armorh']}")
+        print("4.Exit")
+        player_choice=input()
+        if player_choice == "1" or player_choice == "2" or player_choice == "3":
+            if inventory[1][f'tier{player_choice}eq']['armorh']>=1:
+                inventory[1][f'tier{player_choice}eq']['armorh']-=1
+                inventory[2]['head']=player_choice
+                print(inventory[1][f'tier{player_choice}eq']['armorh'])
+                print(inventory[2]['head'])
+            else:
+                print("You don't have that")
+        else:
+            pass
+    elif player_choice=="2":
+        print(f"1. body armor1: {inventory[1]['tier1eq']['armorba']}")
+        print(f"2. body armor2: {inventory[1]['tier2eq']['armorba']}")
+        print(f"3. body armor3: {inventory[1]['tier3eq']['armorba']}")
+        print("4.Exit")
+        player_choice=input()
+        if player_choice == "1" or player_choice == "2" or player_choice == "3":
+            if inventory[1][f'tier{player_choice}eq']['armorba']>=1:
+                inventory[1][f'tier{player_choice}eq']['armorba']-=1
+                inventory[2]['body']=player_choice
+                print(inventory[1][f'tier{player_choice}eq']['armorba'])
+                print(inventory[2]['body'])
+            else:
+                print("You don't have that")
+        else:
+            pass
+    elif player_choice=="3":
+        print(f"1. legging1: {inventory[1]['tier1eq']['armorl']}")
+        print(f"2. legging2: {inventory[1]['tier2eq']['armorl']}")
+        print(f"3. legging3: {inventory[1]['tier3eq']['armorl']}")
+        print("4.Exit")
+        player_choice=input()
+        if player_choice == "1" or player_choice == "2" or player_choice == "3":
+            if inventory[1][f'tier{player_choice}eq']['armorl']>=1:
+                inventory[1][f'tier{player_choice}eq']['armorl']-=1
+                inventory[2]['armorl']=player_choice
+                print(inventory[1][f'tier{player_choice}eq']['armorl'])
+                print(inventory[2]['leg'])
+            else:
+                print("You don't have that")
+        else:
+            pass
+    elif player_choice=="4":
+        print(f"1. boot1: {inventory[1]['tier1eq']['armorb']}")
+        print(f"2. boot2: {inventory[1]['tier2eq']['armorb']}")
+        print(f"3. boot3: {inventory[1]['tier3eq']['armorb']}")
+        print("4.Exit")
+        player_choice=input()
+        if player_choice == "1" or player_choice == "2" or player_choice == "3":
+            if inventory[1][f'tier{player_choice}eq']['armorb']>=1:
+                inventory[1][f'tier{player_choice}eq']['armorb']-=1
+                inventory[2]['toe']=player_choice
+                print(inventory[1][f'tier{player_choice}eq']['armorb'])
+                print(inventory[2]['toe'])
+            else:
+                print("You don't have that")
+        else:
+            pass
 equidingstuff()
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
@@ -65,15 +129,6 @@ def compare(z):
     else:
         print("Try again")
     player_choice="none"
-def combat():
-    global game_life
-    player_choice=input("1. Attackn\n2.defend\n3.item\n4.rizz")
-    if player_choice=="1":
-        return round(x.attack*level*random.random(), 1)
-    if player_choice=="2":
-        return round(x.defense*level*random.random(), 1)
-    if player_choice=="3":
-        print(inventory())
 def inventory():
     y=open("")
 data = json.load(movies)

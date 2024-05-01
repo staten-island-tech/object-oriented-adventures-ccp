@@ -16,6 +16,7 @@ class chef(typeenemy):
         return f"{self.name}, {self.health}, {self.damage}, {self.moveset}, {self.drops}"
     
 
+
 with open("enemy.json", "r") as f:
     # Serialize the updated Python list to a JSON string
     enemy = json.load(f)

@@ -43,7 +43,7 @@ try:
         if player_choice=="2":
             print("Thank for playing this very azamzing game about the CCP")
             quit()
-        print(f"Uncle |King of MSG| Roger: Hello, {name}")
+        print(f"Uncle |'King of MSG'| Roger: Hello, {name}")
         print("Your goal is simple.")
         print("You have to defeat all of the top chefs in each restaurant.")
         ##Restaurant is a Stage/Level

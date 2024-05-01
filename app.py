@@ -43,9 +43,11 @@ try:
         if player_choice=="2":
             print("Thank for playing this very azamzing game about the CCP")
             quit()
-        print(f"Hello, {name}")
+        print(f"Uncle |King of MSG| Roger: Hello, {name}")
         print("Your goal is simple.")
-        print("You have to defeat all of the cooking ingrients of a cookie and rescue the CCP.")
+        print("You have to defeat all of the top chefs in each restaurant.")
+        ##Restaurant is a Stage/Level
+        print("How? Defeat other cooks, gather recipes and ingredients, until you can duel the masterchef with your newfound knowledge.")
         print("But first, stat selection")
         menu_location="stat_creation"
         x=character_data(10, 10, 10, 10, 10, 10)
@@ -76,4 +78,4 @@ try:
             os.system('cls')
 except:
     if not player_choice=="2":
-        print("ERROR!!!!")
+        print("Achievement Unlocked: The Special One")

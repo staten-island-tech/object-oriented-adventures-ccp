@@ -15,7 +15,7 @@ class chef(typeenemy):
     def __str__(self):
         return f"{self.name}, {self.health}, {self.damage}, {self.moveset}, {self.drops}"
     
-
+achievements = [{"The Special One"}, {"Good Ending"}, ["Rizz Ending"]]
 
 with open("enemy.json", "r") as f:
     # Serialize the updated Python list to a JSON string

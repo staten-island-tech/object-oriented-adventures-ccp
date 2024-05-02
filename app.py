@@ -5,6 +5,8 @@ import random
 movies = open("./movies.json", encoding="utf8")
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
+menu_location="none"
+#inventory system
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
             'itemh3': 0, 
@@ -39,72 +41,116 @@ def equidingstuff():
                 print(y, inventory[1][x][y])
     for x in inventory[2]:
         print(x, inventory[2][x])
-    player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n")
+    player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n5. Exit")
+    os.system('cls')
     if player_choice=="1":
-        print(f"1. helment1: {inventory[1]['tier1eq']['armorh']}")
-        print(f"2. helment2: {inventory[1]['tier2eq']['armorh']}")
-        print(f"3. helment3: {inventory[1]['tier3eq']['armorh']}")
-        print("4.Exit")
+        print(f"1. leather helment: {inventory[1]['tier1eq']['armorh']}")
+        print(f"2. copper helment: {inventory[1]['tier2eq']['armorh']}")
+        print(f"3. iron helment: {inventory[1]['tier3eq']['armorh']}")
+        print("4. Unequid")
+        print("5. Exit")
         player_choice=input()
+        os.system('cls')
         if player_choice == "1" or player_choice == "2" or player_choice == "3":
-            if inventory[1][f'tier{player_choice}eq']['armorh']>=1:
+            if inventory[1][f'tier{player_choice}eq']['armorh']>=1 and inventory[2]['head']=="none":
                 inventory[1][f'tier{player_choice}eq']['armorh']-=1
                 inventory[2]['head']=player_choice
                 print(inventory[1][f'tier{player_choice}eq']['armorh'])
                 print(inventory[2]['head'])
             else:
-                print("You don't have that")
+               print("You can't do that") 
+        elif player_choice == "4":
+            if not inventory[2]['head']=="none":
+                inventory[1][f'tier{inventory[2]["head"]}eq']['armorh']+=1
+                print(inventory[1][f'tier{inventory[2]["head"]}eq']['armorh'])
+                inventory[2]['head']="none"
+                print(inventory[2]['head'])
+            else:
+               print("You can't do that") 
         else:
             pass
     elif player_choice=="2":
         print(f"1. body armor1: {inventory[1]['tier1eq']['armorba']}")
         print(f"2. body armor2: {inventory[1]['tier2eq']['armorba']}")
         print(f"3. body armor3: {inventory[1]['tier3eq']['armorba']}")
-        print("4.Exit")
+        print("4. Unequid")
+        print("5. Exit")
         player_choice=input()
+        os.system('cls')
         if player_choice == "1" or player_choice == "2" or player_choice == "3":
-            if inventory[1][f'tier{player_choice}eq']['armorba']>=1:
+            if inventory[1][f'tier{player_choice}eq']['armorba']>=1 and inventory[2]['body']=="none":
                 inventory[1][f'tier{player_choice}eq']['armorba']-=1
                 inventory[2]['body']=player_choice
                 print(inventory[1][f'tier{player_choice}eq']['armorba'])
                 print(inventory[2]['body'])
             else:
-                print("You don't have that")
+               print("You can't do that") 
+        elif player_choice == "4":
+            if not inventory[2]['body']=="none":
+                inventory[1][f'tier{inventory[2]["body"]}eq']['armorba']+=1
+                print(inventory[1][f'tier{inventory[2]["body"]}eq']['armorba'])
+                inventory[2]['body']="none"
+                print(inventory[2]['body'])
+            else:
+               print("You can't do that") 
         else:
             pass
     elif player_choice=="3":
         print(f"1. legging1: {inventory[1]['tier1eq']['armorl']}")
         print(f"2. legging2: {inventory[1]['tier2eq']['armorl']}")
         print(f"3. legging3: {inventory[1]['tier3eq']['armorl']}")
-        print("4.Exit")
+        print("4. Unequid")
+        print("5. Exit")
         player_choice=input()
+        os.system('cls')
         if player_choice == "1" or player_choice == "2" or player_choice == "3":
-            if inventory[1][f'tier{player_choice}eq']['armorl']>=1:
+            if inventory[1][f'tier{player_choice}eq']['armorl']>=1  and inventory[2]['leg']=="none":
                 inventory[1][f'tier{player_choice}eq']['armorl']-=1
                 inventory[2]['armorl']=player_choice
                 print(inventory[1][f'tier{player_choice}eq']['armorl'])
                 print(inventory[2]['leg'])
             else:
-                print("You don't have that")
+               print("You can't do that") 
+        elif player_choice == "4":
+            if not inventory[2]['leg']=="none":
+                inventory[1][f'tier{inventory[2]["leg"]}eq']['armorl']+=1
+                print(inventory[1][f'tier{inventory[2]["leg"]}eq']['armorl'])
+                inventory[2]['leg']="none"
+                print(inventory[2]['leg'])
+            else:
+               print("You can't do that") 
         else:
             pass
     elif player_choice=="4":
         print(f"1. boot1: {inventory[1]['tier1eq']['armorb']}")
         print(f"2. boot2: {inventory[1]['tier2eq']['armorb']}")
         print(f"3. boot3: {inventory[1]['tier3eq']['armorb']}")
-        print("4.Exit")
+        print("4. Unequid")
+        print("5. Exit")
         player_choice=input()
-        if player_choice == "1" or player_choice == "2" or player_choice == "3":
-            if inventory[1][f'tier{player_choice}eq']['armorb']>=1:
+        os.system('cls')
+        if player_choice == "1" or player_choice == "2" or player_choice == "3" and inventory[2]['toe']=="none":
+            if inventory[1][f'tier{player_choice}eq']['armorb']>=1 and inventory[2]['toe']=="none":
                 inventory[1][f'tier{player_choice}eq']['armorb']-=1
                 inventory[2]['toe']=player_choice
                 print(inventory[1][f'tier{player_choice}eq']['armorb'])
                 print(inventory[2]['toe'])
             else:
-                print("You don't have that")
+               print("You can't do that") 
+        elif player_choice == "4":
+            if not inventory[2]['toe']=="none":
+                inventory[1][f'tier{inventory[2]["toe"]}eq']['armorb']+=1
+                print(inventory[1][f'tier{inventory[2]["toe"]}eq']['armorb'])
+                inventory[2]['toe']="none"
+                print(inventory[2]['toe'])
+            else:
+               print("You can't do that") 
         else:
             pass
-equidingstuff()
+    elif player_choice=="5":
+        global menu_location
+        menu_location = "start"
+    os.system('cls')
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
         self.attack=attack

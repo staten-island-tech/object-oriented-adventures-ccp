@@ -40,8 +40,8 @@ try:
         os.system('cls')
         if player_choice=="1":
             name=input("What's your name: ")
-        if player_choice=="2":
-            print("Thank for playing this very azamzing game about the CCP")
+        elif player_choice=="2":
+            print("Thanks for playing??????????????????????")
             quit()
         print(f"Uncle |'King of MSG'| Roger: Hello, {name}")
         print("Your goal is simple.")

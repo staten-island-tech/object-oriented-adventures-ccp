@@ -78,4 +78,4 @@ try:
             os.system('cls')
 except:
     if not player_choice=="2":
-        print("Achievement Unlocked: The Special One")
+        print("<<|Achievement Unlocked: The Special One|>>")

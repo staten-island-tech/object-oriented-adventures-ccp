@@ -18,7 +18,7 @@ inventory=[{'itemh1': 0,
             'itemb3': 0}, 
             {
             #sword, axe, spear, bow, helment, body armor, legging, boot
-            'tier1eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
             'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
             'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
             }, 
@@ -41,7 +41,7 @@ def equidingstuff():
                 print(y, inventory[1][x][y])
     for x in inventory[2]:
         print(x, inventory[2][x])
-    player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n5. Exit")
+    player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n5. Exit\n6. Weapon")
     os.system('cls')
     if player_choice=="1":
         print(f"1. leather helment: {inventory[1]['tier1eq']['armorh']}")
@@ -150,6 +150,18 @@ def equidingstuff():
     elif player_choice=="5":
         global menu_location
         menu_location = "start"
+    elif player_choice=="6":
+        print("1. Sword")
+        print("2. Axe")
+        print("3. Spear")
+        print("4. Bow")
+        print("5. Exit")
+        player_choice=input("")
+        if player_choice=="1":
+            for x in inventory[1]:
+                print(inventory[1][x]['sword'])
+            print(f"1. equid sword{inventory[1]['tier1eq']['sword']}\n2. equid sword2{inventory[1][x]['sword']}\n3. equid sword3{}")
+            player_choice=input("")
     os.system('cls')
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
@@ -175,8 +187,7 @@ def compare(z):
     else:
         print("Try again")
     player_choice="none"
-def inventory():
-    y=open("")
+equidingstuff()
 data = json.load(movies)
 try:
     from enemy import enemy, ingredient

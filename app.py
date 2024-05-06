@@ -160,8 +160,21 @@ def equidingstuff():
         if player_choice=="1":
             for x in inventory[1]:
                 print(inventory[1][x]['sword'])
-            print(f"1. equid sword{inventory[1]['tier1eq']['sword']}\n2. equid sword2{inventory[1][x]['sword']}\n3. equid sword3{'sword'}")
+            print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.unequid\n5.exit")
             player_choice=input("")
+            if player_choice=="1" or player_choice=="2" or player_choice=="3":
+                if inventory[1][int(player_choice)-1]['sword']>=0 and inventory[2]['weapon']=="none":
+                    inventory[1][int(player_choice)-1]['sword']-=1
+                    inventory[2]['weapon']="sword1"
+            elif player_choice=="4" and not inventory[2]['weapon']=="none":
+                def weaponcheck():
+                    if "sword" in inventory[2]['weapon']:
+                        
+                    elif "axe" in inventory[2]['weapon']:
+                    elif "spear" in inventory[2]['weapon']:
+                    else:
+                if "1" in inventory[2]['weapon']:
+                        
     os.system('cls')
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):

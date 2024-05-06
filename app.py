@@ -1,13 +1,10 @@
 import json
 import os
-<<<<<<< HEAD
 import random
 ## Open the JSON file of movie data
 movies = open("./movies.json", encoding="utf8")
-=======
 ## Open the JSON file of movie data
 movies = open("./data.json", encoding="utf8")
->>>>>>> parent of 3b51e86 (s)
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 menu_location="none"
@@ -165,7 +162,7 @@ def equidingstuff():
         if player_choice=="1":
             for x in inventory[1]:
                 print(inventory[1][x]['sword'])
-            print(f"1. equid sword{inventory[1]['tier1eq']['sword']}\n2. equid sword2{inventory[1][x]['sword']}\n3. equid sword3{}")
+            print(f"1. equid sword{inventory[1]['tier1eq']['sword']}\n2. equid sword2{inventory[1][x]['sword']}\n3. equid sword3{'sword'}")
             player_choice=input("")
     os.system('cls')
 class character_data():
@@ -195,12 +192,9 @@ def compare(z):
 equidingstuff()
 data = json.load(movies)
 try:
-<<<<<<< HEAD
     from enemy import enemy, ingredient
     level=1
-=======
     data = json.load(movies)
->>>>>>> parent of 3b51e86 (s)
     game_life=100
     menu_location="starting"
     while game_life>=1:
@@ -246,10 +240,7 @@ try:
                 menu_location="Game_start"
             os.system('cls')
 except:
-<<<<<<< HEAD
     if not player_choice == "2":
         print("ERROR!!!!")
-=======
     if not player_choice=="2":
         print("<<|Achievement Unlocked: The Special One|>>")
->>>>>>> parent of 3b51e86 (s)

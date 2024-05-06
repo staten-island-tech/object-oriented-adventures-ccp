@@ -2,12 +2,10 @@ import json
 import os
 import random
 ## Open the JSON file of movie data
-movies = open("./movies.json", encoding="utf8")
-## Open the JSON file of movie data
-movies = open("./data.json", encoding="utf8")
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 menu_location="none"
+player_choice="none"
 #inventory system
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
@@ -189,18 +187,18 @@ def compare(z):
     else:
         print("Try again")
     player_choice="none"
-equidingstuff()
-data = json.load(movies)
+while menu_location == "none":
+    equidingstuff()
 try:
     from enemy import enemy, ingredient
     level=1
-    data = json.load(movies)
     game_life=100
     menu_location="starting"
     while game_life>=1:
         print("TITLE!!!!!!")
         print("1. Start game")
         print("2. End game")
+        print(player_choice)
         player_choice=input("input: ")
         os.system('cls')
         if player_choice=="1":

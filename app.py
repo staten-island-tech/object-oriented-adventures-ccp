@@ -1,6 +1,8 @@
 import json
 import os
-
+## Open the JSON file of movie data
+movies = open("./data.json", encoding="utf8")
+## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
@@ -14,7 +16,7 @@ class character_data():
         return f"{self.attack}, {self.defense}, {self.health}, {self.rizz}, {self.score_mutipler}, {self.intellgence}"
 def compare(z):
     global playerstatpoint
-    add_minus=int(input("How many points do you want to spend: "))
+    add_minus=int(input("How much point do you want to spend"))
     if add_minus <= playerstatpoint and add_minus >=1:
         z+=add_minus
         playerstatpoint-=add_minus
@@ -27,10 +29,11 @@ def compare(z):
         print("Try again")
     player_choice="none"
 try:
+    data = json.load(movies)
     game_life=100
     menu_location="starting"
     while game_life>=1:
-        print("Mukbang Master")
+        print("TITLE!!!!!!")
         print("1. Start game")
         print("2. End game")
         player_choice=input("input: ")
@@ -74,5 +77,5 @@ try:
                 menu_location="Game_start"
             os.system('cls')
 except:
-    if player_choice != "2":
+    if not player_choice=="2":
         print("<<|Achievement Unlocked: The Special One|>>")

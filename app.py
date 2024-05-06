@@ -1,8 +1,13 @@
 import json
 import os
+<<<<<<< HEAD
 import random
 ## Open the JSON file of movie data
 movies = open("./movies.json", encoding="utf8")
+=======
+## Open the JSON file of movie data
+movies = open("./data.json", encoding="utf8")
+>>>>>>> parent of 3b51e86 (s)
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 menu_location="none"
@@ -190,8 +195,12 @@ def compare(z):
 equidingstuff()
 data = json.load(movies)
 try:
+<<<<<<< HEAD
     from enemy import enemy, ingredient
     level=1
+=======
+    data = json.load(movies)
+>>>>>>> parent of 3b51e86 (s)
     game_life=100
     menu_location="starting"
     while game_life>=1:
@@ -237,5 +246,10 @@ try:
                 menu_location="Game_start"
             os.system('cls')
 except:
+<<<<<<< HEAD
     if not player_choice == "2":
         print("ERROR!!!!")
+=======
+    if not player_choice=="2":
+        print("<<|Achievement Unlocked: The Special One|>>")
+>>>>>>> parent of 3b51e86 (s)

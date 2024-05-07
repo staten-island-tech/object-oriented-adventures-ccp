@@ -6,9 +6,13 @@ class enemy():
         self.drops = drops
         self.moveset = moveset
 
+placeholder = enemy("name", 200, 200, "drops", ["moveset"])
+
 Gordon_Ramsey = enemy("Gordan Ramsey", 200, 10, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich"])
 
 Uncle_Roger = enemy("Uncle Roger", 150, 8, "MSG", ["MSG", "FUI YOHH", "AI YA"])
+
+
 
 
 

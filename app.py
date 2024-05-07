@@ -169,13 +169,20 @@ def equidingstuff():
             elif player_choice=="4" and not inventory[2]['weapon']=="none":
                 def weaponcheck():
                     if "sword" in inventory[2]['weapon']:
-                        
-                    elif "axe" in inventory[2]['weapon']:
-                    elif "spear" in inventory[2]['weapon']:
-                    else:
-                if "1" in inventory[2]['weapon']:
-                        
-    os.system('cls')
+                        return "sword"
+                    if "bow" in inventory[2]['weapon']:
+                        return "bow"
+                    if "axe" in inventory[2]['weapon']:
+                        return "axe"
+                    if "spear" in inventory[2]['weapon']:
+                        return "spear"
+                def weaponbumbercheck():
+                    if "1" in inventory[2]['weapon']:
+                        return "1"
+                    if "2" in inventory[2]['weapon']:
+                        return "2"
+                    if "3" in inventory[2]['weapon']:
+                        return "3"
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
         self.attack=attack
@@ -203,7 +210,6 @@ def compare(z):
 while menu_location == "none":
     equidingstuff()
 try:
-    from enemy import enemy, ingredient
     level=1
     game_life=100
     menu_location="starting"

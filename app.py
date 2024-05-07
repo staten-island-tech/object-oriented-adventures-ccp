@@ -30,6 +30,19 @@ inventory=[{'itemh1': 0,
                 'toe': "none", 
                 'weapon': "sword1"
             }]
+def weaponcheck():
+    if "sword" in inventory[2]['weapon']:
+        return "sword"
+    if "bow" in inventory[2]['weapon']:
+        return "bow"
+    if "axe" in inventory[2]['weapon']:
+        return "axe"
+    if "spear" in inventory[2]['weapon']:
+        return "spear"
+def weaponbumbercheck():
+    for i in inventory[2]['weapon']:
+        if i.isnumeric():
+            return int(i)
 def inven():
     for i in inventory:
         for x in i:
@@ -155,31 +168,35 @@ def equidingstuff():
         print("2. Axe")
         print("3. Spear")
         print("4. Bow")
-        print("5. Exit")
+        print("5.unequid")
+        print("6. Exit")
         player_choice=input("")
         if player_choice=="1":
             for x in inventory[1]:
                 print(inventory[1][x]['sword'])
-            print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.unequid\n5.exit")
+            print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['sword']>=1 and inventory[2]['weapon']=="none":
                     inventory[1][f'tier{player_choice}eq']['sword']-=1
                     inventory[2]['weapon']=f"sword{player_choice}"
-            elif player_choice=="4" and not inventory[2]['weapon']=="none":
-                def weaponcheck():
-                    if "sword" in inventory[2]['weapon']:
-                        return "sword"
-                    if "bow" in inventory[2]['weapon']:
-                        return "bow"
-                    if "axe" in inventory[2]['weapon']:
-                        return "axe"
-                    if "spear" in inventory[2]['weapon']:
-                        return "spear"
-                def weaponbumbercheck():
-                    for i in inventory[2]['weapon']:
-                        if i.isnumeric():
-                            return int(i)
+        elif player_choice=="2":
+            for x in inventory[1]:
+                print(inventory[1][x]['axe'])
+            print(f"1. equid axe1\n2. equid axe2\n3. equid axe3\n4.exit")
+            player_choice=input("")
+            if player_choice=="1" or player_choice=="2" or player_choice=="3":
+                if inventory[1][f'tier{player_choice}eq']['axe']>=1 and inventory[2]['weapon']=="none":
+                    inventory[1][f'tier{player_choice}eq']['axe']-=1
+        elif player_choice =="3":
+            for x in inventory[1]:
+                print(inventory[1][x]['spear'])
+            print(f"1. equid spear1\n2. equid spear2\n3. equid spear3\n4.exit")
+            player_choice=input("")
+            if player_choice=="1" or player_choice=="2" or player_choice=="3":
+                if inventory[1][f'tier{player_choice}eq']['spear']>=1 and inventory[2]['weapon']=="none":
+                    inventory[1][f'tier{player_choice}eq']['spear']-=1
+        elif player_choice=="5" and not inventory[2]['weapon']=="none":
                 inventory[1][f'tier{weaponbumbercheck()}eq'][weaponcheck()]+=1
                 inventory[2]['weapon']="none"
 class character_data():

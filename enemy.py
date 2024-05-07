@@ -4,7 +4,7 @@ class enemy():
         self.health = health
         self.attack = attack
 
-class ingredient(enemy):
+class boss(enemy):
     def __init__(self, health, attack, drops):
         super().__init__(health, attack)
         self.drops = drops

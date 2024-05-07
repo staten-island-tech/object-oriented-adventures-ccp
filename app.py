@@ -163,9 +163,9 @@ def equidingstuff():
             print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.unequid\n5.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
-                if inventory[1][int(player_choice)-1]['sword']>=0 and inventory[2]['weapon']=="none":
-                    inventory[1][int(player_choice)-1]['sword']-=1
-                    inventory[2]['weapon']="sword1"
+                if inventory[1][f'tier{player_choice}eq']['sword']>=1 and inventory[2]['weapon']=="none":
+                    inventory[1][f'tier{player_choice}eq']['sword']-=1
+                    inventory[2]['weapon']=f"sword{player_choice}"
             elif player_choice=="4" and not inventory[2]['weapon']=="none":
                 def weaponcheck():
                     if "sword" in inventory[2]['weapon']:
@@ -177,12 +177,11 @@ def equidingstuff():
                     if "spear" in inventory[2]['weapon']:
                         return "spear"
                 def weaponbumbercheck():
-                    if "1" in inventory[2]['weapon']:
-                        return "1"
-                    if "2" in inventory[2]['weapon']:
-                        return "2"
-                    if "3" in inventory[2]['weapon']:
-                        return "3"
+                    for i in inventory[2]['weapon']:
+                        if i.isnumeric():
+                            return int(i)
+                inventory[1][f'tier{weaponbumbercheck()}eq'][weaponcheck()]+=1
+                inventory[2]['weapon']="none"
 class character_data():
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence):
         self.attack=attack

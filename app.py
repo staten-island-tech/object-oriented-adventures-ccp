@@ -6,7 +6,7 @@ import random
 playerstatpoint=60
 menu_location="none"
 player_choice="none"
-#inventory system
+#inventory item
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
             'itemh3': 0, 
@@ -15,7 +15,8 @@ inventory=[{'itemh1': 0,
             'itema3': 0,
             'itemb1': 0, 
             'itemb2': 0,
-            'itemb3': 0}, 
+            'itemb3': 0, 
+            'arrow': 0}, 
             {
             #sword, axe, spear, bow, helment, body armor, legging, boot
             'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
@@ -30,6 +31,7 @@ inventory=[{'itemh1': 0,
                 'toe': "none", 
                 'weapon': "sword1"
             }]
+#check what weapon it is
 def weaponcheck():
     if "sword" in inventory[2]['weapon']:
         return "sword"
@@ -39,23 +41,29 @@ def weaponcheck():
         return "axe"
     if "spear" in inventory[2]['weapon']:
         return "spear"
+#check the teir of the weapon
 def weaponbumbercheck():
     for i in inventory[2]['weapon']:
         if i.isnumeric():
             return int(i)
+#print what you have
 def inven():
     for i in inventory:
         for x in i:
             print(x, i[x])
+#equid and uneqid weapon and armor
 def equidingstuff():
+    #only print what ypu have
     for x in inventory[1]:
         for y in inventory[1][x]:
             if inventory[1][x][y]>=1:
                 print(y, inventory[1][x][y])
+    #show what you have equid
     for x in inventory[2]:
         print(x, inventory[2][x])
     player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n5. Exit\n6. Weapon")
     os.system('cls')
+    #for helment
     if player_choice=="1":
         print(f"1. leather helment: {inventory[1]['tier1eq']['armorh']}")
         print(f"2. copper helment: {inventory[1]['tier2eq']['armorh']}")
@@ -64,6 +72,7 @@ def equidingstuff():
         print("5. Exit")
         player_choice=input()
         os.system('cls')
+        #equid helment
         if player_choice == "1" or player_choice == "2" or player_choice == "3":
             if inventory[1][f'tier{player_choice}eq']['armorh']>=1 and inventory[2]['head']=="none":
                 inventory[1][f'tier{player_choice}eq']['armorh']-=1
@@ -72,6 +81,7 @@ def equidingstuff():
                 print(inventory[2]['head'])
             else:
                print("You can't do that") 
+        #unequid helment
         elif player_choice == "4":
             if not inventory[2]['head']=="none":
                 inventory[1][f'tier{inventory[2]["head"]}eq']['armorh']+=1
@@ -82,6 +92,7 @@ def equidingstuff():
                print("You can't do that") 
         else:
             pass
+    #for body armor
     elif player_choice=="2":
         print(f"1. body armor1: {inventory[1]['tier1eq']['armorba']}")
         print(f"2. body armor2: {inventory[1]['tier2eq']['armorba']}")
@@ -188,6 +199,7 @@ def equidingstuff():
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['axe']>=1 and inventory[2]['weapon']=="none":
                     inventory[1][f'tier{player_choice}eq']['axe']-=1
+                    inventory[2]['weapon']=f"axe{player_choice}"
         elif player_choice =="3":
             for x in inventory[1]:
                 print(inventory[1][x]['spear'])
@@ -196,6 +208,16 @@ def equidingstuff():
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['spear']>=1 and inventory[2]['weapon']=="none":
                     inventory[1][f'tier{player_choice}eq']['spear']-=1
+                    inventory[2]['weapon']=f"spear{player_choice}"
+        elif player_choice =="4":
+            for x in inventory[1]:
+                print(inventory[1][x]['bow'])
+            print(f"1. equid bow1\n2. equid bow2\n3. equid bow3\n4.exit")
+            player_choice=input("")
+            if player_choice=="1" or player_choice=="2" or player_choice=="3":
+                if inventory[1][f'tier{player_choice}eq']['bow']>=1 and inventory[2]['weapon']=="none":
+                    inventory[1][f'tier{player_choice}eq']['bow']-=1
+                    inventory[2]['weapon']=f"bow{player_choice}"
         elif player_choice=="5" and not inventory[2]['weapon']=="none":
                 inventory[1][f'tier{weaponbumbercheck()}eq'][weaponcheck()]+=1
                 inventory[2]['weapon']="none"
@@ -223,8 +245,6 @@ def compare(z):
     else:
         print("Try again")
     player_choice="none"
-while menu_location == "none":
-    equidingstuff()
 try:
     level=1
     game_life=100

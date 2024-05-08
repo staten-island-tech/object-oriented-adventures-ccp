@@ -19,9 +19,9 @@ inventory=[{'itemh1': 0,
             'arrow': 0}, 
             {
             #sword, axe, spear, bow, helment, body armor, legging, boot
-            'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
+            'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
             }, 
             #body armor equidment
             {
@@ -41,6 +41,8 @@ def weaponcheck():
         return "axe"
     if "spear" in inventory[2]['weapon']:
         return "spear"
+    if "pan" in inventory[2]['weapon']:
+        return "pan"
 #check the teir of the weapon
 def weaponbumbercheck():
     for i in inventory[2]['weapon']:

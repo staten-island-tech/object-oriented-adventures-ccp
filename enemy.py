@@ -19,13 +19,5 @@ NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["movese
 
 ProChef = enemy("Advanced Chef", 200, 200, "drops", ["moveset"])
 
-
-
-
-
-""" class boss(enemy):
-    def __init__(self, name, health, attack, drops, moveset):
-        super().__init__(name, health, attack, drops, moveset)
-    def __str__(self):
-        return f"{self.name}, {self.health}, {self.attack}, {self.drops}, {self.moveset}" """
+def attack():
     

@@ -263,7 +263,7 @@ try:
             quit()
         print(f"Hello, {name}")
         print("Your goal is simple.")
-        print("You have to defeat all of the cooking ingrients of a cookie and rescue the CCP.")
+        print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
         menu_location="stat_creation"
         x=character_data(10, 10, 10, 10, 10, 10)

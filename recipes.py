@@ -7,3 +7,5 @@ class recipe():
         self.attack = attack
         self.buff = buff
         self.debuff = debuff
+
+recipe_template = recipe("Name", 10, 10, 10, 10)

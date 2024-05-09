@@ -256,7 +256,7 @@ def compare(z):
         return z
     else:
         print("Try again")
-        return 
+        return z 
 try:
     level=1
     game_life=100

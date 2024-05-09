@@ -64,14 +64,14 @@ def equidingstuff():
     #show what you have equid
     for x in inventory[2]:
         print(x, inventory[2][x])
-    player_choice=input("What equidment do you want to equid?\n1.Helment\n2.Body armor\n3.Legging\n4.Boot\n5. Exit\n6. Weapon")
+    player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Exit\n6. Weapon")
     os.system('cls')
     #for helment
     if player_choice=="1":
         print(f"1. leather helment: {inventory[1]['tier1eq']['armorh']}")
         print(f"2. copper helment: {inventory[1]['tier2eq']['armorh']}")
         print(f"3. iron helment: {inventory[1]['tier3eq']['armorh']}")
-        print("4. Unequid")
+        print("4. Unequip")
         print("5. Exit")
         player_choice=input()
         os.system('cls')
@@ -100,7 +100,7 @@ def equidingstuff():
         print(f"1. body armor1: {inventory[1]['tier1eq']['armorba']}")
         print(f"2. body armor2: {inventory[1]['tier2eq']['armorba']}")
         print(f"3. body armor3: {inventory[1]['tier3eq']['armorba']}")
-        print("4. Unequid")
+        print("4. Unequip")
         print("5. Exit")
         player_choice=input()
         os.system('cls')
@@ -126,7 +126,7 @@ def equidingstuff():
         print(f"1. legging1: {inventory[1]['tier1eq']['armorl']}")
         print(f"2. legging2: {inventory[1]['tier2eq']['armorl']}")
         print(f"3. legging3: {inventory[1]['tier3eq']['armorl']}")
-        print("4. Unequid")
+        print("4. Unequip")
         print("5. Exit")
         player_choice=input()
         os.system('cls')
@@ -152,7 +152,7 @@ def equidingstuff():
         print(f"1. boot1: {inventory[1]['tier1eq']['armorb']}")
         print(f"2. boot2: {inventory[1]['tier2eq']['armorb']}")
         print(f"3. boot3: {inventory[1]['tier3eq']['armorb']}")
-        print("4. Unequid")
+        print("4. Unequip")
         print("5. Exit")
         player_choice=input()
         os.system('cls')
@@ -182,8 +182,9 @@ def equidingstuff():
         print("2. Axe")
         print("3. Spear")
         print("4. Bow")
-        print("5.unequid")
-        print("6. Exit")
+        print("5. Pan")
+        print("6.unequid")
+        print("7. Exit")
         player_choice=input("")
         if player_choice=="1":
             for x in inventory[1]:
@@ -221,7 +222,16 @@ def equidingstuff():
                 if inventory[1][f'tier{player_choice}eq']['bow']>=1 and inventory[2]['weapon']=="none":
                     inventory[1][f'tier{player_choice}eq']['bow']-=1
                     inventory[2]['weapon']=f"bow{player_choice}"
-        elif player_choice=="5" and not inventory[2]['weapon']=="none":
+        elif player_choice =="5":
+            for x in inventory[1]:
+                print(inventory[1][x]['pan'])
+            print(f"1. equid pan1\n2. equid pan2\n3. equid pan3\n4.exit")
+            player_choice=input("")
+            if player_choice=="1" or player_choice=="2" or player_choice=="3":
+                if inventory[1][f'tier{player_choice}eq']['pan']>=1 and inventory[2]['weapon']=="none":
+                    inventory[1][f'tier{player_choice}eq']['pan']-=1
+                    inventory[2]['weapon']=f"pan{player_choice}"
+        elif player_choice=="6" and not inventory[2]['weapon']=="none":
                 inventory[1][f'tier{weaponbumbercheck()}eq'][weaponcheck()]+=1
                 inventory[2]['weapon']="none"
 class character_data():
@@ -236,24 +246,24 @@ class character_data():
         return f"{self.attack}, {self.defense}, {self.health}, {self.rizz}, {self.score_mutipler}, {self.intellgence}"
 def compare(z):
     global playerstatpoint
-    add_minus=int(input("How much point do you want to spend"))
+    add_minus=int(input("How much point do you want to spend?: "))
     if add_minus <= playerstatpoint and add_minus >=1:
         z+=add_minus
         playerstatpoint-=add_minus
         return z
-    elif abs(add_minus) <= z:
+    elif abs(add_minus) <= z and add_minus<=0:
         z+=add_minus
         playerstatpoint-=add_minus
         return z
     else:
         print("Try again")
-    player_choice="none"
+        return z 
 try:
     level=1
     game_life=100
     menu_location="starting"
     while game_life>=1:
-        print("TITLE!!!!!!")
+        print("The story of the MSG King")
         print("1. Start game")
         print("2. End game")
         print(player_choice)
@@ -262,7 +272,7 @@ try:
         if player_choice=="1":
             name=input("What's your name: ")
         if player_choice=="2":
-            print("Thank for playing this very azamzing game about the CCP")
+            print("Thank for playing this very amazing game about the CCP")
             quit()
         print(f"Hello, {name}")
         print("Your goal is simple.")
@@ -278,7 +288,7 @@ try:
             print(f"4. rizz: {x.rizz}")
             print(f"5. score mutipler: {x.score_mutipler}")
             print(f"6. intellgence: {x.intellgence}")
-            player_choice=input("Select the stat you want to change.")
+            player_choice=input("Select the stat you want to change: ")
             os.system('cls')
             if player_choice=="1":
                 x.attack=compare(x.attack)

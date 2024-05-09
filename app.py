@@ -8,6 +8,9 @@ menu_location="none"
 player_choice="none"
 #inventory item
 
+achievements = []
+##defeat boss, now ur coooking achement
+
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
             'itemh3': 0, 
@@ -68,9 +71,9 @@ def equidingstuff():
     os.system('cls')
     #for helment
     if player_choice=="1":
-        print(f"1. leather helment: {inventory[1]['tier1eq']['armorh']}")
-        print(f"2. copper helment: {inventory[1]['tier2eq']['armorh']}")
-        print(f"3. iron helment: {inventory[1]['tier3eq']['armorh']}")
+        print(f"1. leather helmet: {inventory[1]['tier1eq']['armorh']}")
+        print(f"2. copper helmet: {inventory[1]['tier2eq']['armorh']}")
+        print(f"3. iron helmet: {inventory[1]['tier3eq']['armorh']}")
         print("4. Unequip")
         print("5. Exit")
         player_choice=input()
@@ -183,13 +186,13 @@ def equidingstuff():
         print("3. Spear")
         print("4. Bow")
         print("5. Pan")
-        print("6.unequid")
+        print("6. Unequip")
         print("7. Exit")
         player_choice=input("")
         if player_choice=="1":
             for x in inventory[1]:
                 print(inventory[1][x]['sword'])
-            print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.exit")
+            print(f"1. equip sword1\n2. equip sword2\n3. equip sword3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['sword']>=1 and inventory[2]['weapon']=="none":
@@ -272,11 +275,11 @@ try:
         if player_choice=="1":
             name=input("What's your name: ")
         if player_choice=="2":
-            print("Thank for playing this very amazing game about the CCP")
+            print("Thank for playing ")
             quit()
         print(f"Hello, {name}")
         print("Your goal is simple.")
-        print("You have to defeat all of the enemies and rescue the CCP.")
+        print("You have to defeat all of the other chefs to become the world's greatest Masterchef!")
         print("But first, stat selection")
         menu_location="stat_creation"
         x=character_data(10, 10, 10, 10, 10, 10)
@@ -310,4 +313,15 @@ except:
         print("ERROR!!!!")
     if not player_choice=="2":
         print("<<|Achievement Unlocked: The Special One|>>")
+        achievements.append("<<|Achievement Unlocked: The Special One|>>")
+
+See_Achievements = print ("Do you want to see your acheivements? (Y/N)")
+See_Achievements()
+if See_Achievements == "Y":
+    print (achievements)
+
+        
+
+
+
 

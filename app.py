@@ -7,6 +7,7 @@ playerstatpoint=60
 menu_location="none"
 player_choice="none"
 #inventory item
+
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
             'itemh3': 0, 
@@ -299,3 +300,4 @@ except:
         print("ERROR!!!!")
     if not player_choice=="2":
         print("<<|Achievement Unlocked: The Special One|>>")
+

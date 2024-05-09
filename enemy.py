@@ -5,7 +5,6 @@ class enemy():
         self.attack = attack
         self.drops = drops
         self.moveset = moveset
-def hello():
     enemy_template = enemy("name", 200, 200, ["drops"], ["moveset"])
 
     Gordon_Ramsey = enemy("Gordan Ramsey", 200, 10, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich"])
@@ -18,3 +17,4 @@ def hello():
     NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
     ProChef = enemy("Advanced Chef", 200, 200, "drops", ["moveset"])
+enemy()

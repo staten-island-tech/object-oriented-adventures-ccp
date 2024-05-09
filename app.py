@@ -181,8 +181,9 @@ def equidingstuff():
         print("2. Axe")
         print("3. Spear")
         print("4. Bow")
-        print("5.unequid")
-        print("6. Exit")
+        print("5. Pan")
+        print("6.unequid")
+        print("7. Exit")
         player_choice=input("")
         if player_choice=="1":
             for x in inventory[1]:
@@ -220,7 +221,16 @@ def equidingstuff():
                 if inventory[1][f'tier{player_choice}eq']['bow']>=1 and inventory[2]['weapon']=="none":
                     inventory[1][f'tier{player_choice}eq']['bow']-=1
                     inventory[2]['weapon']=f"bow{player_choice}"
-        elif player_choice=="5" and not inventory[2]['weapon']=="none":
+        elif player_choice =="5":
+            for x in inventory[1]:
+                print(inventory[1][x]['pan'])
+            print(f"1. equid pan1\n2. equid pan2\n3. equid pan3\n4.exit")
+            player_choice=input("")
+            if player_choice=="1" or player_choice=="2" or player_choice=="3":
+                if inventory[1][f'tier{player_choice}eq']['pan']>=1 and inventory[2]['weapon']=="none":
+                    inventory[1][f'tier{player_choice}eq']['pan']-=1
+                    inventory[2]['weapon']=f"pan{player_choice}"
+        elif player_choice=="6" and not inventory[2]['weapon']=="none":
                 inventory[1][f'tier{weaponbumbercheck()}eq'][weaponcheck()]+=1
                 inventory[2]['weapon']="none"
 class character_data():
@@ -246,7 +256,7 @@ def compare(z):
         return z
     else:
         print("Try again")
-        return 
+        return z 
 try:
     level=1
     game_life=100

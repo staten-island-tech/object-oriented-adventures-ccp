@@ -27,3 +27,8 @@ This time for Africa'''])
 NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
 ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
+
+def attack():
+    player_health = 200
+    player_health = player_health - NormieChef(enemy.attack)
+    print(player_health)

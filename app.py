@@ -1,7 +1,10 @@
 import json
 import os
 import random
-from exploreand import walking
+print("i")
+from exploreand import action
+action.walking()
+print("i")
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
@@ -306,7 +309,7 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
-            walking()
+            player_choice=input("1. Walk\n2. Open inventory")
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

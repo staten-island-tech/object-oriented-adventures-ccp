@@ -9,3 +9,7 @@ class recipe():
         self.debuff = debuff
 
 recipe_template = recipe("Name", 10, 10, 10, 10)
+
+Beef_Wellington = recipe("Beef Wellington", 10, 10, 10, 10)
+
+Habanero = recipe("Habanero", 10, 10, 10, 10)

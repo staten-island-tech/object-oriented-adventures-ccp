@@ -1,6 +1,7 @@
 import json
 import os
 import random
+from exploreand import walking
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
@@ -305,6 +306,8 @@ try:
             elif playerstatpoint=="7":
                 menu_location="Game_start"
             os.system('cls')
+        while True:
+            walking()
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

@@ -7,6 +7,10 @@ playerstatpoint=60
 menu_location="none"
 player_choice="none"
 #inventory item
+
+achievements = []
+##defeat boss, now ur coooking achement
+
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
             'itemh3': 0, 
@@ -183,7 +187,7 @@ def equidingstuff():
         print("3. Spear")
         print("4. Bow")
         print("5. Pan")
-        print("6.unequip")
+        print("6. Unequip")
         print("7. Exit")
         player_choice=input("")
         if player_choice=="1":
@@ -272,11 +276,11 @@ try:
         if player_choice=="1":
             name=input("What's your name: ")
         if player_choice=="2":
-            print("Thank for playing this very amazing game about the CCP")
+            print("Thank for playing ")
             quit()
         print(f"Hello, {name}")
         print("Your goal is simple.")
-        print("You have to defeat all of the enemies and rescue the CCP.")
+        print("You have to defeat all of the other chefs to become the world's greatest Masterchef!")
         print("But first, stat selection")
         menu_location="stat_creation"
         x=character_data(10, 10, 10, 10, 10, 10)
@@ -310,3 +314,15 @@ except:
         print("ERROR!!!!")
     if not player_choice=="2":
         print("<<|Achievement Unlocked: The Special One|>>")
+        achievements.append("<<|Achievement Unlocked: The Special One|>>")
+
+See_Achievements = print ("Do you want to see your acheivements? (Y/N)")
+See_Achievements()
+if See_Achievements == "Y":
+    print (achievements)
+
+        
+
+
+
+

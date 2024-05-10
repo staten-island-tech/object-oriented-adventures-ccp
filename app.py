@@ -11,6 +11,10 @@ playerstatpoint=60
 menu_location="none"
 player_choice="none"
 #inventory item
+
+achievements = []
+##defeat boss, now ur coooking achement
+
 inventory=[{'itemh1': 0, 
             'itemh2': 0,
             'itemh3': 0, 
@@ -22,7 +26,7 @@ inventory=[{'itemh1': 0,
             'itemb3': 0, 
             'arrow': 0}, 
             {
-            #sword, axe, spear, bow, helment, body armor, legging, boot
+            #sword, axe, spear, bow, helmet, body armor, legging, boot
             'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
             'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
             'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
@@ -47,7 +51,7 @@ def weaponcheck():
         return "spear"
     if "pan" in inventory[2]['weapon']:
         return "pan"
-#check the teir of the weapon
+#check the tier of the weapon
 def weaponbumbercheck():
     for i in inventory[2]['weapon']:
         if i.isnumeric():
@@ -57,28 +61,29 @@ def inven():
     for i in inventory:
         for x in i:
             print(x, i[x])
-#equid and uneqid weapon and armor
+#equip and unequip weapon and armor
 def equidingstuff():
     #only print what ypu have
     for x in inventory[1]:
         for y in inventory[1][x]:
             if inventory[1][x][y]>=1:
                 print(y, inventory[1][x][y])
-    #show what you have equid
+    #show what you have equip
     for x in inventory[2]:
         print(x, inventory[2][x])
     player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Exit\n6. Weapon")
     os.system('cls')
-    #for helment
+    #for helme
+    # t
     if player_choice=="1":
-        print(f"1. leather helment: {inventory[1]['tier1eq']['armorh']}")
-        print(f"2. copper helment: {inventory[1]['tier2eq']['armorh']}")
-        print(f"3. iron helment: {inventory[1]['tier3eq']['armorh']}")
+        print(f"1. leather helmet: {inventory[1]['tier1eq']['armorh']}")
+        print(f"2. copper helmet: {inventory[1]['tier2eq']['armorh']}")
+        print(f"3. iron helmet: {inventory[1]['tier3eq']['armorh']}")
         print("4. Unequip")
         print("5. Exit")
         player_choice=input()
         os.system('cls')
-        #equid helment
+        #equip helmet
         if player_choice == "1" or player_choice == "2" or player_choice == "3":
             if inventory[1][f'tier{player_choice}eq']['armorh']>=1 and inventory[2]['head']=="none":
                 inventory[1][f'tier{player_choice}eq']['armorh']-=1
@@ -87,7 +92,7 @@ def equidingstuff():
                 print(inventory[2]['head'])
             else:
                print("You can't do that") 
-        #unequid helment
+        #unequip helmet
         elif player_choice == "4":
             if not inventory[2]['head']=="none":
                 inventory[1][f'tier{inventory[2]["head"]}eq']['armorh']+=1
@@ -186,13 +191,13 @@ def equidingstuff():
         print("3. Spear")
         print("4. Bow")
         print("5. Pan")
-        print("6.unequid")
+        print("6. Unequip")
         print("7. Exit")
         player_choice=input("")
         if player_choice=="1":
             for x in inventory[1]:
                 print(inventory[1][x]['sword'])
-            print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.exit")
+            print(f"1. equip sword1\n2. equip sword2\n3. equip sword3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['sword']>=1 and inventory[2]['weapon']=="none":
@@ -201,7 +206,7 @@ def equidingstuff():
         elif player_choice=="2":
             for x in inventory[1]:
                 print(inventory[1][x]['axe'])
-            print(f"1. equid axe1\n2. equid axe2\n3. equid axe3\n4.exit")
+            print(f"1. equip axe1\n2. equip axe2\n3. equip axe3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['axe']>=1 and inventory[2]['weapon']=="none":
@@ -210,7 +215,7 @@ def equidingstuff():
         elif player_choice =="3":
             for x in inventory[1]:
                 print(inventory[1][x]['spear'])
-            print(f"1. equid spear1\n2. equid spear2\n3. equid spear3\n4.exit")
+            print(f"1. equip spear1\n2. equip spear2\n3. equil spear3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['spear']>=1 and inventory[2]['weapon']=="none":
@@ -219,7 +224,7 @@ def equidingstuff():
         elif player_choice =="4":
             for x in inventory[1]:
                 print(inventory[1][x]['bow'])
-            print(f"1. equid bow1\n2. equid bow2\n3. equid bow3\n4.exit")
+            print(f"1. equip bow1\n2. equip bow2\n3. equip bow3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['bow']>=1 and inventory[2]['weapon']=="none":
@@ -228,7 +233,7 @@ def equidingstuff():
         elif player_choice =="5":
             for x in inventory[1]:
                 print(inventory[1][x]['pan'])
-            print(f"1. equid pan1\n2. equid pan2\n3. equid pan3\n4.exit")
+            print(f"1. equip pan1\n2. equip pan2\n3. equip pan3\n4.exit")
             player_choice=input("")
             if player_choice=="1" or player_choice=="2" or player_choice=="3":
                 if inventory[1][f'tier{player_choice}eq']['pan']>=1 and inventory[2]['weapon']=="none":
@@ -275,11 +280,11 @@ try:
         if player_choice=="1":
             name=input("What's your name: ")
         if player_choice=="2":
-            print("Thank for playing this very amazing game about the CCP")
+            print("Thank for playing ")
             quit()
         print(f"Hello, {name}")
         print("Your goal is simple.")
-        print("You have to defeat all of the enemies and rescue the CCP.")
+        print("You have to defeat all of the other chefs to become the world's greatest Masterchef!")
         print("But first, stat selection")
         menu_location="stat_creation"
         x=character_data(10, 10, 10, 10, 10, 10)
@@ -315,3 +320,15 @@ except:
         print("ERROR!!!!")
     if not player_choice=="2":
         print("<<|Achievement Unlocked: The Special One|>>")
+        achievements.append("<<|Achievement Unlocked: The Special One|>>")
+
+See_Achievements = print ("Do you want to see your acheivements? (Y/N)")
+See_Achievements()
+if See_Achievements == "Y":
+    print (achievements)
+
+        
+
+
+
+

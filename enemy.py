@@ -28,7 +28,16 @@ NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["movese
 
 ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
 
-def attack():
-    player_health = 200
-    player_health = player_health - NormieChef(enemy.attack)
-    print(player_health)
+class attack():
+    def enemyattack():
+        player_health = 200
+        player_health = player_health - ProChef.attack
+        print("your health: "[player_health])
+    enemyattack()
+    def playerattack():
+        player_attack = 15
+        ProChef.health = ProChef.health - player_attack
+        print("enemy health: "[ProChef.health])
+
+def action():
+    

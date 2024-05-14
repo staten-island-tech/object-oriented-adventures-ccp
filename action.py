@@ -14,4 +14,4 @@ class actionchoice():
         if player_choice=="1":
             actionchoice.walking(distance_cover_total, weighted, enemytype)
         if player_choice=="2":
-            whatyouhave()
+            whatyouhave.equidingstuff()

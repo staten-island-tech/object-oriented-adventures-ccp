@@ -3,7 +3,6 @@ import os
 import random
 from Characterdata import characterdata
 from action import actionchoice
-from Thestuffthattrackyourstuff import whatyouhave 
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60

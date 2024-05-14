@@ -28,16 +28,20 @@ NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["movese
 
 ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
 
-class attack():
+""" class attack():
     def enemyattack():
         player_health = 200
         player_health = player_health - ProChef.attack
-        print("your health: "[player_health])
-    enemyattack()
+        print(player_health)
     def playerattack():
         player_attack = 15
         ProChef.health = ProChef.health - player_attack
-        print("enemy health: "[ProChef.health])
+        print(ProChef.health)
 
-def action():
+while True:
+    def action():
+        attacke = input("1. attack: ")
+        if attacke == "1":
+            print(attack.playerattack)
+    action() """
     

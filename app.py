@@ -71,6 +71,7 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
+            os.system('cls')
             actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter)
 except:
     if not player_choice == "2":

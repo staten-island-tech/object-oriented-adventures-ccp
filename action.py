@@ -1,20 +1,17 @@
 import random
+import os
+from Thestuffthattrackyourstuff import whatyouhave 
 class actionchoice():
-    def walking(distance_cover_total, total_distance_without_enemy, weighted, enemytype):
-        while True:
-            player_choice=input()
-            if distance_cover_total==100:
-                return "boss"
+    def walking(distance_cover_total, weighted, enemytype):
             distance_cover_total+=1
-            total_distance_without_enemy+=1
-            encounter=random.choices(enemytype, weighted)
-            while total_distance_without_enemy==10 and encounter=="none":
-                encounter=encounter=random.choices(enemytype, weighted)
+            if distance_cover_total==100:
+                print("boss")
             else:
-                total_distance_without_enemy=0
-            if total_distance_without_enemy==10:
-                total_distance_without_enemy=0
-            print(encounter)
-            print(distance_cover_total)
-            print(total_distance_without_enemy)
-actionchoice.walking(0, 0, (0.5, 0.3, 0.15, 0.05), ('none', 'a', 'b', 'c'))
+                encounter=random.choices(enemytype, weighted)
+                print(encounter, distance_cover_total)
+    def choice(distance_cover_total, weighted, enemytype):
+        player_choice=input("1. Walk\n2. Open inventory")
+        if player_choice=="1":
+            actionchoice.walking(distance_cover_total, weighted, enemytype)
+        if player_choice=="2":
+            whatyouhave()

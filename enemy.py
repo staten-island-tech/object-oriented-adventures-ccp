@@ -23,3 +23,11 @@ Homecook = enemy("Homecook", 20, 5, ["Pepper", "Salt"], ["Struggle Meal Ramen", 
 NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
 ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
+
+def combat(health, enemy_health, attack, enemy_attack):
+    print(health)
+    print(attack)
+    player=input("")
+    health-=enemy_attack
+    print(health)
+    print(attack)

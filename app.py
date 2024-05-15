@@ -6,7 +6,6 @@ from action import actionchoice
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
-menu_location="none"
 player_choice="none"
 def compare(z):
     global playerstatpoint
@@ -72,7 +71,7 @@ try:
             os.system('cls')
         while True:
             os.system('cls')
-            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter)
+            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, menu_location)
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

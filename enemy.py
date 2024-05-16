@@ -23,22 +23,17 @@ Homecook = enemy("Homecook", 20, 5, ["Pepper", "Salt"], ["Struggle Meal Ramen", 
 NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
 ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
-
-""" class attack():
-    def enemyattack():
-        player_health = 200
-        player_health = player_health - ProChef.attack
-        print(player_health)
-    def playerattack():
-        player_attack = 15
-        ProChef.health = ProChef.health - player_attack
-        print(ProChef.health)
-
-while True:
-    def action():
-        attacke = input("1. attack: ")
-        if attacke == "1":
-            print(attack.playerattack)
-    action() """
-    
-
+class combatsystem():
+    def using_item():
+        print("olo")
+    def combat(health, enemy_health, attack, enemy_attack):
+        while health>=1 or enemy_health>=1:
+            player=input("")
+            if player=="2":
+                combatsystem.using_item()
+            health-=enemy_attack
+            print(f"health: {health}")
+            player=input("")
+            enemy_health-=attack
+            print(f"enemy: {enemy_health}")
+combatsystem.combat(10, 10, 2, 2)

@@ -1,21 +1,20 @@
 import random
 import os
 class whatyouhave():
-    inventory=[{'itemh1': 0, 
-            'itemh2': 0,
-            'itemh3': 0, 
-            'itema1': 0, 
-            'itema2': 0,
-            'itema3': 0,
-            'itemb1': 0, 
-            'itemb2': 0,
-            'itemb3': 0, 
-            'arrow': 0}, 
+    inventory=[{'Blue Berres': 0, 
+            'Cook fish': 0,
+            'Steak': 0, 
+            'Kitchen knife': 0, 
+            'Steak knife': 0,
+            'Salt': 0, 
+            'Spices': 0,
+            'Sugar cube': 0, 
+            'Arrow': 0}, 
             {
             #sword, axe, spear, bow, helment, body armor, legging, boot
-            'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
+            'tier1eq': {'Wooden large knife': 0, 'Wooden butcher knife': 0, 'Comedically short chopstick': 0, 'Kitchen bow': 0, 'Wooden Pan': 0, 'Platic bag(dangerous)': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier2eq':{'Iron large knife': 0, 'Iron butcher knife': 0, 'Comedically long chopstick': 0, 'Art and craft bow': 0, 'Iron Pan': 0, 'Bowl that somehow fit your head': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier3eq':{'Fish large knife': 0, 'Super large butcher knife': 0, 'Comedically sharp chopstick': 0, 'Hunting bow': 0, 'A pan make of pan': 0, 'hat': 0, 'Jacket': 0, 'armorl': 0, 'armorb': 0}
             }, 
             #body armor equidment
             {

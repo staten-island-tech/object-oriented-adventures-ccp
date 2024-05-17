@@ -1,20 +1,20 @@
 import random
 import os
 class whatyouhave():
-    inventory=[{'Blue Berres': 0, 
-            'Cook fish': 0,
-            'Steak': 0, 
-            'Kitchen knife': 0, 
-            'Steak knife': 0,
-            'Salt': 0, 
-            'Spices': 0,
-            'Sugar cube': 0, 
-            'Arrow': 0}, 
+    inventory=[{'itemh1': 0, 
+            'itemh2': 0,
+            'itemh3': 0, 
+            'itema1': 0, 
+            'itema2': 0,
+            'itema3': 0, 
+            'itemb1': 0,
+            'itemb2': 0, 
+            'itemb3': 0}, 
             {
             #sword, axe, spear, bow, helment, body armor, legging, boot
-            'tier1eq': {'Wooden large knife': 0, 'Wooden butcher knife': 0, 'Comedically short chopstick': 0, 'Kitchen bow': 0, 'Wooden Pan': 0, 'Platic bag(dangerous)': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier2eq':{'Iron large knife': 0, 'Iron butcher knife': 0, 'Comedically long chopstick': 0, 'Art and craft bow': 0, 'Iron Pan': 0, 'Bowl that somehow fit your head': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier3eq':{'Fish large knife': 0, 'Super large butcher knife': 0, 'Comedically sharp chopstick': 0, 'Hunting bow': 0, 'A pan make of pan': 0, 'hat': 0, 'Jacket': 0, 'armorl': 0, 'armorb': 0}
+            'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
+            'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
             }, 
             #body armor equidment
             {
@@ -24,6 +24,9 @@ class whatyouhave():
                 'toe': "none", 
                 'weapon': "sword1"
             }]
+    inventory_name=[{'tier1eq': {'Wooden knife', 'Wooden butcher knife', 'Chopstick', 'Kitchen Bow', 'A plastic pan', 'Grocery bag(why)', 'Shirt', 'Short', 'armorb'}, 
+            'tier2eq':{'Iron knife', 'Iron butcher knife', 'A very long Chopstick', 'Art and Craft bow', 'A stolen Pan', 'A bowl that fit your head', 'Jacket', 'Jean', 'armorb'}, 
+            'tier3eq':{'Sword', 'Axe', 'A very long and sharp chopstick', 'Hunting Bow', 'A rusty pan', 'A hat', 'Vest', 'Pantcake', 'armorb'}}]
 class actionchoice():
     def walking(distance_cover_total, weighted, enemytype):
             distance_cover_total+=1
@@ -50,9 +53,11 @@ class actionchoice():
                 return int(i)
     #print what you have
     def inven():
-        for i in whatyouhave.inventory:
-            for x in i:
-                print(x, i[x])
+        for item in whatyouhave.inventory[0]:
+            print(item, whatyouhave.inventory[0][item])
+        for tier in whatyouhave.inventory[1]:
+            for weapon_armor in whatyouhave.inventory[1][tier]:
+                print(weapon_armor, whatyouhave.inventory[1][tier][weapon_armor])
     #equid and uneqid weapon and armor
     def equidingstuff(menu_location):
         while menu_location=="inventory":
@@ -69,9 +74,9 @@ class actionchoice():
             os.system('cls')
             #for helment
             if player_choice=="1":
-                print(f"1. leather helment: {whatyouhave.inventory[1]['tier1eq']['armorh']}")
-                print(f"2. copper helment: {whatyouhave.inventory[1]['tier2eq']['armorh']}")
-                print(f"3. iron helment: {whatyouhave.inventory[1]['tier3eq']['armorh']}")
+                print(f"1. Grocery Bag: {whatyouhave.inventory[1]['tier1eq']['armorh']}")
+                print(f"2. Bowl: {whatyouhave.inventory[1]['tier2eq']['armorh']}")
+                print(f"3. Hat: {whatyouhave.inventory[1]['tier3eq']['armorh']}")
                 print("4. Unequip")
                 print("5. Exit")
                 player_choice=input()
@@ -247,3 +252,4 @@ class actionchoice():
                 os.system('cls')
                 menu_location="inventory"
                 actionchoice.equidingstuff(menu_location)
+actionchoice.inven()

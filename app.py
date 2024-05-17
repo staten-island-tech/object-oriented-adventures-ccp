@@ -71,7 +71,6 @@ try:
             os.system('cls')
         while True:
             actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, menu_location)
-            print("hi")
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

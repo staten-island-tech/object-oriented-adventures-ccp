@@ -238,10 +238,13 @@ class actionchoice():
     def choice(distance_cover_total, weighted, enemytype, menu_location):
         player_choice=input("1. Walk\n2. Open inventory")
         if player_choice=="1":
+            os.system('cls')
             actionchoice.walking(distance_cover_total, weighted, enemytype)
         if player_choice=="2":
+            os.system('cls')
             actionchoice.inven()
             player_choice=input("1. Exit\n2. Equip item")
             if player_choice=="2":
+                os.system('cls')
                 menu_location="inventory"
                 actionchoice.equidingstuff(menu_location)

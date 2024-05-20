@@ -1,12 +1,15 @@
-ingredients = ["a", "b"]
-meals = []
-recipes = ["ab"]
+ingredients = ["Beef", "Soup"]
+meals = ["wellin"]
+recipes = ["Beef + Soup"]
 
 craft_meal = input("Do you want to make a meal (y or n): ")
 if craft_meal == 'y':
-    ingredients_craft = input("Put ingredients you want to use (Use '+' between each ingredient): ")
-    """ split = ingredients_craft.split('+') """
-    if ingredients_craft in recipes:
-        print ("Success")
+    print (meals)
+    choose_meal = input("What meal do you want to make: ")
+    if choose_meal in meals:
+        craft_ingredients = ingredients(input("Put the ingredients needed for this recipe: "))
+        if craft_ingredients in recipes:
+            print ((meals), ('has been made'))
+
 
 craft_meal()

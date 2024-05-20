@@ -52,17 +52,33 @@ class combat():
                 x.health -= e.attack
             elif player == "2":
                 x.health -= e.attack / 2
-            else:
+                print(x.name,x.health)
+                break
+            elif player == "3":
                 x.health += 10 - e.attack
+            elif player == "4":
+                z = random.randint(1,20)
+                if z >= 15:
+                    print("You have successfully rizzed up",e.name)
+                    break
+                else:
+                    print("Rizz failed due to too little rizz you ugly ahhh monkey")
+                    x.health -= e.attack * 2
         else:
-            print(x.health)
-            print(e.health)
-            print("You won!!!!")
+            if x.health > e.health:
+                print(x.name,x.health)
+                print(e.name,e.health)
+                print("you won!!")
+            else:
+                print(x.name,x.health)
+                print(e.name,e.health)
+                print("you lose!!")
+
 class walking():
     def walk():
         player = input("Press 1 to walk: ")
         if player == "1":
-            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.05,0.05,0.5,0.1,0.1,0.2))))
+            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
         else:
             print("<<|Achievement Unlocked: The Special One|>>")
 while True:

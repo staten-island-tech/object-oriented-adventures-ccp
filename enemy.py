@@ -24,7 +24,7 @@ Homecook = enemy("Homecook", 20, 5, ["Pepper", "Salt"], ["Struggle Meal Ramen", 
 
 NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
-JamaicanNormieChef = enemy("Jamaican Chef", 50, 10, ["Oil", "Chicken", "Watermelon"], ["moveset"])
+JamaicanChef = enemy("Jamaican Chef", 50, 10, ["Oil", "Chicken", "Watermelon"], ["moveset"])
 
 ProChef = enemy("Advanced Chef", 75, 20, "", ["moveset"])
 

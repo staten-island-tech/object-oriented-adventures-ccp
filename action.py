@@ -1,32 +1,101 @@
 import random
 import os
-class whatyouhave():
-    inventory=[{'itemh1': 0, 
-            'itemh2': 0,
-            'itemh3': 0, 
-            'itema1': 0, 
-            'itema2': 0,
-            'itema3': 0, 
-            'itemb1': 0,
-            'itemb2': 0, 
-            'itemb3': 0}, 
-            {
-            #sword, axe, spear, bow, helment, body armor, legging, boot
-            'tier1eq': {'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 1, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier2eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}, 
-            'tier3eq':{'sword': 0, 'axe': 0, 'spear': 0, 'bow': 0, 'pan': 0, 'armorh': 0, 'armorba': 0, 'armorl': 0, 'armorb': 0}
-            }, 
-            #body armor equidment
-            {
-                'head': "none", 
-                'body': "none", 
-                'leg': "none", 
-                'toe': "none", 
-                'weapon': "sword1"
-            }]
-    inventory_name=[{'tier1eq': {'Wooden knife', 'Wooden butcher knife', 'Chopstick', 'Kitchen Bow', 'A plastic pan', 'Grocery bag(why)', 'Shirt', 'Short', 'armorb'}, 
-            'tier2eq':{'Iron knife', 'Iron butcher knife', 'A very long Chopstick', 'Art and Craft bow', 'A stolen Pan', 'A bowl that fit your head', 'Jacket', 'Jean', 'armorb'}, 
-            'tier3eq':{'Sword', 'Axe', 'A very long and sharp chopstick', 'Hunting Bow', 'A rusty pan', 'A hat', 'Vest', 'Pantcake', 'armorb'}}]
+import json
+x=[
+  {
+    "Blue Berry": 0,
+    "Boil Egg": 0,
+    "Chicken Nugget": 0,
+    "Salt": 0,
+    "Pot of boil water": 0,
+    "Pepper": 0,
+    "Vitanims": 0,
+    "Coffee": 0,
+    "Sugar Cube I thinking????": 0
+  },
+  {
+    "tier1eq": {
+      "sword": 0,
+      "axe": 0,
+      "spear": 0,
+      "bow": 0,
+      "pan": 0,
+      "armorh": 1,
+      "armorba": 0,
+      "armorl": 0,
+      "armorb": 0
+    },
+    "tier2eq": {
+      "sword": 0,
+      "axe": 0,
+      "spear": 0,
+      "bow": 0,
+      "pan": 0,
+      "armorh": 0,
+      "armorba": 0,
+      "armorl": 0,
+      "armorb": 0
+    },
+    "tier3eq": {
+      "sword": 0,
+      "axe": 0,
+      "spear": 0,
+      "bow": 0,
+      "pan": 0,
+      "armorh": 0,
+      "armorba": 0,
+      "armorl": 0,
+      "armorb": 0
+    }
+  },
+  {
+    "Head": "none",
+    "Body": "none",
+    "Leg": "none",
+    "Toe": "none",
+    "Weapon": "sword1"
+  },
+  {
+    "tier1eq": [
+      "Wooden knife",
+      "Wooden butcher knife",
+      "Chopstick",
+      "Kitchen Bow",
+      "A plastic pan",
+      "Grocery bag(why)",
+      "Shirt",
+      "Short",
+      "Sock"
+    ],
+    "tier2eq": [
+      "Iron knife",
+      "Iron butcher knife",
+      "A very long Chopstick",
+      "Art and Craft bow",
+      "A stolen Pan",
+      "A bowl that fit your head",
+      "Jacket",
+      "Jean",
+      "Nike shoe"
+    ],
+    "tier3eq": [
+      "Sword",
+      "Axe",
+      "A very long and sharp chopstick",
+      "Hunting Bow",
+      "A rusty pan",
+      "A hat",
+      "Vest",
+      "Pantcake",
+      "Rain boot"
+    ]
+  }
+]
+
+with open("inventory.json", "w") as f:
+   json.dump(x, f)
+with open("inventory.json", "r") as f:
+  data=json.load(f)
 class actionchoice():
     def walking(distance_cover_total, weighted, enemytype):
             distance_cover_total+=1
@@ -35,221 +104,93 @@ class actionchoice():
             else:
                 encounter=random.choices(enemytype, weighted)
                 print(encounter, distance_cover_total)
-    def weaponcheck():
-        if "sword" in whatyouhave.inventory[2]['weapon']:
+  #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
+    def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon):
+    #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif
+        return data[3][tier_of_the_weapon][list(data[1][tier_of_the_weapon].keys()).index(what_kind_of_weapon)]
+  #This display item
+    def inventorydisplay():
+    #This is the inventory display
+        for items in data[0]:
+            print(f"{items}: {data[0][items]}")
+    #This display armor and weapons
+        for tier_of_weapon in data[1]:
+      #This show us the index number so you can check the list of name
+      #the first is the name of the weapon, just enter tier of weapon and the type of weapon
+            for weapon in data[1][tier_of_weapon]:  
+                print(f"{actionchoice.weaponamedisplay(tier_of_weapon, weapon)}: {data[1][tier_of_weapon][weapon]}")
+        for armor_and_weapon_equiped in data[2]:
+      #This check the tier of the armor and the type of armor
+            x=[i for i in data[2][armor_and_weapon_equiped] if i.isdigit()]
+            weapon=''.join([i for i in data[2][armor_and_weapon_equiped] if not i.isdigit()])
+            if not len(x)==0 and not weapon=="none":
+                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon))
+            else:
+                print(armor_and_weapon_equiped, data[2][armor_and_weapon_equiped])
+    def weaponchecktypedisplay(x):
+        if x=="1":
             return "sword"
-        if "bow" in whatyouhave.inventory[2]['weapon']:
-            return "bow"
-        if "axe" in whatyouhave.inventory[2]['weapon']:
+        elif x=="2":
             return "axe"
-        if "spear" in whatyouhave.inventory[2]['weapon']:
+        elif x=="3":
             return "spear"
-        if "pan" in whatyouhave.inventory[2]['weapon']:
+        elif x=="4":
+            return "bow"
+        elif x=="5":
             return "pan"
-    #check the teir of the weapon
-    def weaponbumbercheck():
-        for i in whatyouhave.inventory[2]['weapon']:
-            if i.isnumeric():
-                return int(i)
-    #print what you have
-    def inven():
-        for item in whatyouhave.inventory[0]:
-            print(item, whatyouhave.inventory[0][item])
-        for tier in whatyouhave.inventory[1]:
-            for weapon_armor in whatyouhave.inventory[1][tier]:
-                print(weapon_armor, whatyouhave.inventory[1][tier][weapon_armor])
-    #equid and uneqid weapon and armor
-    def equidingstuff(menu_location):
-        while menu_location=="inventory":
-            #only print what ypu have
-            actionchoice.inven()
-            for x in whatyouhave.inventory[1]:
-                for y in whatyouhave.inventory[1][x]:
-                    if whatyouhave.inventory[1][x][y]>=1:
-                        print(y, whatyouhave.inventory[1][x][y])
-            #show what you have equid
-            for x in whatyouhave.inventory[2]:
-                print(x, whatyouhave.inventory[2][x])
-            player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Exit\n6. Weapon")
-            os.system('cls')
-            #for helment
-            if player_choice=="1":
-                print(f"1. Grocery Bag: {whatyouhave.inventory[1]['tier1eq']['armorh']}")
-                print(f"2. Bowl: {whatyouhave.inventory[1]['tier2eq']['armorh']}")
-                print(f"3. Hat: {whatyouhave.inventory[1]['tier3eq']['armorh']}")
-                print("4. Unequip")
-                print("5. Exit")
-                player_choice=input()
-                os.system('cls')
-                #equid helment
-                if player_choice == "1" or player_choice == "2" or player_choice == "3":
-                    if whatyouhave.inventory[1][f'tier{player_choice}eq']['armorh']>=1 and whatyouhave.inventory[2]['head']=="none":
-                        whatyouhave.inventory[1][f'tier{player_choice}eq']['armorh']-=1
-                        whatyouhave.inventory[2]['head']=player_choice
-                        print(whatyouhave.inventory[1][f'tier{player_choice}eq']['armorh'])
-                        print(whatyouhave.inventory[2]['head'])
-                    else:
-                        print("You can't do that") 
-                #unequid helment
-                elif player_choice == "4":
-                    if not whatyouhave.inventory[2]['head']=="none":
-                        whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["head"]}eq']['armorh']+=1
-                        print(whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["head"]}eq']['armorh'])
-                        whatyouhave.inventory[2]['head']="none"
-                        print(whatyouhave.inventory[2]['head'])
-                    else:
-                        print("You can't do that") 
-                else:
-                    pass
-            #for body armor
-            elif player_choice=="2":
-                print(f"1. body armor1: {whatyouhave.inventory[1]['tier1eq']['armorba']}")
-                print(f"2. body armor2: {whatyouhave.inventory[1]['tier2eq']['armorba']}")
-                print(f"3. body armor3: {whatyouhave.inventory[1]['tier3eq']['armorba']}")
-                print("4. Unequip")
-                print("5. Exit")
-                player_choice=input()
-                os.system('cls')
-                if player_choice == "1" or player_choice == "2" or player_choice == "3":
-                    if whatyouhave.inventory[1][f'tier{player_choice}eq']['armorba']>=1 and whatyouhave.inventory[2]['body']=="none":
-                        whatyouhave.inventory[1][f'tier{player_choice}eq']['armorba']-=1
-                        whatyouhave.inventory[2]['body']=player_choice
-                        print(whatyouhave.inventory[1][f'tier{player_choice}eq']['armorba'])
-                        print(whatyouhave.inventory[2]['body'])
-                    else:
-                        print("You can't do that") 
-                elif player_choice == "4":
-                    if not whatyouhave.inventory[2]['body']=="none":
-                        whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["body"]}eq']['armorba']+=1
-                        print(whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["body"]}eq']['armorba'])
-                        whatyouhave.inventory[2]['body']="none"
-                        print(whatyouhave.inventory[2]['body'])
-                    else:
-                        print("You can't do that") 
-                else:
-                    pass
-            elif player_choice=="3":
-                print(f"1. legging1: {whatyouhave.inventory[1]['tier1eq']['armorl']}")
-                print(f"2. legging2: {whatyouhave.inventory[1]['tier2eq']['armorl']}")
-                print(f"3. legging3: {whatyouhave.inventory[1]['tier3eq']['armorl']}")
-                print("4. Unequip")
-                print("5. Exit")
-                player_choice=input()
-                os.system('cls')
-                if player_choice == "1" or player_choice == "2" or player_choice == "3":
-                    if whatyouhave.inventory[1][f'tier{player_choice}eq']['armorl']>=1  and whatyouhave.inventory[2]['leg']=="none":
-                        whatyouhave.inventory[1][f'tier{player_choice}eq']['armorl']-=1
-                        whatyouhave.inventory[2]['armorl']=player_choice
-                        print(whatyouhave.inventory[1][f'tier{player_choice}eq']['armorl'])
-                        print(whatyouhave.inventory[2]['leg'])
-                    else:
-                        print("You can't do that") 
-                elif player_choice == "4":
-                    if not whatyouhave.inventory[2]['leg']=="none":
-                        whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["leg"]}eq']['armorl']+=1
-                        print(whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["leg"]}eq']['armorl'])
-                        whatyouhave.inventory[2]['leg']="none"
-                        print(whatyouhave.inventory[2]['leg'])
-                    else:
-                        print("You can't do that") 
-                else:
-                    pass
-            elif player_choice=="4":
-                print(f"1. boot1: {whatyouhave.inventory[1]['tier1eq']['armorb']}")
-                print(f"2. boot2: {whatyouhave.inventory[1]['tier2eq']['armorb']}")
-                print(f"3. boot3: {whatyouhave.inventory[1]['tier3eq']['armorb']}")
-                print("4. Unequip")
-                print("5. Exit")
-                player_choice=input()
-                os.system('cls')
-                if player_choice == "1" or player_choice == "2" or player_choice == "3" and whatyouhave.inventory[2]['toe']=="none":
-                    if whatyouhave.inventory[1][f'tier{player_choice}eq']['armorb']>=1 and whatyouhave.inventory[2]['toe']=="none":
-                        whatyouhave.inventory[1][f'tier{player_choice}eq']['armorb']-=1
-                        whatyouhave.inventory[2]['toe']=player_choice
-                        print(whatyouhave.inventory[1][f'tier{player_choice}eq']['armorb'])
-                        print(whatyouhave.inventory[2]['toe'])
-                    else:
-                        print("You can't do that") 
-                elif player_choice == "4":
-                    if not whatyouhave.inventory[2]['toe']=="none":
-                        whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["toe"]}eq']['armorb']+=1
-                        print(whatyouhave.inventory[1][f'tier{whatyouhave.inventory[2]["toe"]}eq']['armorb'])
-                        whatyouhave.inventory[2]['toe']="none"
-                        print(whatyouhave.inventory[2]['toe'])
-                    else:
-                        print("You can't do that") 
-                else:
-                    pass
-            elif player_choice=="5":
-                menu_location = "none"
-            elif player_choice=="6":
-                print("1. Sword")
-                print("2. Axe")
-                print("3. Spear")
-                print("4. Bow")
-                print("5. Pan")
-                print("6.unequid")
-                print("7. Exit")
-                player_choice=input("")
-                if player_choice=="1":
-                    for x in whatyouhave.inventory[1]:
-                        print(whatyouhave.inventory[1][x]['sword'])
-                    print(f"1. equid sword1\n2. equid sword2\n3. equid sword3\n4.exit")
-                    player_choice=input("")
-                    if player_choice=="1" or player_choice=="2" or player_choice=="3":
-                        if whatyouhave.inventory[1][f'tier{player_choice}eq']['sword']>=1 and whatyouhave.inventory[2]['weapon']=="none":
-                            whatyouhave.inventory[1][f'tier{player_choice}eq']['sword']-=1
-                            whatyouhave.inventory[2]['weapon']=f"sword{player_choice}"
-                elif player_choice=="2":
-                    for x in whatyouhave.inventory[1]:
-                        print(whatyouhave.inventory[1][x]['axe'])
-                    print(f"1. equid axe1\n2. equid axe2\n3. equid axe3\n4.exit")
-                    player_choice=input("")
-                    if player_choice=="1" or player_choice=="2" or player_choice=="3":
-                        if whatyouhave.inventory[1][f'tier{player_choice}eq']['axe']>=1 and whatyouhave.inventory[2]['weapon']=="none":
-                            whatyouhave.inventory[1][f'tier{player_choice}eq']['axe']-=1
-                            whatyouhave.inventory[2]['weapon']=f"axe{player_choice}"
-                elif player_choice =="3":
-                    for x in whatyouhave.inventory[1]:
-                        print(whatyouhave.inventory[1][x]['spear'])
-                    print(f"1. equid spear1\n2. equid spear2\n3. equid spear3\n4.exit")
-                    player_choice=input("")
-                    if player_choice=="1" or player_choice=="2" or player_choice=="3":
-                        if whatyouhave.inventory[1][f'tier{player_choice}eq']['spear']>=1 and whatyouhave.inventory[2]['weapon']=="none":
-                            whatyouhave.inventory[1][f'tier{player_choice}eq']['spear']-=1
-                            whatyouhave.inventory[2]['weapon']=f"spear{player_choice}"
-                elif player_choice =="4":
-                    for x in whatyouhave.inventory[1]:
-                        print(whatyouhave.inventory[1][x]['bow'])
-                    print(f"1. equid bow1\n2. equid bow2\n3. equid bow3\n4.exit")
-                    player_choice=input("")
-                    if player_choice=="1" or player_choice=="2" or player_choice=="3":
-                        if whatyouhave.inventory[1][f'tier{player_choice}eq']['bow']>=1 and whatyouhave.inventory[2]['weapon']=="none":
-                            whatyouhave.inventory[1][f'tier{player_choice}eq']['bow']-=1
-                            whatyouhave.inventory[2]['weapon']=f"bow{player_choice}"
-                elif player_choice =="5":
-                    for x in whatyouhave.inventory[1]:
-                        print(whatyouhave.inventory[1][x]['pan'])
-                    print(f"1. equid pan1\n2. equid pan2\n3. equid pan3\n4.exit")
-                    player_choice=input("")
-                    if player_choice=="1" or player_choice=="2" or player_choice=="3":
-                        if whatyouhave.inventory[1][f'tier{player_choice}eq']['pan']>=1 and whatyouhave.inventory[2]['weapon']=="none":
-                            whatyouhave.inventory[1][f'tier{player_choice}eq']['pan']-=1
-                            whatyouhave.inventory[2]['weapon']=f"pan{player_choice}"
-                elif player_choice=="6" and not whatyouhave.inventory[2]['weapon']=="none":
-                        whatyouhave.inventory[1][f'tier{actionchoice.weaponbumbercheck()}eq'][actionchoice.weaponcheck()]+=1
-                        whatyouhave.inventory[2]['weapon']="none"
-    def choice(distance_cover_total, weighted, enemytype, menu_location):
-        player_choice=input("1. Walk\n2. Open inventory")
+    def equip_and_unequip():
+        player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Weapon\n6. Exit")
         if player_choice=="1":
-            os.system('cls')
-            actionchoice.walking(distance_cover_total, weighted, enemytype)
+            for tier in data[1]:
+                print(actionchoice.weaponamedisplay(tier, 'armorh'), data[1][tier]['armorh'])
         if player_choice=="2":
-            os.system('cls')
-            actionchoice.inven()
-            player_choice=input("1. Exit\n2. Equip item")
-            if player_choice=="2":
-                os.system('cls')
-                menu_location="inventory"
-                actionchoice.equidingstuff(menu_location)
-actionchoice.inven()
+            for tier in data[1]:
+                print(actionchoice.weaponamedisplay(tier, 'armorba'), data[1][tier]['armorba'])
+        if player_choice=="3":
+            for tier in data[1]:
+                print(actionchoice.weaponamedisplay(tier, 'armorl'), data[1][tier]['armorl'])
+        if player_choice=="4":
+            for tier in data[1]:
+                print(actionchoice.weaponamedisplay(tier, 'armorb'), data[1][tier]['armorb'])
+        if player_choice=="5":
+            print("1. Sword")
+            print("2. Axe")
+            print("3. Spear")
+            print("4. Bow")
+            print("5. Pan")
+            print("6. Unequip")
+            print("7. Exit")
+            player_choice=input("")
+            if player_choice=="7":
+                pass
+            elif player_choice=="6":
+                if data[2]['Weapon']=="none":
+                    print("You don't have a weapon equipped")
+                else:
+                    x=[i for i in data[2]["Weapon"] if i.isdigit()]
+                    weapon=''.join([i for i in data[2]["Weapon"] if not i.isdigit()])
+                    data[1][f"tier{x[0]}eq"][weapon]+=1
+                    print(actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon),": ",data[1][f"tier{x[0]}eq"][weapon])
+                    data[2]['Weapon']="none"
+                    print(data[2]['Weapon'])
+            else:
+                for touhou in data[1]:
+                    numberselection=[i for i in touhou if i.isdigit()]
+                    print(f"{numberselection[0]}, {actionchoice.weaponamedisplay(touhou, actionchoice.weaponchecktypedisplay(player_choice))}: {data[1][touhou][actionchoice.weaponchecktypedisplay(player_choice)]}")
+                print("4. Exit")
+                this_remember_what_weapon_we_are_on=actionchoice.weaponchecktypedisplay(player_choice)
+                player_choice=input("")
+                if player_choice=="4":
+                    pass
+                elif int(player_choice)>=1 and int(player_choice)<=3:
+                    if player_choice=="none" and data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]>=1:
+                        print("ahjah")
+    def choice(total_step, weight_chance, enemyencounter, menu_location):
+        player_choice=input("1. Walk\n2.Open inventory")
+        if player_choice=="1":
+            actionchoice.walking(total_step, weight_chance, enemyencounter)
+        else:
+            actionchoice.inventorydisplay()
+            actionchoice.equip_and_unequip()
+while True:
+    actionchoice.choice(1, 2, 3, 4)

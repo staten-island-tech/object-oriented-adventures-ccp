@@ -1,1 +1,90 @@
-[{"Blue Berry": 0, "Boil Egg": 0, "Chicken Nugget": 0, "Salt": 0, "Pot of boil water": 0, "Pepper": 0, "Vitanims": 0, "Coffee": 0, "Sugar Cube I thinking????": 0}, {"tier1eq": {"sword": 0, "axe": 0, "spear": 0, "bow": 0, "pan": 0, "armorh": 1, "armorba": 0, "armorl": 0, "armorb": 0}, "tier2eq": {"sword": 0, "axe": 0, "spear": 0, "bow": 0, "pan": 0, "armorh": 0, "armorba": 0, "armorl": 0, "armorb": 0}, "tier3eq": {"sword": 0, "axe": 0, "spear": 0, "bow": 0, "pan": 0, "armorh": 0, "armorba": 0, "armorl": 0, "armorb": 0}}, {"Head": "none", "Body": "none", "Leg": "none", "Toe": "none", "Weapon": "sword1"}, {"tier1eq": ["Wooden knife", "Wooden butcher knife", "Chopstick", "Kitchen Bow", "A plastic pan", "Grocery bag(why)", "Shirt", "Short", "Sock"], "tier2eq": ["Iron knife", "Iron butcher knife", "A very long Chopstick", "Art and Craft bow", "A stolen Pan", "A bowl that fit your head", "Jacket", "Jean", "Nike shoe"], "tier3eq": ["Sword", "Axe", "A very long and sharp chopstick", "Hunting Bow", "A rusty pan", "A hat", "Vest", "Pantcake", "Rain boot"]}]
+[
+    {
+        "Blue Berry": 0,
+        "Boil Egg": 0,
+        "Chicken Nugget": 0,
+        "Salt": 0,
+        "Pot of boil water": 0,
+        "Pepper": 0,
+        "Vitanims": 0,
+        "Coffee": 0,
+        "Sugar Cube I thinking????": 0
+    },
+    {
+        "tier1eq": {
+            "sword": 1,
+            "axe": 1,
+            "spear": 1,
+            "bow": 1,
+            "pan": 1,
+            "armorh": 1,
+            "armorba": 1,
+            "armorl": 1,
+            "armorb": 1
+        },
+        "tier2eq": {
+            "sword": 1,
+            "axe": 1,
+            "spear": 1,
+            "bow": 1,
+            "pan": 1,
+            "armorh": 1,
+            "armorba": 1,
+            "armorl": 1,
+            "armorb": 1
+        },
+        "tier3eq": {
+            "sword": 1,
+            "axe": 1,
+            "spear": 1,
+            "bow": 1,
+            "pan": 1,
+            "armorh": 1,
+            "armorba": 1,
+            "armorl": 1,
+            "armorb": 1
+        }
+    },
+    {
+        "Head": "armorh1",
+        "Body": "armorba2",
+        "Leg": "armorl3",
+        "Toe": "armorb1",
+        "Weapon": "sword1"
+    },
+    {
+        "tier1eq": [
+            "Wooden knife",
+            "Wooden butcher knife",
+            "Chopstick",
+            "Kitchen Bow",
+            "A plastic pan",
+            "Grocery bag(why)",
+            "Shirt",
+            "Short",
+            "Sock"
+        ],
+        "tier2eq": [
+            "Iron knife",
+            "Iron butcher knife",
+            "A very long Chopstick",
+            "Art and Craft bow",
+            "A stolen Pan",
+            "A bowl that fit your head",
+            "Jacket",
+            "Jean",
+            "Nike shoe"
+        ],
+        "tier3eq": [
+            "Sword",
+            "Axe",
+            "A very long and sharp chopstick",
+            "Hunting Bow",
+            "A rusty pan",
+            "A hat",
+            "Vest",
+            "Pantcake",
+            "Rain boot"
+        ]
+    }
+]

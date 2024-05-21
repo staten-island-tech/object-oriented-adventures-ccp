@@ -1,99 +1,6 @@
 import random
 import os
 import json
-x=[
-  {
-    "Blue Berry": 0,
-    "Boil Egg": 0,
-    "Chicken Nugget": 0,
-    "Salt": 0,
-    "Pot of boil water": 0,
-    "Pepper": 0,
-    "Vitanims": 0,
-    "Coffee": 0,
-    "Sugar Cube I thinking????": 0
-  },
-  {
-    "tier1eq": {
-      "sword": 0,
-      "axe": 0,
-      "spear": 0,
-      "bow": 0,
-      "pan": 0,
-      "armorh": 1,
-      "armorba": 0,
-      "armorl": 0,
-      "armorb": 0
-    },
-    "tier2eq": {
-      "sword": 0,
-      "axe": 0,
-      "spear": 0,
-      "bow": 0,
-      "pan": 0,
-      "armorh": 0,
-      "armorba": 0,
-      "armorl": 0,
-      "armorb": 0
-    },
-    "tier3eq": {
-      "sword": 0,
-      "axe": 0,
-      "spear": 0,
-      "bow": 0,
-      "pan": 0,
-      "armorh": 0,
-      "armorba": 0,
-      "armorl": 0,
-      "armorb": 0
-    }
-  },
-  {
-    "Head": "none",
-    "Body": "none",
-    "Leg": "none",
-    "Toe": "none",
-    "Weapon": "sword1"
-  },
-  {
-    "tier1eq": [
-      "Wooden knife",
-      "Wooden butcher knife",
-      "Chopstick",
-      "Kitchen Bow",
-      "A plastic pan",
-      "Grocery bag(why)",
-      "Shirt",
-      "Short",
-      "Sock"
-    ],
-    "tier2eq": [
-      "Iron knife",
-      "Iron butcher knife",
-      "A very long Chopstick",
-      "Art and Craft bow",
-      "A stolen Pan",
-      "A bowl that fit your head",
-      "Jacket",
-      "Jean",
-      "Nike shoe"
-    ],
-    "tier3eq": [
-      "Sword",
-      "Axe",
-      "A very long and sharp chopstick",
-      "Hunting Bow",
-      "A rusty pan",
-      "A hat",
-      "Vest",
-      "Pantcake",
-      "Rain boot"
-    ]
-  }
-]
-
-with open("inventory.json", "w") as f:
-   json.dump(x, f)
 with open("inventory.json", "r") as f:
   data=json.load(f)
 class actionchoice():
@@ -183,7 +90,7 @@ class actionchoice():
                 if player_choice=="4":
                     pass
                 elif int(player_choice)>=1 and int(player_choice)<=3:
-                    if player_choice=="none" and data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]>=1:
+                    if data[2]['Weapon']:
                         print("ahjah")
     def choice(total_step, weight_chance, enemyencounter, menu_location):
         player_choice=input("1. Walk\n2.Open inventory")

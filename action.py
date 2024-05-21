@@ -90,13 +90,13 @@ class actionchoice():
                 if player_choice=="4":
                     pass
                 elif int(player_choice)>=1 and int(player_choice)<=3:
-                    if data[2]['Weapon']
+                    if data[2]['Weapon']:
                         print("ahjah")
     def choice(total_step, weight_chance, enemyencounter, menu_location):
         player_choice=input("1. Walk\n2.Open inventory")
         if player_choice=="1":
             actionchoice.walking(total_step, weight_chance, enemyencounter)
-        else:]
+        else:
             actionchoice.inventorydisplay()
             actionchoice.equip_and_unequip()
 while True:

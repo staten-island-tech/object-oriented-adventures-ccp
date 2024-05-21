@@ -12,44 +12,44 @@
     },
     {
         "tier1eq": {
-            "sword": 0,
-            "axe": 0,
-            "spear": 0,
-            "bow": 0,
-            "pan": 0,
+            "sword": 1,
+            "axe": 1,
+            "spear": 1,
+            "bow": 1,
+            "pan": 1,
             "armorh": 1,
-            "armorba": 0,
-            "armorl": 0,
-            "armorb": 0
+            "armorba": 1,
+            "armorl": 1,
+            "armorb": 1
         },
         "tier2eq": {
-            "sword": 0,
-            "axe": 0,
-            "spear": 0,
-            "bow": 0,
-            "pan": 0,
-            "armorh": 0,
-            "armorba": 0,
-            "armorl": 0,
-            "armorb": 0
+            "sword": 1,
+            "axe": 1,
+            "spear": 1,
+            "bow": 1,
+            "pan": 1,
+            "armorh": 1,
+            "armorba": 1,
+            "armorl": 1,
+            "armorb": 1
         },
         "tier3eq": {
-            "sword": 0,
-            "axe": 0,
-            "spear": 0,
-            "bow": 0,
-            "pan": 0,
-            "armorh": 0,
-            "armorba": 0,
-            "armorl": 0,
-            "armorb": 0
+            "sword": 1,
+            "axe": 1,
+            "spear": 1,
+            "bow": 1,
+            "pan": 1,
+            "armorh": 1,
+            "armorba": 1,
+            "armorl": 1,
+            "armorb": 1
         }
     },
     {
-        "Head": "none",
-        "Body": "none",
-        "Leg": "none",
-        "Toe": "none",
+        "Head": "armorh1",
+        "Body": "armorba2",
+        "Leg": "armorl3",
+        "Toe": "armorb1",
         "Weapon": "sword1"
     },
     {

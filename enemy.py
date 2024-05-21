@@ -1,4 +1,5 @@
 import random
+
 class enemy():
     def __init__(self, name, health, attack, drops, moveset):
         self.name = name
@@ -15,18 +16,20 @@ class character():
         self.defense = defense
 x = character("Sigma Rizzler", 200, 20, 20)
 def enemytype(e):
-    Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich", "YOU DONKEYYY!!"])
+    Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, 1000000, ["ITS RAWWWWWWW!!!!!", "IDIOT SANDWICH!!!!!", "YOU DONKEYYY!!!!"])
     
-    Boss_Uncle_Roger = enemy("Uncle Roger", 150, 999, "MSG", ["MSG", "FUI YOHH", "AI YA"])
+    Boss_Uncle_Roger = enemy("Uncle Roger", 150, 999, 1000000000, ["MSG", "FUIII YOHHHH", "AI YAAA", "YOU STUPID BOYY"])
 
-    Boss_Jamal = enemy("Jamal", 100, 50, ["Jerk Chicken", "Fried Chicken", "Watermelon", "Purple Kool-Aid"], 
+    Boss_Jamal = enemy("Jamal", 100, 50, 100, 
     ['''Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa'''])
 
-    Homecook = enemy("Homecook", 20, 5, ["Pepper", "Salt"], ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
+    Homecook = enemy("Homecook", 20, 5, 5, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
 
-    NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
+    NormieChef = enemy("Chef", 50, 10, 30, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage."])
 
-    ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
+    JamaicanChef = enemy("Jamaican Chef", 50, 10, 20, ["Wagwann bossman"])
+
+    ProChef = enemy("Advanced Chef", 75, 20, 100, ["moveset"])
 
     if e == "1":
         return Boss_Gordon_Ramsey
@@ -38,8 +41,11 @@ def enemytype(e):
         return Homecook
     elif e == "5":
         return NormieChef
+    elif e == "6":
+        return JamaicanChef
     else:
         return ProChef
+    
 
 class combat():
     def combating(x, e):

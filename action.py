@@ -45,6 +45,12 @@ class actionchoice():
             return "bow"
         elif x=="5":
             return "pan"
+    def unequipandequipingweapon(player_choice, whereonbody):
+        if player_choice=="4":
+            if not data[2][whereonbody]=="none":
+                x=[i for i in data[2][whereonbody] if i.isdigit()]
+                weapon=''.join([i for i in data[2][whereonbody] if not i.isdigit()])
+                data[1][]
     def equip_and_unequip():
         player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Weapon\n6. Exit")
         if player_choice=="1":
@@ -90,8 +96,13 @@ class actionchoice():
                 if player_choice=="4":
                     pass
                 elif int(player_choice)>=1 and int(player_choice)<=3:
-                    if data[2]['Weapon']:
-                        print("ahjah")
+                    if data[2]['Weapon'] == "none" and data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]>=1:
+                        data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]-=1
+                        data[2]['Weapon']=f"{this_remember_what_weapon_we_are_on}{player_choice}"
+                        print(actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on),":", data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on])
+                        print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on))
+                    else:
+                        print("You can't do that")
     def choice(total_step, weight_chance, enemyencounter, menu_location):
         player_choice=input("1. Walk\n2.Open inventory")
         if player_choice=="1":

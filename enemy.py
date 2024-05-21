@@ -1,3 +1,4 @@
+import random
 class enemy():
     def __init__(self, name, health, attack, drops, moveset):
         self.name = name
@@ -6,26 +7,80 @@ class enemy():
         self.drops = drops
         self.moveset = moveset
 
+class character():
+    def __init__(self, name, health, attack, defense):
+        self.name = name
+        self.health = health
+        self.attack = attack
+        self.defense = defense
+x = character("Sigma Rizzler", 200, 20, 20)
+def enemytype(e):
+    Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich", "YOU DONKEYYY!!"])
+    
+    Boss_Uncle_Roger = enemy("Uncle Roger", 150, 999, "MSG", ["MSG", "FUI YOHH", "AI YA"])
 
-Boss_Gordon_Ramsay = enemy("Gordan Ramsay", 200, 999, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich", "YOU DONKEYYY!!"])
-#Gordon final boss in restrauant(restrauant is level) Hell's Kitchen
+    Boss_Jamal = enemy("Jamal", 100, 50, ["Jerk Chicken", "Fried Chicken", "Watermelon", "Purple Kool-Aid"], 
+    ['''Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa'''])
 
-Boss_Uncle_Roger = enemy("Uncle Roger", 150, 999, "MSG", ["MSG", "FUI YOHH", "AI YA"])
+    Homecook = enemy("Homecook", 20, 5, ["Pepper", "Salt"], ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
 
-Boss_Jamal = enemy("Jamal", 100, 50, ["Jerk Chicken", "Fried Chicken", "Watermelon", "Purple Kool-Aid"], 
-['''Tsamina mina, eh, eh
-Waka waka, eh, eh
-Tsamina mina zangalewa
-This time for Africa'''])
+    NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
-Boss_Guy_Fieri = enemy("Guy Fieri", 200, 70, ["Celeb Scam Meal"])
+    ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
 
-Homecook = enemy("Homecook", 20, 5, ["Pepper", "Salt"], ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
+    if e == "1":
+        return Boss_Gordon_Ramsey
+    elif e == "2":
+        return Boss_Uncle_Roger
+    elif e =="3":
+        return Boss_Jamal
+    elif e == "4":
+        return Homecook
+    elif e == "5":
+        return NormieChef
+    else:
+        return ProChef
 
-NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
+class combat():
+    def combating(x, e):
+        while x.health > 0 and e.health > 0:
+            print(x.name, x.health)
+            print(e.name, e.health)
+            player = input("1. Attack\n2. Retreat\n3. Eat\n4. Rizz: ")
+            if player == "1":
+                e.health -= x.attack
+                x.health -= e.attack
+            elif player == "2":
+                x.health -= e.attack / 2
+                print(x.name,x.health)
+                break
+            elif player == "3":
+                x.health += 10 - e.attack
+            elif player == "4":
+                z = random.randint(1,20)
+                if z >= 15:
+                    print("You have successfully rizzed up",e.name)
+                    break
+                else:
+                    print("Rizz failed due to too little rizz you ugly")
+                    x.health -= e.attack * 2
+        else:
+            if x.health > e.health:
+                print(x.name,x.health)
+                print(e.name,e.health)
+                print("you won!!")
+            else:
+                print(x.name,x.health)
+                print(e.name,e.health)
+                print("you lose!!")
 
-JamaicanChef = enemy("Jamaican Chef", 50, 10, ["Oil", "Chicken", "Watermelon"], ["moveset"])
-
-ProChef = enemy("Advanced Chef", 75, 20, "", ["moveset"])
-
+class walking():
+    def walk():
+        player = input("Press 1 to walk: ")
+        if player == "1":
+            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
+        else:
+            print("<<|Achievement Unlocked: The Special One|>>")
+while True:
+    walking.walk()
 

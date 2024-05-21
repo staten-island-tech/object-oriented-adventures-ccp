@@ -14,7 +14,7 @@ class character():
         self.attack = attack
         self.defense = defense
 x = character("Sigma Rizzler", 200, 20, 20)
-def enemytype(y):
+def enemytype(e):
     Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich", "YOU DONKEYYY!!"])
     
     Boss_Uncle_Roger = enemy("Uncle Roger", 150, 999, "MSG", ["MSG", "FUI YOHH", "AI YA"])
@@ -28,15 +28,15 @@ def enemytype(y):
 
     ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
 
-    if y == "1":
+    if e == "1":
         return Boss_Gordon_Ramsey
-    elif y == "2":
+    elif e == "2":
         return Boss_Uncle_Roger
-    elif y =="3":
+    elif e =="3":
         return Boss_Jamal
-    elif y == "4":
+    elif e == "4":
         return Homecook
-    elif y == "5":
+    elif e == "5":
         return NormieChef
     else:
         return ProChef
@@ -62,7 +62,7 @@ class combat():
                     print("You have successfully rizzed up",e.name)
                     break
                 else:
-                    print("Rizz failed due to too little rizz you ugly ahhh monkey")
+                    print("Rizz failed due to too little rizz you ugly")
                     x.health -= e.attack * 2
         else:
             if x.health > e.health:

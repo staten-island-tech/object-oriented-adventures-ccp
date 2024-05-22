@@ -1,6 +1,4 @@
 ##Player can buy items
-from ingredients import ingredientsyy
+from items import 
 
-shopitems = [ingredientst]
-
-print (shopitems)
+shopitems = []

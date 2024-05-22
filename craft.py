@@ -1,4 +1,4 @@
-from items import ingredients
+from . import ingredients
 
 ingredients = ["Beef", "Soup"]
 meals = ["wellin"]

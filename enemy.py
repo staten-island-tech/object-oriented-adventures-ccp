@@ -25,11 +25,11 @@ def enemytype(e):
 
     Homecook = enemy("Homecook", 20, 5, 5, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
 
-    NormieChef = enemy("Chef", 50, 10, 30, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage."])
+    NormieChef = enemy("Chef", 50, 10, 30, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage"])
 
     JamaicanChef = enemy("Jamaican Chef", 50, 10, 20, ["Wagwann bossman"])
 
-    ProChef = enemy("Advanced Chef", 75, 20, 100, ["moveset"])
+    ProChef = enemy("Advanced Chef", 75, 20, 100, ["I am Pro Chef"])
 
     if e == "1":
         return Boss_Gordon_Ramsey

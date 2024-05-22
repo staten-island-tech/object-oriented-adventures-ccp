@@ -7,6 +7,8 @@ from action import actionchoice
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 player_choice="none"
+with open("json/inventory.json", "r") as f:
+    data=json.load(f)
 def compare(z):
     global playerstatpoint
     add_minus=int(input("How much point do you want to spend?: "))
@@ -70,9 +72,9 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
-            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter)
+            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, data)
 except:
     if not player_choice == "2":
         print("ERROR!!!!")
     if not player_choice=="2":
-        print("<<|Achievement Unlocked: The Special One|>>")
+        print("<<|Achievement Unlocked: Stop breaking intendly|>>")

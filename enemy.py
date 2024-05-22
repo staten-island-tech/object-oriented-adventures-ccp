@@ -1,4 +1,10 @@
 import random
+import json
+from action import actionchoice
+with open("json/weapon.json", "r") as f:
+    weaponstat=json.load(f)
+with open("json/armorstat.json", "r") as f:
+    armorstat=json.load(f)
 class enemy():
     def __init__(self, name, health, attack, drops, moveset):
         self.name = name
@@ -42,13 +48,13 @@ def enemytype(e):
         return ProChef
 
 class combat():
-    def combating(x, e):
+    def combating(x, e, data):
         while x.health > 0 and e.health > 0:
             print(x.name, x.health)
             print(e.name, e.health)
-            player = input("1. Attack\n2. Retreat\n3. Eat\n4. Rizz: ")
+            player = input("1. Attack\n2. Retreat\n3. Eat\n4. Use item\n5. Rizz\n")
             if player == "1":
-                e.health -= x.attack
+                e.health -= x.attack*weaponstat[0][data[2]['Weapon']]
                 x.health -= e.attack
             elif player == "2":
                 x.health -= e.attack / 2
@@ -81,6 +87,3 @@ class walking():
             combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
         else:
             print("<<|Achievement Unlocked: The Special One|>>")
-while True:
-    walking.walk()
-

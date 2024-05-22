@@ -1,12 +1,16 @@
-[{"armorh1": 0.3, 
-"armorba1": 0.4, 
-"armorl1": 0.2, 
-"armorb1": 0.1}, 
-{"armorh2": 0.6, 
-"armorba2": 0.8, 
-"armorl2": 0.4, 
-"armorb2": 0.2}, 
-{"armorh3": 0.9, 
-"armorba3": 1.2, 
-"armorl3": 0.6, 
-"armorb3": 0.3}]
+[
+    {
+        "armorh1": 0.3,
+        "armorba1": 0.4,
+        "armorl1": 0.2,
+        "armorb1": 0.1,
+        "armorh2": 0.6,
+        "armorba2": 0.8,
+        "armorl2": 0.4,
+        "armorb2": 0.2,
+        "armorh3": 0.9,
+        "armorba3": 1.2,
+        "armorl3": 0.6,
+        "armorb3": 0.3
+    }
+]

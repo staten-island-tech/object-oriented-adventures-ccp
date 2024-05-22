@@ -14,6 +14,8 @@ class character():
         self.attack = attack
         self.defense = defense
 x = character("Sigma Rizzler", 200, 20, 20)
+unclerogerattacks = ["MSG", "FUI YOHH", "AI YA"]
+unclerogerchances = [1, 1, 1]
 def enemytype(e):
     Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich", "YOU DONKEYYY!!"])
     
@@ -45,7 +47,7 @@ class combat():
     def combating(x, e):
         while x.health > 0 and e.health > 0:
             print(x.name, x.health)
-            print(e.name, e.health)
+            print(e.name, e.health, random.choice(unclerogerattacks,unclerogerchances,k=1))
             player = input("1. Attack\n2. Retreat\n3. Eat\n4. Rizz: ")
             if player == "1":
                 e.health -= x.attack
@@ -78,7 +80,7 @@ class walking():
     def walk():
         player = input("Press 1 to walk: ")
         if player == "1":
-            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
+            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.01,0.95,0.01,0.01,0.01,0.01))))
         else:
             print("<<|Achievement Unlocked: The Special One|>>")
 while True:

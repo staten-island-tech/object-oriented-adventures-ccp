@@ -1,4 +1,4 @@
-from enemy import enemytype
+import
 class restaurants():
     def __init__(self, name, boss, enemies):
         self.name = name
@@ -6,8 +6,6 @@ class restaurants():
         self.enemies = enemies
 
 enemytype()
-
-restaurants_template = restaurants('name', 'boss', ['enemys'])
 
 Hells_Kitchen = restaurants('Hells Kitchen', Boss_Gordon_Ramsay , [ProChef])
 

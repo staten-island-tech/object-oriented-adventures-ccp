@@ -15,7 +15,9 @@ class character():
         self.attack = attack
         self.defense = defense
 x = character("Sigma Rizzler", 200, 20, 20)
+
 def enemytype(e):
+    
     Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, 1000000, ["ITS RAWWWWWWW!!!!!", "IDIOT SANDWICH!!!!!", "YOU DONKEYYY!!!!"])
     
     Boss_Uncle_Roger = enemy("Uncle Roger", 150, 999, 1000000000, ["MSG", "FUIII YOHHHH", "AI YAAA", "YOU STUPID BOYY"])
@@ -43,7 +45,7 @@ def enemytype(e):
         return NormieChef
     elif e == "6":
         return JamaicanChef
-    else:
+    elif e == "7":
         return ProChef
     
 
@@ -84,7 +86,7 @@ class walking():
     def walk():
         player = input("Press 1 to walk: ")
         if player == "1":
-            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
+            combat.combating(x, enemytype(random.choices(['1','2','3','4','5','6','7']), (0.1,0.1,0.1,0.3,0.2,0.2)))
         else:
             print("<<|Achievement Unlocked: The Special One|>>")
 while True:

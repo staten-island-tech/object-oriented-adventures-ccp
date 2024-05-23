@@ -3,6 +3,7 @@ import os
 import random
 from Characterdata import characterdata
 from action import actionchoice
+from enemy import walking
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
@@ -72,7 +73,8 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
-            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, data)
+            walking
+            #actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, data)
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

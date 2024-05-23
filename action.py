@@ -138,5 +138,3 @@ class actionchoice():
             os.system('cls')
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)
-    
-actionchoice.choice(1, 2, 3, data)

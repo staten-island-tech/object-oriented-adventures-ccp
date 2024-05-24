@@ -2,12 +2,23 @@ import random
 import json
 from action import actionchoice
 import math
+aaaaaaaaaaaaa={"Blue Berry": 5,
+        "Boil Egg": 10,
+        "Chicken Nugget": 15,
+        "Salt": 0,
+        "Pot of boil water": 0,
+        "Pepper": 0,
+        "Vitanims": 0,
+        "Coffee": 0,
+        "Sugar Cube I thinking????": 0}
 with open("json/weapon.json", "r") as f:
     weaponstat=json.load(f)
 with open("json/armorstat.json", "r") as f:
     armorstat=json.load(f)
 with open("json/inventory.json", "r") as f:
     inventoryitem=json.load(f)
+with open("json/itemstatuseffect", "w") as f:
+    json.dump(, f)
 class enemy():
     def __init__(self, name, health, attack, drops, moveset):
         self.name = name
@@ -78,8 +89,11 @@ class combat():
                     print("You have nothing")
                 print(f"{number_selection+1}, Exit")
                 listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
-                print(listofitemuseable)
                 player_choice=input("What do you want to do?")
+                if int(player_choice)<=number_selection:
+                    
+                else:
+                    pass
             elif player == "4":
                 z = random.randint(1,20)
                 if z >= 15:

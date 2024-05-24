@@ -5,13 +5,13 @@ with open("json/inventory.json", "r") as f:
     data=json.load(f)
 class actionchoice():
     def walking(distance_cover_total, weighted, enemytype):
-            distance_cover_total+=1
-            os.system('cls')
-            if distance_cover_total==100:
-                print("boss")
-            else:
-                encounter=random.choices(enemytype, weighted)
-                print(encounter, distance_cover_total)
+        distance_cover_total=distance_cover_total+1
+        os.system('cls')
+        if distance_cover_total==100:
+            print("boss")
+        else:
+            encounter=random.choices(enemytype, weighted)
+            print(encounter, distance_cover_total)
   #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
     def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon, data):
     #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif
@@ -135,6 +135,5 @@ class actionchoice():
         if player_choice=="1":
             actionchoice.walking(total_step, weight_chance, enemyencounter)
         else:
-            os.system('cls')
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)

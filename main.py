@@ -2,8 +2,8 @@ import json
 import os
 import random
 from Characterdata import characterdata
-from action import actionchoice
-from enemy import walking
+from actionyoucantake import actionchoice
+from enemyandcombat import combat
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
@@ -26,9 +26,8 @@ def compare(z):
         return z 
 try:
     level=1
-    game_life=100
     menu_location="starting"
-    while game_life>=1:
+    while True:
         print("The story of the MSG King")
         print("1. Start game")
         print("2. End game")
@@ -73,8 +72,7 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
-            walking
-            #actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, data)
+            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, data)
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

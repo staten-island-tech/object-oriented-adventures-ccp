@@ -1,7 +1,7 @@
 import random
 import os
 import json
-with open("inventory.json", "r") as f:
+with open("json/inventory.json", "r") as f:
   data=json.load(f)
 class actionchoice():
     def walking(distance_cover_total, weighted, enemytype):

@@ -55,7 +55,7 @@ class combat():
             player = input("1. Attack\n2. Retreat\n3. Eat\n4. Use item\n5. Rizz\n")
             if player == "1":
                 e.health -= x.attack*weaponstat[0][data[2]['Weapon']]
-                x.health -= e.attack
+                x.health -= e.attack/(armorstat[0][data]['Head']+armorstat[0][data]['Body']+armorstat[0][data]['Leg']+armorstat[0][data]['Toe'])
             elif player == "2":
                 x.health -= e.attack / 2
                 print(x.name,x.health)

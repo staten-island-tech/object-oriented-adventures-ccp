@@ -14,3 +14,5 @@ recipe_template = recipe("Name", 10, 10, 10, 10, ["ingredients needed"])
 Beef_Wellington = recipe("Beef Wellington", 10, 10, 10, 10, ["B"])
 
 Habanero = recipe("Habanero", 10, 10, 10, 10, ["Bell Pepper"])
+
+Hot_Chocolate = recipe("Hot Chocolate", 10, 10, 10, 10, ["Marshmallows", "Chocolate", "Milk"])

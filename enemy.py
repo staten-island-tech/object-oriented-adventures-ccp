@@ -1,12 +1,13 @@
 import random
 import json
 from action import actionchoice
+import math
 with open("json/weapon.json", "r") as f:
     weaponstat=json.load(f)
 with open("json/armorstat.json", "r") as f:
     armorstat=json.load(f)
 with open("json/inventory.json", "r") as f:
-    inventory=json.load(f)
+    inventoryitem=json.load(f)
 class enemy():
     def __init__(self, name, health, attack, drops, moveset):
         self.name = name
@@ -21,7 +22,7 @@ class character():
         self.health = health
         self.attack = attack
         self.defense = defense
-x = character("Sigma Rizzler", 200, 20, 20)
+x = character("Sigma Rizzler", 20, 20, 20)
 def enemytype(e):
     Boss_Gordon_Ramsey = enemy("Gordan Ramsey", 200, 999, "Supreme Beef Wellington", ["ITS RAW!!", "Idiot Sandwich", "YOU DONKEYYY!!"])
     
@@ -50,28 +51,26 @@ def enemytype(e):
         return ProChef
 
 class combat():
-    def defensedisplay(armordefstat, inventory):
-        defense=0
-        for i in inventory[2]:
-            if not i =="Weapon":
-                defense+=armordefstat[0][inventory[2][i]]
-        return defense
-    def damageatakingcalculation(enemyattack, armordefstat, inventory):
-        return enemyattack/combat.defensedisplay(armordefstat, inventory)
-    def combating(x, e, data):
+    def damagedealcal(attack):
+        return attack*weaponstat[0][inventoryitem[2]["Weapon"]]
+    def damagetakencalcaltor(enemy_attack):
+        x=[armorstat[0][inventoryitem[2][i]] for i in inventoryitem[2] if not i =="Weapon" if not inventoryitem[2][i]=="none"]
+        y=sum(x)
+        return math.ceil(enemy_attack/y)
+    def combating(x, e, inventory):
         while x.health > 0 and e.health > 0:
             print(x.name, x.health)
             print(e.name, e.health)
             player = input("1. Attack\n2. Retreat\n3. Eat\n4. Use item\n5. Rizz\n")
             if player == "1":
-                e.health -= x.attack*weaponstat[0][data[2]['Weapon']]
-                x.health -= e.attack/(armorstat[0][data]['Head']+armorstat[0][data]['Body']+armorstat[0][data]['Leg']+armorstat[0][data]['Toe'])
+                e.health -= combat.damagedealcal(x.attack)
+                x.health -= combat.damagetakencalcaltor(e.attack)
             elif player == "2":
-                x.health -= e.attack / 2
+                x.health -= combat.damagetakencalcaltor(e.attack)*5
                 print(x.name,x.health)
                 break
             elif player == "3":
-                x.health += 10 - e.attack
+                x.health += 10 - combat.damagetakencalcaltor(e.attack)
             elif player == "4":
                 z = random.randint(1,20)
                 if z >= 15:
@@ -79,7 +78,7 @@ class combat():
                     break
                 else:
                     print("Rizz failed due to too little rizz you ugly")
-                    x.health -= e.attack * 2
+                    x.health -= combat.damagetakencalcaltor(e.attack, armorstat, inventory)*10
         else:
             if x.health > e.health:
                 print(x.name,x.health)
@@ -90,11 +89,13 @@ class combat():
                 print(e.name,e.health)
                 print("you lose!!")
 
-""" class walking():
+class walking():
     def walk():
         player = input("Press 1 to walk: ")
         if player == "1":
             combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
         else:
-            print("<<|Achievement Unlocked: The Special One|>>") """
-print(combat.damageatakingcalculation(20, armorstat, inventory))
+            print("<<|Achievement Unlocked: The Special One|>>")
+while True:
+    combat.combating(x, enemytype("1"), inventoryitem)
+    player=input()

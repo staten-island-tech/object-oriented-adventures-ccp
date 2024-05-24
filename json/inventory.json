@@ -46,11 +46,11 @@
         }
     },
     {
-        "Head": "armorh1",
-        "Body": "armorba1",
-        "Leg": "armorl1",
-        "Toe": "armorb1",
-        "Weapon": "sword1"
+        "Head": "armorh3",
+        "Body": "armorba3",
+        "Leg": "armorl3",
+        "Toe": "armorb3",
+        "Weapon": "pan3"
     },
     {
         "tier1eq": [

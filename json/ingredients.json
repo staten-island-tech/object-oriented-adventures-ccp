@@ -1,9 +1,1 @@
-[{"name": "Pepper", "price": "5", "description": "Spicy for white people"},
- {"name": "Salt", "price": "5", "description": "S"}, 
- {"name": "Chicken", "price": "100", "description": "Dark favorite"}, 
- {"name": "Koolaid", "price": "80", "description": "Red Koolaid > Purple Koolaid"}, 
- {"name": "Oil", "price": "20", "description": "Can be combined with foods to fry them"}, 
- {"name": "Watermelon", "price": "55", "description": "Fruit Ninja Master"}, 
- {"name": "Lollipop", "price": "10", "description": "Chupa Chups"}, 
- {"name": "Beef", "price": "50", "description": "Can be combined with Bread and Butter to make Beef Wellington"}, 
- {"name": "Broccoli", "price": "20", "description": "Earthy"}]
+[{"name": "Pepper", "price": "5", "description": "Spicy for white people"},{"name": "Salt", "price": "5", "description": "S"}, {"name": "Chicken", "price": "100", "description": "Dark favorite"}, {"name": "Koolaid", "price": "80", "description": "Red Koolaid > Purple Koolaid"}, {"name": "Oil", "price": "20", "description": "Can be combined with foods to fry them"}, {"name": "Watermelon", "price": "55", "description": "Fruit Ninja Master"}, {"name": "Lollipop", "price": "10", "description": "Chupa Chups"}, {"name": "Beef", "price": "50", "description": "Can be combined with Bread and Butter to make Beef Wellington"}, {"name": "Broccoli", "price": "20", "description": "Earthy"}]

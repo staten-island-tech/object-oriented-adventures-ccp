@@ -36,18 +36,17 @@ def enemytype(e):
     NormieChef = enemy("Chef", 50, 10, ["Eggs", "Tomatoes", "Bell Pepper"], ["moveset"])
 
     ProChef = enemy("Advanced Chef", 75, 20, "drops", ["moveset"])
-
-    if e == "1":
+    if e[0] == "1":
         return Boss_Gordon_Ramsey
-    elif e == "2":
+    elif e[0] == "2":
         return Boss_Uncle_Roger
-    elif e =="3":
+    elif e[0] =="3":
         return Boss_Jamal
-    elif e == "4":
+    elif e[0] == "4":
         return Homecook
-    elif e == "5":
+    elif e[0] == "5":
         return NormieChef
-    else:
+    elif e[0]== "6":
         return ProChef
 
 class combat():
@@ -61,7 +60,7 @@ class combat():
         while x.health > 0 and e.health > 0:
             print(x.name, x.health)
             print(e.name, e.health)
-            player = input("1. Attack\n2. Retreat\n3. Eat\n4. Use item\n5. Rizz\n")
+            player = input("1. Attack\n2. Retreat\n3. Use item\n5. Rizz\n")
             if player == "1":
                 e.health -= combat.damagedealcal(x.attack)
                 x.health -= combat.damagetakencalcaltor(e.attack)
@@ -70,7 +69,17 @@ class combat():
                 print(x.name,x.health)
                 break
             elif player == "3":
-                x.health += 10 - combat.damagetakencalcaltor(e.attack)
+                number_selection=0
+                for items in inventoryitem[0]:
+                    if inventory[0][items]>0:
+                        number_selection+=1
+                        print(f"{number_selection}, {items}: {inventoryitem[0][items]}")
+                if number_selection==0:
+                    print("You have nothing")
+                print(f"{number_selection+1}, Exit")
+                listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
+                print(listofitemuseable)
+                player_choice=input("What do you want to do?")
             elif player == "4":
                 z = random.randint(1,20)
                 if z >= 15:
@@ -78,7 +87,7 @@ class combat():
                     break
                 else:
                     print("Rizz failed due to too little rizz you ugly")
-                    x.health -= combat.damagetakencalcaltor(e.attack, armorstat, inventory)*10
+                    x.health -= combat.damagetakencalcaltor(e.attack)*10
         else:
             if x.health > e.health:
                 print(x.name,x.health)
@@ -93,9 +102,9 @@ class walking():
     def walk():
         player = input("Press 1 to walk: ")
         if player == "1":
-            combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
+            combat.combating(x, enemytype(random.choices(("1", "2","3","4","5","6"), (0.1,0.1,0.1,0.3,0.2,0.2))))
         else:
             print("<<|Achievement Unlocked: The Special One|>>")
 while True:
-    combat.combating(x, enemytype("1"), inventoryitem)
+    combat.combating(x, enemytype(random.choices(("1", "2","3","4","5","6"), (0.1,0.1,0.1,0.3,0.2,0.2))), inventoryitem)
     player=input()

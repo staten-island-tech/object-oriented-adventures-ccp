@@ -47,8 +47,8 @@
     },
     {
         "Head": "armorh1",
-        "Body": "armorba2",
-        "Leg": "armorl3",
+        "Body": "armorba1",
+        "Leg": "armorl1",
         "Toe": "armorb1",
         "Weapon": "sword1"
     },

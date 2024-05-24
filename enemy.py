@@ -5,6 +5,8 @@ with open("json/weapon.json", "r") as f:
     weaponstat=json.load(f)
 with open("json/armorstat.json", "r") as f:
     armorstat=json.load(f)
+with open("json/inventory.json", "r") as f:
+    inventory=json.load(f)
 class enemy():
     def __init__(self, name, health, attack, drops, moveset):
         self.name = name
@@ -48,6 +50,14 @@ def enemytype(e):
         return ProChef
 
 class combat():
+    def defensedisplay(armordefstat, inventory):
+        defense=0
+        for i in inventory[2]:
+            if not i =="Weapon":
+                defense+=armordefstat[0][inventory[2][i]]
+        return defense
+    def damageatakingcalculation(enemyattack, armordefstat, inventory):
+        return enemyattack/combat.defensedisplay(armordefstat, inventory)
     def combating(x, e, data):
         while x.health > 0 and e.health > 0:
             print(x.name, x.health)
@@ -80,10 +90,11 @@ class combat():
                 print(e.name,e.health)
                 print("you lose!!")
 
-class walking():
+""" class walking():
     def walk():
         player = input("Press 1 to walk: ")
         if player == "1":
             combat.combating(x, enemytype(random.choices(['1', '2','3','4','5','6'], (0.1,0.1,0.1,0.3,0.2,0.2))))
         else:
-            print("<<|Achievement Unlocked: The Special One|>>")
+            print("<<|Achievement Unlocked: The Special One|>>") """
+print(combat.damageatakingcalculation(20, armorstat, inventory))

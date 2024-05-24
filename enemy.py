@@ -25,6 +25,8 @@ def enemytype(e):
     Boss_Jamal = enemy("Jamal", 100, 50, 100, 
     ['''Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa'''])
 
+    Boss_Bobby_Moy = enemy("Bobby Moy", 300, 1500, 10000000000, ["The METAVERSE"])
+
     Homecook = enemy("Homecook", 20, 5, 5, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
 
     NormieChef = enemy("Chef", 50, 10, 30, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage"])

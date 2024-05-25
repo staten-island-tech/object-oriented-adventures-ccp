@@ -1,22 +1,20 @@
 import random
 import os
-import json
-with open("json/inventory.json", "r") as f:
-    data=json.load(f)
 class actionchoice():
-    def walking(distance_cover_total, weighted, enemytype):
-        distance_cover_total=distance_cover_total+1
-        os.system('cls')
-        if distance_cover_total==100:
-            print("boss")
-        else:
-            encounter=random.choices(enemytype, weighted)
-            print(encounter, distance_cover_total)
-  #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
+#This determine walking and walking encounter
+    def walking(characterstat, enemyencounter, weight_chance):
+            characterstat.total_step+=1
+            os.system('cls')
+            if characterstat.total_step==100:
+                print("boss")
+            else:
+                encounter=random.choices(enemyencounter, weight_chance)
+                print(encounter, characterstat.total_step)
+#THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
     def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon, data):
     #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif
         return data[3][tier_of_the_weapon][list(data[1][tier_of_the_weapon].keys()).index(what_kind_of_weapon)]
-  #This display item
+#This display item
     def inventorydisplay(data):
     #This is the inventory display
         for items in data[0]:
@@ -46,6 +44,7 @@ class actionchoice():
             return "bow"
         elif x=="5":
             return "pan"
+#This equid and unequid weapon and armor    
     def unequipandequipingweapon(player_choice, whereonbody, armortype, data):
         os.system('cls')
         if player_choice=="4":
@@ -61,12 +60,13 @@ class actionchoice():
             if data[1][f"tier{player_choice}eq"][armortype]>=1:
                 data[2][whereonbody]=f"{armortype}{player_choice}"
                 data[1][f"tier{player_choice}eq"][armortype]-=1
-                print(actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype),":",data[1][f"tier{player_choice}eq"][armortype], data)
+                print(actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype, data),":",data[1][f"tier{player_choice}eq"][armortype])
                 print(f"{whereonbody}: ",actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype, data))
             else:
                 print("You can't do that")
         else:
             print("You can't do that")
+#This combine the previous function together to create a unequid and equid armor and weapon
     def equip_and_unequip(data):
         player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Weapon\n6. Exit")
         os.system('cls')
@@ -74,23 +74,24 @@ class actionchoice():
             for tier in data[1]:
                 print(f"{tier[4]},", actionchoice.weaponamedisplay(tier, 'armorh', data), data[1][tier]['armorh'])
             player_choice=input("4. Uneqip\n5. Exit")
+            print(player_choice)
             actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorh', data)
-        if player_choice=="2":
+        elif player_choice=="2":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorba', data), data[1][tier]['armorba'])
             player_choice=input("4. Uneqip\n5. Exit")
-            actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorba', data)
-        if player_choice=="3":
+            actionchoice.unequipandequipingweapon(player_choice, 'Body', 'armorba', data)
+        elif player_choice=="3":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorl', data), data[1][tier]['armorl'])
             player_choice=input("4. Uneqip\n5. Exit")
-            actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorl', data)
-        if player_choice=="4":
+            actionchoice.unequipandequipingweapon(player_choice, 'Leg', 'armorl', data)
+        elif player_choice=="4":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorb', data), data[1][tier]['armorb'])
             player_choice=input("4. Uneqip\n5. Exit")
-            actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorb', data)
-        if player_choice=="5":
+            actionchoice.unequipandequipingweapon(player_choice, 'Toe', 'armorb', data)
+        elif player_choice=="5":
             print("1. Sword")
             print("2. Axe")
             print("3. Spear")
@@ -130,10 +131,11 @@ class actionchoice():
                         print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data))
                     else:
                         print("You can't do that")
-    def choice(total_step, weight_chance, enemyencounter, data):
+#This combo
+    def choice(characterstat, weight_chance, enemyencounter, data):
         player_choice=input("1. Walk\n2. Open inventory")
         if player_choice=="1":
-            actionchoice.walking(total_step, weight_chance, enemyencounter)
+            actionchoice.walking(characterstat, enemyencounter, weight_chance)
         else:
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)

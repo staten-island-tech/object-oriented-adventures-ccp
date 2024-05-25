@@ -24,6 +24,7 @@ def compare(z):
     else:
         print("Try again")
         return z 
+x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'))
 try:
     level=1
     menu_location="starting"
@@ -44,7 +45,6 @@ try:
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
         menu_location="stat_creation"
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'))
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")
             print(f"1. attack: {x.attack}")
@@ -72,7 +72,7 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
-            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter, data)
+            actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
 except:
     if not player_choice == "2":
         print("ERROR!!!!")

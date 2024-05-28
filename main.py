@@ -1,7 +1,8 @@
 import json
 import os
 import random
-from Characterdata import characterdata
+from characterandenemy import characterdata
+
 from actionyoucantake import actionchoice
 from enemyandcombat import combat
 ## Open the JSON file of movie data

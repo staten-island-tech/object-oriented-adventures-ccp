@@ -1,0 +1,19 @@
+[
+    {
+        "healing": {
+            "Blue Berry": 5,
+            "Boil Egg": 10,
+            "Chicken Nugget": 15
+        },
+        "attack": {
+            "Salt": 5,
+            "Pot of boil water": 10,
+            "Pepper": 15
+        },
+        "buff": {
+            "Vitanims": 1,
+            "Coffee": 2,
+            "Sugar Cube I thinking????": 3
+        }
+    }
+]

@@ -2,11 +2,14 @@ import json
 import os
 import random
 from Characterdata import characterdata
-from action import actionchoice
+from actionyoucantake import actionchoice
+from enemyandcombat import combat
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 playerstatpoint=60
 player_choice="none"
+with open("json/inventory.json", "r") as f:
+    data=json.load(f)
 def compare(z):
     global playerstatpoint
     add_minus=int(input("How much point do you want to spend?: "))
@@ -21,11 +24,11 @@ def compare(z):
     else:
         print("Try again")
         return z 
+x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'))
 try:
     level=1
-    game_life=100
     menu_location="starting"
-    while game_life>=1:
+    while True:
         print("The story of the MSG King")
         print("1. Start game")
         print("2. End game")
@@ -42,7 +45,6 @@ try:
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
         menu_location="stat_creation"
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'))
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")
             print(f"1. attack: {x.attack}")
@@ -70,9 +72,9 @@ try:
                 menu_location="Game_start"
             os.system('cls')
         while True:
-            actionchoice.choice(x.total_step, x.weight_chance, x.enemyencounter)
+            actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
 except:
     if not player_choice == "2":
         print("ERROR!!!!")
     if not player_choice=="2":
-        print("<<|Achievement Unlocked: The Special One|>>")
+        print("<<|Achievement Unlocked: Stop breaking intendly|>>")

@@ -1,7 +1,7 @@
 import json
 import os
 import random
-from Characterdata import characterdata
+from characterandenemy import characterdata
 from actionyoucantake import actionchoice
 from enemyandcombat import combat
 ## Open the JSON file of movie data
@@ -24,7 +24,6 @@ def compare(z):
     else:
         print("Try again")
         return z 
-x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'))
 try:
     level=1
     menu_location="starting"
@@ -32,11 +31,11 @@ try:
         print("The story of the MSG King")
         print("1. Start game")
         print("2. End game")
-        print(player_choice)
         player_choice=input("input: ")
         os.system('cls')
         if player_choice=="1":
             name=input("What's your name: ")
+            os.system('cls')
         if player_choice=="2":
             print("Thank for playing this very amazing game about the CCP")
             quit()
@@ -44,6 +43,7 @@ try:
         print("Your goal is simple.")
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
+        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), {name})
         menu_location="stat_creation"
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")
@@ -68,8 +68,11 @@ try:
                 x.score_mutipler=compare(x.score_mutipler)
             elif player_choice=="6":
                 x.intellgence=compare(x.intellgence)
-            elif player_choice=="7":
+            elif player_choice=="7" and playerstatpoint==0:
                 menu_location="Game_start"
+            else:
+                print("You can't do that")
+                e=input("")
             os.system('cls')
         while True:
             actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)

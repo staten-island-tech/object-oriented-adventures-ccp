@@ -113,5 +113,8 @@
             "Pantcake",
             "Rain boot"
         ]
+    },
+    {
+        "coin": 0
     }
 ]

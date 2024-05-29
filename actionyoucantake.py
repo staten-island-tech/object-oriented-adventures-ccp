@@ -17,20 +17,23 @@ class actionchoice():
 #This display item
     def inventorydisplay(data):
     #This is the inventory display
+        print("Items")
         for items in data[0]:
             print(f"{items}: {data[0][items]}")
     #This display armor and weapons
+        print("Weapon and armor you have")
         for tier_of_weapon in data[1]:
       #This show us the index number so you can check the list of name
       #the first is the name of the weapon, just enter tier of weapon and the type of weapon
             for weapon in data[1][tier_of_weapon]:  
                 print(f"{actionchoice.weaponamedisplay(tier_of_weapon, weapon, data)}: {data[1][tier_of_weapon][weapon]}")
+        print("Armor and Weapon Equid")
         for armor_and_weapon_equiped in data[2]:
       #This check the tier of the armor and the type of armor
             x=[i for i in data[2][armor_and_weapon_equiped] if i.isdigit()]
             weapon=''.join([i for i in data[2][armor_and_weapon_equiped] if not i.isdigit()])
             if not len(x)==0 and not weapon=="none":
-                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data))
+                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data) + "defense:" + )
             else:
                 print(armor_and_weapon_equiped, data[2][armor_and_weapon_equiped])
     def weaponchecktypedisplay(x):
@@ -74,7 +77,6 @@ class actionchoice():
             for tier in data[1]:
                 print(f"{tier[4]},", actionchoice.weaponamedisplay(tier, 'armorh', data), data[1][tier]['armorh'])
             player_choice=input("4. Uneqip\n5. Exit")
-            print(player_choice)
             actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorh', data)
         elif player_choice=="2":
             for tier in data[1]:
@@ -131,9 +133,10 @@ class actionchoice():
                         print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data))
                     else:
                         print("You can't do that")
-#This combo
+#This combine everything to create the ult walking sim
     def choice(characterstat, weight_chance, enemyencounter, data):
         player_choice=input("1. Walk\n2. Open inventory")
+        os.system('cls')
         if player_choice=="1":
             actionchoice.walking(characterstat, enemyencounter, weight_chance)
         else:

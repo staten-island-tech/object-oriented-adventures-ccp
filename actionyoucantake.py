@@ -1,5 +1,10 @@
 import random
 import os
+import json
+with open("json/weapon.json", "r") as f:
+    weaponstat=json.load(f)
+with open("json/armorstat.json", "r") as f:
+    armorstat=json.load(f)
 class actionchoice():
 #This determine walking and walking encounter
     def walking(characterstat, enemyencounter, weight_chance):
@@ -7,9 +12,19 @@ class actionchoice():
             os.system('cls')
             if characterstat.total_step==100:
                 print("boss")
+                characterstat.total_step=0
+                characterstat.worldtype+=1
             else:
                 encounter=random.choices(enemyencounter, weight_chance)
                 print(encounter, characterstat.total_step)
+            if characterstat.worldtype==1:
+                print("MSG mountains")
+            elif characterstat.worldtype==2:
+                print("Jaciamica")
+            elif characterstat.worldtype==3:
+                print("Hell Kitchen")
+            else:
+                print("The Metaverse")
 #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
     def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon, data):
     #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif
@@ -33,9 +48,9 @@ class actionchoice():
             x=[i for i in data[2][armor_and_weapon_equiped] if i.isdigit()]
             weapon=''.join([i for i in data[2][armor_and_weapon_equiped] if not i.isdigit()])
             if not len(x)==0 and not weapon=="none":
-                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data) + "defense:" + )
+                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data) + "defense:" + armorstat[0][data[2][data[2][armor_and_weapon_equiped]]])
             else:
-                print(armor_and_weapon_equiped, data[2][armor_and_weapon_equiped])
+                print(armor_and_weapon_equiped, data[2][armor_and_weapon_equiped]+"attack:"+armorstat[0][data[2][data[2][armor_and_weapon_equiped]]])
     def weaponchecktypedisplay(x):
         if x=="1":
             return "sword"

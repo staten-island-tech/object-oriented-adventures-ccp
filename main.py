@@ -43,7 +43,7 @@ try:
         print("Your goal is simple.")
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), {name})
+        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), {name}, 1)
         menu_location="stat_creation"
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")

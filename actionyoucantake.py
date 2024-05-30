@@ -11,9 +11,9 @@ class actionchoice():
             characterstat.total_step+=1
             os.system('cls')
             if characterstat.total_step==100:
-                print("boss")
                 characterstat.total_step=0
                 characterstat.worldtype+=1
+                return "boss"
             else:
                 encounter=random.choices(enemyencounter, weight_chance)
                 print(encounter, characterstat.total_step)

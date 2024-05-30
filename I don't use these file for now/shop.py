@@ -35,7 +35,7 @@ while True:
     new_pokemon = ingredients(name, price, description)
     poop.append(new_pokemon.__dict__)
     addanotherpokemon = input("Do you want to make another pokemon? y/n: ")
-    if addanotherpokemon.upper() != "y":
+    if addanotherpokemon.upper() != "Y":
         break
 
 new_file = "updated.json"

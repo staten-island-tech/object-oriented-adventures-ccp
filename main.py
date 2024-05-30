@@ -36,9 +36,11 @@ try:
         if player_choice=="1":
             name=input("What's your name: ")
             os.system('cls')
-        if player_choice=="2":
+        elif player_choice=="2":
             print("Thank for playing this very amazing game about the CCP")
             quit()
+        else:
+            print("Achievement Unlocked <<|The Special One|>>")
         print(f"Hello, {name}")
         print("Your goal is simple.")
         print("You have to defeat all of the enemies and rescue the CCP.")

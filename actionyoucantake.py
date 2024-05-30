@@ -1,22 +1,25 @@
 import random
 import os
 import json
+from characterandenemy import characterdata
+from enemyandcombat import combat
 with open("json/weapon.json", "r") as f:
     weaponstat=json.load(f)
 with open("json/armorstat.json", "r") as f:
     armorstat=json.load(f)
 class actionchoice():
 #This determine walking and walking encounter
-    def walking(characterstat, enemyencounter, weight_chance):
+    def walking(characterstat, enemyencounter, weight_chance, inven):
             characterstat.total_step+=1
             os.system('cls')
             if characterstat.total_step==100:
+                combat.combating(characterstat, characterdata.enemytypestat(characterdata.worldtype, "Boss"), inven)
                 characterstat.total_step=0
                 characterstat.worldtype+=1
-                return "boss"
+                characterdata.enemytypestat(characterdata.worldtype, encounter, inven)
             else:
                 encounter=random.choices(enemyencounter, weight_chance)
-                print(encounter, characterstat.total_step)
+                combat.combating(characterstat, characterdata.enemytypestat(characterdata.worldtype, encounter), inven)
             if characterstat.worldtype==1:
                 print("MSG mountains")
             elif characterstat.worldtype==2:

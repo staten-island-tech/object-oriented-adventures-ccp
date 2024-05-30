@@ -73,6 +73,7 @@ class combat():
                 print(x.name,x.health)
                 print(e.name,e.health)
                 print("you won!!")
+                
             else:
                 print(x.name,x.health)
                 print(e.name,e.health)

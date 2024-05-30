@@ -1,9 +1,10 @@
 class enemy():
-    def __init__(self, name, health, attack, coins):
+    def __init__(self, name, health, attack, coins, moveset):
         self.name = name
         self.health = health
         self.attack = attack
         self.coins = coins
+        self.moveset=moveset
 class characterdata(enemy):
     def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name):
         super().__init__(name, health, attack)
@@ -21,18 +22,26 @@ class characterdata(enemy):
         if typenumber=="Boss":
             if worldtype=="4":
                 Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 200, 999, 1000, ["ITS RAW!!","IDOT SANDWITCH", "YOU donkey"])
+                return Boss_Gordon_Ramsey
             elif worldtype=="3":
                 Boss_Uncle_Roger=enemy("Uncle Roger", 150, 999, 1500, ["MSG", "FUI YOH!!", "AIYA", "You a Failure"])
+                return Boss_Uncle_Roger
             elif worldtype=="2":
                 Boss_Jamal=enemy("Jamal", 100, 999, 1, ["Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa"])
+                return Boss_Jamal
             else:
                 pan_cheng=enemy("Pan Cheng", 50, 999, 40000)
+                return pan_cheng
         if typenumber=="Weak":
             if worldtype=="1":
                 Homecook = enemy("Homecook", 20, 5, 100, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
+                return Homecook
             elif worldtype=="2":
                 NormieChef = enemy("Chef", 50, 10, 200, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage"])
+                return NormieChef
             elif worldtype=="3":
                 JamaicanChef = enemy("Jamaican Chef", 50, 10, 230, ["Wagwann bossman"])
+                return JamaicanChef
             elif worldtype=="4":
                 ProChef = enemy("Advanced Chef", 75, 20, 500, ["I am Pro Chef"])
+                return ProChef

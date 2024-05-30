@@ -19,20 +19,22 @@ class characterdata(enemy):
         return f"{self.attack}, {self.defense}, {self.health}, {self.rizz}, {self.score_mutipler}, {self.intellgence}, {self.total_step}, {self.weight_chance}, {self.enemyencounter}, {self.name}"
     def enemytypestat(worldtype, typenumber):
         if typenumber=="Boss":
-            if worldtype=="4":
-                Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 200, 999, 1000, ["ITS RAW!!","IDOT SANDWITCH", "YOU donkey"])
-            elif worldtype=="3":
+            if worldtype==3:
+                Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 200, 999, 1750, ["ITS RAW!!","IDOT SANDWITCH", "YOU donkey"])
+            elif worldtype==4:
+                Boss_Pan_Cheng = enemy("Pan Cheng", 300, 1000, 2000, ["Ohh be quiet", "sign out shut down", "close your chromebook"])
+            elif worldtype==1:
                 Boss_Uncle_Roger=enemy("Uncle Roger", 150, 999, 1500, ["MSG", "FUI YOH!!", "AIYA", "You a Failure"])
-            elif worldtype=="2":
+            elif worldtype==2:
                 Boss_Jamal=enemy("Jamal", 100, 999, 1, ["Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa"])
             else:
                 pan_cheng=enemy("Pan Cheng", 50, 999, 40000)
         if typenumber=="Weak":
-            if worldtype=="1":
+            if worldtype==1:
                 Homecook = enemy("Homecook", 20, 5, 100, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
-            elif worldtype=="2":
+            elif worldtype==2:
                 NormieChef = enemy("Chef", 50, 10, 200, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage"])
-            elif worldtype=="3":
+            elif worldtype==3:
                 JamaicanChef = enemy("Jamaican Chef", 50, 10, 230, ["Wagwann bossman"])
-            elif worldtype=="4":
+            elif worldtype==4:
                 ProChef = enemy("Advanced Chef", 75, 20, 500, ["I am Pro Chef"])

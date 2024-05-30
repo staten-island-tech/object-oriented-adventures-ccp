@@ -69,7 +69,7 @@ class combat():
                     print("Rizz failed due to too little rizz you ugly")
                     x.health -= combat.damagetakencalcaltor(e.attack, inventory)*3
         else:
-            if x.health > e.health:
+            if x.health > 0 and e.health <=0:
                 print(x.name,x.health)
                 print(e.name,e.health)
                 print("you won!!")

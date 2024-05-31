@@ -13,7 +13,7 @@ with open("json/itemstatuseffect.json", "r") as f:
 class combat():
 #This calculate the amount of damage your enemy take    
     def damagedealcal(attack, inventory, buff_amount, defenseofenemy):
-        return (attack*weaponstat[0][inventory[2]["Weapon"]]*buff_amount)/defenseofenemy
+        return (attack*weaponstat[0][inventory[2]["Weapon"]]*buff_amount)
 #This calculate the amount of damage you take    
     def damagetakencalcaltor(enemy_attack, inventory):
         x=[armorstat[0][inventory[2][i]] for i in inventory[2] if not i =="Weapon" if not inventory[2][i]=="none"]
@@ -43,21 +43,20 @@ class combat():
                 print(f"{number_selection+1}, Exit")
                 listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
                 player_choice=input("What do you want to do?")
-                for i in itemstatuseffect:
-                    for x in i:
-                        for y in itemstatuseffect[0][x]:
-                            if y == listofitemuseable[int(player_choice)-1]:
-                                if x == 'healing':
-                                    x.health+=itemstatuseffect[0][x][y]
-                                    pass
-                                elif x == 'attack':
-                                    e.health-=itemstatuseffect[0][x][y]
-                                    pass
-                                else:
-                                    buff_amount+=itemstatuseffect[0][x][y]
-                if int(player_choice)<=number_selection:
+                if int(player_choice)<=number_selection:    
                     for i in itemstatuseffect:
-                        print(i)
+                        for j in i:
+                            for y in itemstatuseffect[0][j]:
+                                if y == listofitemuseable[int(player_choice)-1]:
+                                    if j == 'healing':
+                                        x.health+=itemstatuseffect[0][j][y]
+                                        inventory[0][listofitemuseable[int(player_choice)-1]]-=1
+                                    elif j == 'attack':
+                                        e.health-=itemstatuseffect[0][j][y]
+                                        inventory[0][listofitemuseable[int(player_choice)-1]]-=1
+                                    else:
+                                        buff_amount+=itemstatuseffect[0][j][y]
+                                        inventory[0][listofitemuseable[int(player_choice)-1]]-=1
                 else:
                     pass
             elif player == "4":
@@ -69,10 +68,13 @@ class combat():
                     print("Rizz failed due to too little rizz you ugly")
                     x.health -= combat.damagetakencalcaltor(e.attack, inventory)*3
         else:
-            if x.health > e.health:
+            if x.health > 0 and e.health <=0:
                 print(x.name,x.health)
                 print(e.name,e.health)
+                x.exp+=e.exp
+                inventory[4]['coin']+=e.coin
                 print("you won!!")
+                
             else:
                 print(x.name,x.health)
                 print(e.name,e.health)

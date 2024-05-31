@@ -1,16 +1,19 @@
 import random
 import os
+from enemyandcombat import combat
+from characterandenemy import characterdata
+from shop import shop
 class actionchoice():
 #This determine walking and walking encounter
-    def walking(characterstat, enemyencounter, weight_chance):
+    def walking(characterstat, enemyencounter, weight_chance, inven):
             characterstat.total_step+=1
             os.system('cls')
             if characterstat.total_step==100:
-                print("boss")
-
+                combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, "Boss"),inven)
+                characterstat.worldtype+=1
+                characterstat.total_step=0
             else:
-                encounter=random.choices(enemyencounter, weight_chance)
-                print(encounter, characterstat.total_step)
+                combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, random.choices(enemyencounter, weight_chance)),inven)
 #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
     def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon, data):
     #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif
@@ -132,11 +135,13 @@ class actionchoice():
                         print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data))
                     else:
                         print("You can't do that")
-#This combo
+#This is where all the stuff go
     def choice(characterstat, weight_chance, enemyencounter, data):
-        player_choice=input("1. Walk\n2. Open inventory")
+        player_choice=input("1. Walk\n2. Open inventory\n3. Shop")
         if player_choice=="1":
-            actionchoice.walking(characterstat, enemyencounter, weight_chance)
-        else:
+            actionchoice.walking(characterstat, enemyencounter, weight_chance, data)
+        elif player_choice=="2":
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)
+        else:
+            shop.shop(data)

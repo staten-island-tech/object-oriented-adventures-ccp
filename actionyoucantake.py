@@ -13,7 +13,10 @@ class actionchoice():
                 characterstat.worldtype+=1
                 characterstat.total_step=0
             else:
-                combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, random.choices(enemyencounter, weight_chance)),inven)
+                e=random.choices(enemyencounter, weight_chance)
+                print(e)
+                print(characterdata.enemytypestat(characterstat.worldtype, e))
+                combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, e[0]),inven)
 #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
     def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon, data):
     #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif

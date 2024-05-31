@@ -22,39 +22,56 @@ class characterdata(enemy):
     def enemytypestat(worldtype, typenumber):
         if typenumber=="Boss":
             if worldtype==3:
-                Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 100000, 50000, 1750, ["ITS RAW!!","IDOT SANDWITCH", "YOU donkey"])
+                Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 100000, 50000, 1750, 480, 3000)
+                return Boss_Gordon_Ramsey
             elif worldtype==4:
-                Boss_Pan_Cheng = enemy("Pan Cheng", 200000, 75000, 2000, ["Ohh be quiet", "sign out shut down", "close your chromebook"])
+                Boss_Pan_Cheng = enemy("Pan Cheng", 200000, 75000, 2000, 600, 4500)
+                return Boss_Pan_Cheng
             elif worldtype==1:
-                Boss_Uncle_Roger=enemy("Uncle Roger", 20000, 10000, 1500, ["MSG", "FUI YOH!!", "AIYA", "You a Failure"])
-            elif worldtype==2:
-                Boss_Jamal=enemy("Jamal", 75000, 25000, 1, ["Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa"])
+                Boss_Uncle_Roger=enemy("Uncle Roger", 20000, 10000, 1500, 240, 1000)
+                return Boss_Uncle_Roger
+            else:
+                Boss_Jamal=enemy("Jamal", 75000, 25000, 1, 360, 2000)
+                return Boss_Jamal
         elif typenumber=="a":
             if worldtype==1:
-                Homecook = enemy("Homecook", 20, 5, 100, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])
+                Homecook = enemy("Homecook", 20, 5, 100, 1, 10)
+                return Homecook
             elif worldtype==2:
-                NormieChef = enemy("Chef", 50, 10, 200, ["I'm putting my blood, sweat, and tears into this 9-5 for minimum wage"])
+                NormieChef = enemy("Chef", 50, 10, 200, 4, 40)
+                return NormieChef
             elif worldtype==3:
-                JamaicanChef = enemy("Jamaican Chef", 70, 15, 230, ["Wagwann bossman"])
-            elif worldtype==4:
-                ProChef = enemy("Advanced Chef", 75, 20, 500, ["I am Pro Chef"])
+                JamaicanChef = enemy("Jamaican Chef", 70, 15, 230, 7, 70)
+                return JamaicanChef
+            else:
+                ProChef = enemy("Advanced Chef", 75, 20, 500, 10, 100)
+                return ProChef
         elif typenumber=="b":
             if worldtype == 1:
-                NoobChef = enemy("Noob Chef", 50, 20, 125)
+                NoobChef = enemy("Noob Chef", 50, 20, 125, 2, 20)
+                return NoobChef
             elif worldtype == 2:
-                ThreeStarChef = enemy("3 Star Chef", 70, 25, 250)
+                ThreeStarChef = enemy("3 Star Chef", 70, 25, 250, 5, 50)
+                return ThreeStarChef
             elif worldtype == 3:
-                JamalJr = enemy("Jamal Jr.", 100, 30, 300)
-            elif worldtype == 4:
-                FiveStarChef = enemy("5 Star Chef", 100, 30, 400)
+                JamalJr = enemy("Jamal Jr.", 100, 30, 300, 8, 80)
+                return JamalJr
+            else:
+                FiveStarChef = enemy("5 Star Chef", 100, 30, 400, 11, 110)
+                return FiveStarChef
         elif typenumber =="c":
             if worldtype == 1:
-                ChinaChef = enemy("Chinese Chef", 70, 30, 150)
+                ChinaChef = enemy("Chinese Chef", 70, 30, 150, 3, 30)
+                return ChinaChef
             elif worldtype ==2:
-                FourStarChef = enemy("4.99999 Star Chef", 100, 40, 300)
+                FourStarChef = enemy("4.99999 Star Chef", 100, 40, 300, 6, 60)
+                return FourStarChef
             elif worldtype ==3:
-                LebronJames = enemy("Lebron James", 150, 50, 350)
-            elif worldtype ==4:
-                MasterChef = enemy("Master Chef", 200, 100, 600)
+                LebronJames = enemy("Lebron James", 150, 50, 350, 9, 90)
+                return LebronJames
+            else:
+                MasterChef = enemy("Master Chef", 200, 100, 600, 12, 120)
+                return MasterChef
 #this # doesn't mean anythhing, just for updating
 #Attempt2
+#It work

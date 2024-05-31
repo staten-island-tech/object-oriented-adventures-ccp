@@ -12,13 +12,13 @@ with open("json/itemstatuseffect.json", "r") as f:
 #This is the combat system
 class combat():
 #This calculate the amount of damage your enemy take    
-    def damagedealcal(attack, inventory, buff_amount, defenseofenemy):
+    def damagedealcal(attack, inventory, buff_amount):
         return (attack*weaponstat[0][inventory[2]["Weapon"]]*buff_amount)
 #This calculate the amount of damage you take    
-    def damagetakencalcaltor(enemy_attack, inventory):
+    def damagetakencalcaltor(enemy_attack, inventory, x):
         x=[armorstat[0][inventory[2][i]] for i in inventory[2] if not i =="Weapon" if not inventory[2][i]=="none"]
         y=sum(x)
-        return math.ceil(enemy_attack/y)
+        return math.ceil(enemy_attack/(y*x))
 #This combine everything to make a working combat system
     def combating(x, e, inventory):
         buff_amount=1
@@ -28,9 +28,9 @@ class combat():
             player = input("1. Attack\n2. Retreat\n3. Use item\n4. Rizz")
             if player == "1":
                 e.health -= combat.damagedealcal(x.attack, inventory, buff_amount, e.defense)
-                x.health -= combat.damagetakencalcaltor(e.attack, inventory)
+                x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)
             elif player == "2":
-                x.health -= combat.damagetakencalcaltor(e.attack, inventory)*5
+                x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*5
                 break
             elif player == "3":
                 number_selection=0
@@ -60,13 +60,12 @@ class combat():
                 else:
                     pass
             elif player == "4":
-                z = random.randint(1,1000)
-                if x.rizz >= random.randint:
+                if x.rizz >= random.randint(1,1000):
                     print("You have successfully rizzed up",e.name)
                     break
                 else:
                     print("Rizz failed due to too little rizz you ugly")
-                    x.health -= combat.damagetakencalcaltor(e.attack, inventory)*3
+                    x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*3
         else:
             if x.health > 0 and e.health <=0:
                 print(x.name,x.health)

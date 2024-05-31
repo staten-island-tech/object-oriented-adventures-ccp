@@ -15,14 +15,14 @@ def compare(z):
         z+=add_minus
         playerstatpoint-=add_minus
         return z
-    elif abs(add_minus) <= z and add_minus<=0:
+    elif abs(add_minus) <= z-1 and add_minus<=0:
         z+=add_minus
         playerstatpoint-=add_minus
         return z
     else:
         print("Try again")
         return z 
-try:
+def testing():
     level=1
     menu_location="starting"
     while True:
@@ -41,7 +41,7 @@ try:
         print("Your goal is simple.")
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, "haha", "lol")
+        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 1, 1)
         menu_location="stat_creation"
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")
@@ -49,8 +49,8 @@ try:
             print(f"2. defense: {x.defense}")
             print(f"3. health: {x.health}")
             print(f"4. rizz: {x.rizz}")
-            print(f"5. score mutipler: {x.score_mutipler}")
-            print(f"6. intellgence: {x.intellgence}")
+            print(f"5. Coin mutipler: {x.score_mutipler}")
+            print(f"6. Barter: {x.intellgence}")
             print("7. Start the game")
             player_choice=input("Select the stat you want to change: ")
             os.system('cls')
@@ -74,8 +74,9 @@ try:
             os.system('cls')
         while True:
             actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
-except:
+testing()
+""" except:
     if not player_choice == "2":
         print("ERROR!!!!")
     if not player_choice=="2":
-        print("<<|Achievement Unlocked: Stop breaking intendly|>>")
+        print("<<|Achievement Unlocked: Stop breaking intendly|>>") """

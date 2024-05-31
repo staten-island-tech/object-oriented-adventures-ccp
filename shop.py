@@ -40,7 +40,7 @@ class shop():
                             iven[4]['coin']-=int(i['price'])
                             iven[0][i['name']]+=1
                             print(f"You bought 1 {i['name']}")
-        if player=="2":
+        elif player=="2":
             numberselection=0
             for i in helpme2thebetterone[0]:
                 for j in helpme2thebetterone[0][i]:

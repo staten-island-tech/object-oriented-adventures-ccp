@@ -13,11 +13,14 @@ with open("json/itemstatuseffect.json", "r") as f:
 class combat():
 #This calculate the amount of damage your enemy take    
     def damagedealcal(attack, inventory, buff_amount):
-        return (attack*weaponstat[0][inventory[2]["Weapon"]]*buff_amount)
+        if not inventory[2]["Weapon"]=="none":
+            return (attack*weaponstat[0][inventory[2]["Weapon"]]*buff_amount)
+        else:
+            return attack
 #This calculate the amount of damage you take    
     def damagetakencalcaltor(enemy_attack, inventory, x):
-        x=[armorstat[0][inventory[2][i]] for i in inventory[2] if not i =="Weapon" if not inventory[2][i]=="none"]
-        y=sum(x)
+        z=[armorstat[0][inventory[2][i]] for i in inventory[2] if not i =="Weapon" if not inventory[2][i]=="none"]
+        y=sum(z)
         return math.ceil(enemy_attack/(y*x))
 #This combine everything to make a working combat system
     def combating(x, e, inventory):
@@ -27,7 +30,7 @@ class combat():
             print(e.name, e.health)
             player = input("1. Attack\n2. Retreat\n3. Use item\n4. Rizz")
             if player == "1":
-                e.health -= combat.damagedealcal(x.attack, inventory, buff_amount, e.defense)
+                e.health -= combat.damagedealcal(x.attack, inventory, buff_amount)*x.attack
                 x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)
             elif player == "2":
                 x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*5
@@ -70,6 +73,7 @@ class combat():
             if x.health > 0 and e.health <=0:
                 print(x.name,x.health)
                 print(e.name,e.health)
+                print(x.exp)
                 x.exp+=e.exp
                 inventory[4]['coin']+=e.coin
                 print("you won!!")

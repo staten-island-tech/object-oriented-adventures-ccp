@@ -7,8 +7,8 @@ class enemy():
         self.coin=coin
         self.exp=exp
 class characterdata(enemy):
-    def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp):
-        super().__init__(name, health, attack, defense, exp)
+    def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, coin, exp):
+        super().__init__(name, health, attack, defense, coin, exp)
         self.rizz=rizz
         self.score_mutipler=score_mutipler
         self.intellgence=intellgence

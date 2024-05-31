@@ -22,16 +22,7 @@ def compare(z):
     else:
         print("Try again")
         return z 
-def level_checker(exp):
-    level=1
-    while exp/(level*level*level)>=1 and not exp/(level*level*level)<2:
-        level+=1
-    print(level)
-level_checker(300)
 #(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp)
-x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.5, 0.3, 0.2), ("a", "b", "c"), "Alex", 1, 1000)
-while True:
-    actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
 try:
     level=1
     menu_location="starting"
@@ -51,7 +42,7 @@ try:
         print("Your goal is simple.")
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1)
+        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 0)
         menu_location="stat_creation"
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")

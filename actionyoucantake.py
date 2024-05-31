@@ -2,6 +2,7 @@ import random
 import os
 from enemyandcombat import combat
 from characterandenemy import characterdata
+from shop import shop
 class actionchoice():
 #This determine walking and walking encounter
     def walking(characterstat, enemyencounter, weight_chance, inven):
@@ -136,9 +137,11 @@ class actionchoice():
                         print("You can't do that")
 #This is where all the stuff go
     def choice(characterstat, weight_chance, enemyencounter, data):
-        player_choice=input("1. Walk\n2. Open inventory")
+        player_choice=input("1. Walk\n2. Open inventory\n3. Shop")
         if player_choice=="1":
             actionchoice.walking(characterstat, enemyencounter, weight_chance, data)
-        else:
+        elif player_choice=="2":
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)
+        else:
+            shop.shop(data)

@@ -20,13 +20,13 @@ class characterdata(enemy):
     def enemytypestat(worldtype, typenumber):
         if typenumber=="Boss":
             if worldtype==3:
-                Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 100000, 999, 1750, ["ITS RAW!!","IDOT SANDWITCH", "YOU donkey"])
+                Boss_Gordon_Ramsey=enemy("Gordon Ramsey", 100000, 50000, 1750, ["ITS RAW!!","IDOT SANDWITCH", "YOU donkey"])
             elif worldtype==4:
-                Boss_Pan_Cheng = enemy("Pan Cheng", 200000, 1000, 2000, ["Ohh be quiet", "sign out shut down", "close your chromebook"])
+                Boss_Pan_Cheng = enemy("Pan Cheng", 200000, 75000, 2000, ["Ohh be quiet", "sign out shut down", "close your chromebook"])
             elif worldtype==1:
-                Boss_Uncle_Roger=enemy("Uncle Roger", 20000, 999, 1500, ["MSG", "FUI YOH!!", "AIYA", "You a Failure"])
+                Boss_Uncle_Roger=enemy("Uncle Roger", 20000, 10000, 1500, ["MSG", "FUI YOH!!", "AIYA", "You a Failure"])
             elif worldtype==2:
-                Boss_Jamal=enemy("Jamal", 75000, 999, 1, ["Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa"])
+                Boss_Jamal=enemy("Jamal", 75000, 25000, 1, ["Tsamina mina, eh, eh\n Waka waka, eh, eh\n Tsamina mina zangalewa,\n This time for Africa"])
         elif typenumber=="a":
             if worldtype==1:
                 Homecook = enemy("Homecook", 20, 5, 100, ["Struggle Meal Ramen", "Microwaved Cheese Sandwich", "Burnt Fire Alarm"])

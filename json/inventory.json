@@ -4,11 +4,11 @@
         "Boil Egg": 1,
         "Chicken Nugget": 0,
         "Salt": 0,
-        "Jerk Chicken": 0,
+        "Jerk Chicken": 10000,
         "Pepper": 0,
         "Vitanims": 0,
         "Coffee": 0,
-        "Sugar Cube I thinking????": 0
+        "MSG": 100000
     },
     {
         "tier1eq": {

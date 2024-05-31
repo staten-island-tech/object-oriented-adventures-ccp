@@ -22,6 +22,16 @@ def compare(z):
     else:
         print("Try again")
         return z 
+def level_checker(exp):
+    level=1
+    while exp/(level*level*level)>=1 and not exp/(level*level*level)<2:
+        level+=1
+    print(level)
+level_checker(300)
+#(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp)
+x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.5, 0.3, 0.2), ("a", "b", "c"), "Alex", 1, 1000)
+while True:
+    actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
 try:
     level=1
     menu_location="starting"
@@ -72,6 +82,7 @@ try:
         while True:
             actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
 except:
+    pass
     if not player_choice == "2":
         print("ERROR!!!!")
     if not player_choice=="2":

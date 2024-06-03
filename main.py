@@ -4,62 +4,63 @@ from characterandenemy import characterdata
 from actionyoucantake import actionchoice
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
-playerstatpoint=60
+playerstatpoint=100
 player_choice="none"
 with open("json/inventory.json", "r") as f:
     data=json.load(f)
-def compare(z):
-    global playerstatpoint
-    add_minus=int(input("How much point do you want to spend?: "))
-    os.system('cls')
-    if add_minus <= playerstatpoint and add_minus >=1:
-        z+=add_minus
-        playerstatpoint-=add_minus
-        return z
-    elif abs(add_minus) <= z-1 and add_minus<=0:
-        z+=add_minus
-        playerstatpoint-=add_minus
-        return z
-    else:
-        print("Try again")
-        return z 
-def leveldetermine(characterstat):
-    while characterstat.exp>=characterstat.level*characterstat.level*characterstat.level:
-        characterstat.level+=1
+class itsclassingtime():
+    def compare(z):
         global playerstatpoint
-        playerstatpoint+=1
-def playerstatpoint_selection(x):
-    global playerstatpoint
-    while playerstatpoint >=1:
-        print(f"Point to spend: {playerstatpoint}")
-        print(f"1. attack: {x.attack}")
-        print(f"2. defense: {x.defense}")
-        print(f"3. health: {x.health}")
-        print(f"4. rizz: {x.rizz}")
-        print(f"5. Coin mutipler: {x.score_mutipler}")
-        print(f"6. Barter: {x.intellgence}")
-        print("7. Countine the game")
-        player_choice=input("Select the stat you want to change: ")
+        add_minus=int(input("How much point do you want to spend?: "))
         os.system('cls')
-        if player_choice=="1":
-            x.attack=compare(x.attack)
-        elif player_choice=="2":
-            x.defense=compare(x.defense)
-        elif player_choice=="3":
-            x.health=compare(x.health)
-        elif player_choice=="4":
-            x.rizz=compare(x.rizz)
-        elif player_choice=="5":
-            x.score_mutipler=compare(x.score_mutipler)
-        elif player_choice=="6":
-            x.intellgence=compare(x.intellgence)
-        elif player_choice=="7" and playerstatpoint==0:
-            break
+        if add_minus <= playerstatpoint and add_minus >=1:
+            z+=add_minus
+            playerstatpoint-=add_minus
+            return z
+        elif abs(add_minus) <= z-1 and add_minus<=0:
+            z+=add_minus
+            playerstatpoint-=add_minus
+            return z
         else:
-            print("You can't do that")
-            e=input("")
-        os.system('cls')
-def testing():
+            print("Try again")
+            return z 
+    def leveldetermine(characterstat):
+        while characterstat.exp>=characterstat.level*characterstat.level:
+            characterstat.level+=1
+            global playerstatpoint
+            playerstatpoint+=1
+    def playerstatpoint_selection(x):
+        global playerstatpoint
+        while playerstatpoint >=1:
+            print(f"Point to spend: {playerstatpoint}")
+            print(f"1. attack: {x.attack}")
+            print(f"2. defense: {x.defense}")
+            print(f"3. health: {x.health}")
+            print(f"4. rizz: {x.rizz}")
+            print(f"5. Coin mutipler: {x.score_mutipler}")
+            print(f"6. Barter: {x.intellgence}")
+            print("7. Countine the game")
+            player_choice=input("Select the stat you want to change: ")
+            os.system('cls')
+            if player_choice=="1":
+                x.attack=itsclassingtime.compare(x.attack)
+            elif player_choice=="2":
+                x.defense=itsclassingtime.compare(x.defense)
+            elif player_choice=="3":
+                x.health=itsclassingtime.compare(x.health)
+            elif player_choice=="4":
+                x.rizz=itsclassingtime.compare(x.rizz)
+            elif player_choice=="5":
+                x.score_mutipler=itsclassingtime.compare(x.score_mutipler)
+            elif player_choice=="6":
+                x.intellgence=itsclassingtime.compare(x.intellgence)
+            elif player_choice=="7" and playerstatpoint==0:
+                break
+            else:
+                print("You can't do that")
+                e=input("")
+            os.system('cls')
+try:
     menu_location="starting"
     while True:
         print("The story of the MSG King")
@@ -91,17 +92,17 @@ def testing():
             player_choice=input("Select the stat you want to change: ")
             os.system('cls')
             if player_choice=="1":
-                x.attack=compare(x.attack)
+                x.attack=itsclassingtime.compare(x.attack)
             elif player_choice=="2":
-                x.defense=compare(x.defense)
+                x.defense=itsclassingtime.compare(x.defense)
             elif player_choice=="3":
-                x.health=compare(x.health)
+                x.health=itsclassingtime.compare(x.health)
             elif player_choice=="4":
-                x.rizz=compare(x.rizz)
+                x.rizz=itsclassingtime.compare(x.rizz)
             elif player_choice=="5":
-                x.score_mutipler=compare(x.score_mutipler)
+                x.score_mutipler=itsclassingtime.compare(x.score_mutipler)
             elif player_choice=="6":
-                x.intellgence=compare(x.intellgence)
+                x.intellgence=itsclassingtime.compare(x.intellgence)
             elif player_choice=="7" and playerstatpoint==0:
                 menu_location="Game_start"
             else:
@@ -109,12 +110,15 @@ def testing():
                 e=input("")
             os.system('cls')
         while True:
-            leveldetermine(x)
-            playerstatpoint_selection(x)
+            if x.worldtype==5:
+                print("YOU WIN and became I guess a good cooks")
+                quit()
+            itsclassingtime.leveldetermine(x)
+            itsclassingtime.playerstatpoint_selection(x)
             actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
-testing()
-""" except:
+except:
     if not player_choice == "2":
         print("ERROR!!!!")
-    if not player_choice=="2":
-        print("<<|Achievement Unlocked: Stop breaking intendly|>>") """
+        print("<<|Achievement Unlocked: Stop breaking intendly|>>")
+    else:
+        print("good idea")

@@ -73,6 +73,12 @@ class characterdata(enemy):
             else:
                 MasterChef = enemy("Master Chef", 200, 100, 600, 12, 120)
                 return MasterChef
-#this # doesn't mean anythhing, just for updating
-#Attempt2
-#It work
+    def joe(worldtype):
+        if worldtype==3:
+            print("Your are close to the end")
+        elif worldtype==4:
+            print("HOWOOWOWOWOOWOW")
+        elif worldtype==1:
+            print("I actually forgot what world this is so hi, not sure if this game is beatable but I know you are smart")
+        else:
+            print("wow, this game may actually be beatable")

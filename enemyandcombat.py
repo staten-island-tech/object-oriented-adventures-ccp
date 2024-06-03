@@ -25,7 +25,7 @@ class combat():
         if y>0:
             return math.ceil(enemy_attack/(y*x))
         else:
-            return enemy_attack/x
+            return math.ceil(enemy_attack/x)
 #This combine everything to make a working combat system
     def combating(x, e, inventory):
         buff_amount=1
@@ -39,10 +39,13 @@ class combat():
                 e.health -= combat.damagedealcal(x.attack, inventory, buff_amount)
                 x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)
             elif player == "2":
-                x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*5
                 if random.choice((1, 2))==1:
                     print("Haha, YOU FAIL")
+                    x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*5
                 else:
+                    print("You ran away")
+                    x.health=maxhealth
+                    x.total_step-=1
                     break
             elif player == "3":
                 number_selection=0
@@ -86,7 +89,7 @@ class combat():
             if x.health > 0 and e.health <=0:
                 print(x.name,x.health)
                 print(e.name,e.health)
-                print(f"{x.exp}+{e.exp}/{x.level*x.level*x.level} exp")
+                print(f"{x.exp}+{e.exp}/{x.level*x.level} exp")
                 x.exp+=e.exp
                 print(f"Coin: {inventory[4]['coin']}+{e.coin*x.score_mutipler}")
                 inventory[4]['coin']+=(e.coin*x.score_mutipler)

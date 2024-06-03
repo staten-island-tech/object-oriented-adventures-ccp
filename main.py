@@ -117,4 +117,4 @@ testing()
     if not player_choice == "2":
         print("ERROR!!!!")
     if not player_choice=="2":
-        print("<<|Achievement Unlocked: Stop breaking intendly|>>") """
+        print("<<|Achievement Unlocked: Stop breaking intentionaly|>>") """

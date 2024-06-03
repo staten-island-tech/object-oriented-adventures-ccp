@@ -15,6 +15,7 @@ class actionchoice():
             else:
                 e=random.choices(enemyencounter, weight_chance)
                 print(e)
+                print(characterstat.total_step)
                 print(characterdata.enemytypestat(characterstat.worldtype, e))
                 combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, e[0]),inven)
 #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
@@ -81,22 +82,25 @@ class actionchoice():
             for tier in data[1]:
                 print(f"{tier[4]},", actionchoice.weaponamedisplay(tier, 'armorh', data), data[1][tier]['armorh'])
             player_choice=input("4. Uneqip\n5. Exit")
-            print(player_choice)
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorh', data)
         elif player_choice=="2":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorba', data), data[1][tier]['armorba'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Body', 'armorba', data)
         elif player_choice=="3":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorl', data), data[1][tier]['armorl'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Leg', 'armorl', data)
         elif player_choice=="4":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorb', data), data[1][tier]['armorb'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Toe', 'armorb', data)
         elif player_choice=="5":
             print("1. Sword")
@@ -140,11 +144,14 @@ class actionchoice():
                         print("You can't do that")
 #This is where all the stuff go
     def choice(characterstat, weight_chance, enemyencounter, data):
+        print(f"Exp: {characterstat.exp}/{characterstat.level*characterstat.level*characterstat.level}")
+        print(f"Level {characterstat.level}")
         player_choice=input("1. Walk\n2. Open inventory\n3. Shop")
+        os.system('cls')
         if player_choice=="1":
             actionchoice.walking(characterstat, enemyencounter, weight_chance, data)
         elif player_choice=="2":
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)
         else:
-            shop.shop(data)
+            shop.shop(data, characterstat)

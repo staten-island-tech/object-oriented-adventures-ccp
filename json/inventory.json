@@ -1,56 +1,70 @@
 [
     {
-        "Blue Berry": 1,
-        "Boil Egg": 1,
-        "Chicken Nugget": 0,
-        "Salt": 0,
-        "Jerk Chicken": 10000,
+        "Marshmallow": 0,
+        "Boiled Egg": 0,
+        "Chocolate": 0, 
+        "Watermelon": 0,
+        "Lollipop": 0, 
+        "Oreos": 0, 
+        "Broccoli": 0, 
+        "Cheesecake": 0, 
+        "Ice Cream": 0, 
+        "Salt": 0, 
+        "Chicken": 0, 
         "Pepper": 0,
-        "Vitanims": 0,
-        "Coffee": 0,
-        "MSG": 100000
+        "Cheese Stick": 0, 
+        "Dominos Pizza": 0, 
+        "Egg Fried Rice": 0, 
+        "California Reaper": 0, 
+        "Vitamins": 0, 
+        "Coffee": 0, 
+        "Sugar Cube": 0, 
+        "Steak": 0, 
+        "Koolaid": 0, 
+        "Milk": 0, 
+        "Mountain Dew": 0
     },
     {
         "tier1eq": {
-            "sword": 1,
-            "axe": 1,
-            "spear": 1,
-            "bow": 1,
-            "pan": 1,
-            "armorh": 1,
-            "armorba": 1,
-            "armorl": 1,
-            "armorb": 1
+            "sword": 0,
+            "axe": 0,
+            "spear": 0,
+            "bow": 0,
+            "pan": 0,
+            "armorh": 0,
+            "armorba": 0,
+            "armorl": 0,
+            "armorb": 0
         },
         "tier2eq": {
-            "sword": 1,
-            "axe": 1,
-            "spear": 1,
-            "bow": 1,
-            "pan": 1,
-            "armorh": 1,
-            "armorba": 1,
-            "armorl": 1,
-            "armorb": 1
+            "sword": 0,
+            "axe": 0,
+            "spear": 0,
+            "bow": 0,
+            "pan": 0,
+            "armorh": 0,
+            "armorba": 0,
+            "armorl": 0,
+            "armorb": 0
         },
         "tier3eq": {
-            "sword": 1,
-            "axe": 1,
-            "spear": 1,
-            "bow": 1,
-            "pan": 1,
-            "armorh": 1,
-            "armorba": 1,
-            "armorl": 1,
-            "armorb": 1
+            "sword": 0,
+            "axe": 0,
+            "spear": 0,
+            "bow": 0,
+            "pan": 0,
+            "armorh": 0,
+            "armorba": 0,
+            "armorl": 0,
+            "armorb": 0
         }
     },
     {
-        "Head": "armorh3",
-        "Body": "armorba3",
-        "Leg": "armorl3",
-        "Toe": "armorb3",
-        "Weapon": "pan3"
+        "Head": "none",
+        "Body": "none",
+        "Leg": "none",
+        "Toe": "none",
+        "Weapon": "none"
     },
     {
         "tier1eq": [
@@ -87,6 +101,6 @@
             "Rain boot"
         ]
     }, 
-    {"coin":99999
+    {"coin":0
 }
 ]

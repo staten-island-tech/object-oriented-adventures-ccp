@@ -7,7 +7,7 @@ class enemy():
         self.coin=coin
         self.exp=exp
 class characterdata(enemy):
-    def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp, coin):
+    def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp, coin, level):
         super().__init__(name, health, attack, defense, coin, exp)
         self.rizz=rizz
         self.score_mutipler=score_mutipler
@@ -17,6 +17,7 @@ class characterdata(enemy):
         self.enemyencounter=enemyencounter
         self.name=name
         self.worldtype=worldtype
+        self.level=level
     def __str__(self):
         return f"{self.attack}, {self.defense}, {self.health}, {self.rizz}, {self.score_mutipler}, {self.intellgence}, {self.total_step}, {self.weight_chance}, {self.enemyencounter}, {self.name}"
     def enemytypestat(worldtype, typenumber):

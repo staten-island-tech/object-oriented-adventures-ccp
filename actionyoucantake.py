@@ -1,16 +1,23 @@
 import random
 import os
+from enemyandcombat import combat
+from characterandenemy import characterdata
+from shop import shop
 class actionchoice():
 #This determine walking and walking encounter
-    def walking(characterstat, enemyencounter, weight_chance):
+    def walking(characterstat, enemyencounter, weight_chance, inven):
             characterstat.total_step+=1
             os.system('cls')
             if characterstat.total_step==100:
-                print("boss")
-
+                combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, "Boss"),inven)
+                characterstat.worldtype+=1
+                characterstat.total_step=0
             else:
-                encounter=random.choices(enemyencounter, weight_chance)
-                print(encounter, characterstat.total_step)
+                e=random.choices(enemyencounter, weight_chance)
+                print(e)
+                print(characterstat.total_step)
+                print(characterdata.enemytypestat(characterstat.worldtype, e))
+                combat.combating(characterstat, characterdata.enemytypestat(characterstat.worldtype, e[0]),inven)
 #THIS HURT MY BRAINHHSAKLHFDSKHFUKHAS
     def weaponamedisplay(tier_of_the_weapon, what_kind_of_weapon, data):
     #The second one work by entering a key and check where that key is not just have the item name in therre and it should work. sdhibdfvbibfwibif
@@ -18,23 +25,20 @@ class actionchoice():
 #This display item
     def inventorydisplay(data):
     #This is the inventory display
-        print("Items")
         for items in data[0]:
             print(f"{items}: {data[0][items]}")
     #This display armor and weapons
-        print("Weapon and armor you have")
         for tier_of_weapon in data[1]:
       #This show us the index number so you can check the list of name
       #the first is the name of the weapon, just enter tier of weapon and the type of weapon
             for weapon in data[1][tier_of_weapon]:  
                 print(f"{actionchoice.weaponamedisplay(tier_of_weapon, weapon, data)}: {data[1][tier_of_weapon][weapon]}")
-        print("Armor and Weapon Equid")
         for armor_and_weapon_equiped in data[2]:
       #This check the tier of the armor and the type of armor
             x=[i for i in data[2][armor_and_weapon_equiped] if i.isdigit()]
             weapon=''.join([i for i in data[2][armor_and_weapon_equiped] if not i.isdigit()])
             if not len(x)==0 and not weapon=="none":
-                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data) + "defense:" + )
+                print(armor_and_weapon_equiped, actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data))
             else:
                 print(armor_and_weapon_equiped, data[2][armor_and_weapon_equiped])
     def weaponchecktypedisplay(x):
@@ -78,21 +82,25 @@ class actionchoice():
             for tier in data[1]:
                 print(f"{tier[4]},", actionchoice.weaponamedisplay(tier, 'armorh', data), data[1][tier]['armorh'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorh', data)
         elif player_choice=="2":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorba', data), data[1][tier]['armorba'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Body', 'armorba', data)
         elif player_choice=="3":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorl', data), data[1][tier]['armorl'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Leg', 'armorl', data)
         elif player_choice=="4":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorb', data), data[1][tier]['armorb'])
             player_choice=input("4. Uneqip\n5. Exit")
+            os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Toe', 'armorb', data)
         elif player_choice=="5":
             print("1. Sword")
@@ -134,12 +142,16 @@ class actionchoice():
                         print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data))
                     else:
                         print("You can't do that")
-#This combine everything to create the ult walking sim
+#This is where all the stuff go
     def choice(characterstat, weight_chance, enemyencounter, data):
-        player_choice=input("1. Walk\n2. Open inventory")
+        print(f"Exp: {characterstat.exp}/{characterstat.level*characterstat.level*characterstat.level}")
+        print(f"Level {characterstat.level}")
+        player_choice=input("1. Walk\n2. Open inventory\n3. Shop")
         os.system('cls')
         if player_choice=="1":
-            actionchoice.walking(characterstat, enemyencounter, weight_chance)
-        else:
+            actionchoice.walking(characterstat, enemyencounter, weight_chance, data)
+        elif player_choice=="2":
             actionchoice.inventorydisplay(data)
             actionchoice.equip_and_unequip(data)
+        else:
+            shop.shop(data, characterstat)

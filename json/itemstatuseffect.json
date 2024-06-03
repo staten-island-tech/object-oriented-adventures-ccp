@@ -1,46 +1,33 @@
 [
     {
         "healing": {
-            "Boiled Egg": 10,
-            "Chicken Nugget": 15,
-            "Chocolate": 15,
             "Marshmallow": 5,
+            "Boiled Egg": 10,
+            "Chocolate": 15, 
             "Watermelon": 20,
-            "Lollipop": 25,
-            "Broccoli": 45,
-            "Ice Cream": 500,
-            "Oreos": 40,
-            "Coca Cola": 50,
-            "Cheesecake": 100,
-
-        
+            "Lollipop": 25, 
+            "Oreos": 40, 
+            "Broccoli": 45, 
+            "Cheesecake": 100, 
+            "Ice Cream": 500
         },
         "attack": {
-            "Salt": 5,
-            "Pot of boil water": 10,
+            "Salt": 5, 
+            "Chicken": 10, 
             "Pepper": 15,
-            "Chicken": 10,
-            "Egg Fried Rice": 200,
-            "Cheese Stick": 100,
-            "School Pizza": 200,
-            "Dominos Pizza": 120,
-            "Apple Pie": 100,
-            "California Reaper": 1500,
-            
-
-
+            "Cheese Stick": 100, 
+            "Dominos Pizza": 120, 
+            "Egg Fried Rice": 200, 
+            "California Reaper": 1500
         },
         "buff": {
-            "Vitanims": 1,
-            "Coffee": 2,
-            "Sugar Cube I thinking????": 3,
-            "Steak": 20,
-            "Milk": 50,
-            "Koolaid": 25,
-            "Doritos": 25,
-            "Mountain Dew": 150,
-
-
+            "Vitamins": 1, 
+            "Coffee": 2, 
+            "Sugar Cube": 3, 
+            "Steak": 20, 
+            "Koolaid": 25, 
+            "Milk": 50, 
+            "Mountain Dew": 150
         }
     }
 ]

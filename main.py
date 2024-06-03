@@ -4,7 +4,7 @@ from characterandenemy import characterdata
 from actionyoucantake import actionchoice
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
-playerstatpoint=60
+playerstatpoint=210
 player_choice="none"
 with open("json/inventory.json", "r") as f:
     data=json.load(f)
@@ -77,7 +77,7 @@ def testing():
         print("Your goal is simple.")
         print("You have to defeat all of the enemies and rescue the CCP.")
         print("But first, stat selection")
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 1, 1)
+        x=characterdata(999999999999, 9999999999999, 99999999999999, 99999999999999, 99999999999999999, 999999999999999999, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 4, 0, 1, 1)
         menu_location="stat_creation"
         while menu_location=="stat_creation":
             print(f"Point to spend: {playerstatpoint}")

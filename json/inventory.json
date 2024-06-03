@@ -1,7 +1,7 @@
 [
     {
         "Boiled Egg": 1,
-        "Chicken Nugget": 0,
+        "Chicken Nugget": 1,
         "Salt": 0,
         "Pot of boil water": 0,
         "Pepper": 0,
@@ -26,7 +26,7 @@
         "Cheese Stick": 0,
         "School Pizza": 0,
         "Dominos Pizza": 0,
-        "Mountain Dew": 0,
+        "Mountain Dew": 9999999999999999999999,
         "Coca Cola": 0,
         "Cheesecake": 0,
         "Apple Pie": 0,

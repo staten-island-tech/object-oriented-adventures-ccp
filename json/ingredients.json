@@ -1,27 +1,52 @@
 [
     {
-        "Marshmallow": 5,
-        "Boiled Egg": 9,
-        "Chocolate": 12, 
-        "Watermelon": 15,
-        "Lollipop": 17, 
-        "Oreos": 26, 
-        "Broccoli": 28, 
-        "Cheesecake": 58, 
-        "Ice Cream":294, 
-        "Salt": 5, 
-        "Chicken": 9, 
-        "Pepper": 12,
-        "Cheese Stick": 76, 
-        "Dominos Pizza": 85, 
-        "Egg Fried Rice": 133, 
-        "California Reaper": 937, 
-        "Vitamins": 100, 
-        "Coffee": 181, 
-        "Sugar Cube": 250, 
-        "Steak": 1538, 
-        "Koolaid": 1785, 
-        "Milk": 3333, 
-        "Mountain Dew": 9375
+        "name": "Pepper",
+        "price": "5",
+        "description": "Spicy for white people"
+    },
+    {
+        "name": "Salt",
+        "price": "5",
+        "description": "S"
+    },
+    {
+        "name": "Chicken",
+        "price": "100",
+        "description": "Dark favorite"
+    },
+    {
+        "name": "Koolaid",
+        "price": "80",
+        "description": "Red Koolaid > Purple Koolaid"
+    },
+    {
+        "name": "Oil",
+        "price": "20",
+        "description": "Can be combined with foods to fry them"
+    },
+    {
+        "name": "Watermelon",
+        "price": "55",
+        "description": "Fruit Ninja Master"
+    },
+    {
+        "name": "Lollipop",
+        "price": "10",
+        "description": "Chupa Chups"
+    },
+    {
+        "name": "Beef",
+        "price": "50",
+        "description": "Can be combined with Bread and Butter to make Beef Wellington"
+    },
+    {
+        "name": "Broccoli",
+        "price": "20",
+        "description": "EarthyH"
+    },
+    {
+        "name": "Soy Sauce",
+        "price": "10",
+        "description": "Can be combined with Fish and Rice to make Sushi"
     }
 ]

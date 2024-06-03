@@ -1,37 +1,14 @@
 [
     {
-        "Boiled Egg": 1,
+        "Blue Berry": 1,
+        "Boil Egg": 1,
         "Chicken Nugget": 0,
         "Salt": 0,
-        "Pot of boil water": 0,
+        "Jerk Chicken": 10000,
         "Pepper": 0,
         "Vitanims": 0,
         "Coffee": 0,
-        "Sugar Cube I thinking????": 0,
-        "Chicken": 0,
-        "Koolaid": 0,
-        "Egg Fried Rice": 0,
-        "Watermelon": 0,
-        "Lollipop": 0,
-        "Steak": 0,
-        "Broccoli": 0,
-        "Bread": 0,
-        "Butter": 0,
-        "Milk": 0,
-        "Marshmallow": 0,
-        "Chocolate": 0,
-        "Doritos": 0,
-        "Ice Cream": 0,
-        "Oreos": 0,
-        "Cheese Stick": 0,
-        "School Pizza": 0,
-        "Dominos Pizza": 0,
-        "Mountain Dew": 0,
-        "Coca Cola": 0,
-        "Cheesecake": 0,
-        "Apple Pie": 0,
-        "California Reaper": 0,
-        "Soap": 0
+        "MSG": 100000
     },
     {
         "tier1eq": {
@@ -109,8 +86,7 @@
             "Pantcake",
             "Rain boot"
         ]
-    },
-    {
-        "coin": 1000000000000000000000000000000000000000000000
-    }
+    }, 
+    {"coin":99999
+}
 ]

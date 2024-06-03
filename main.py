@@ -78,4 +78,4 @@ except:
     if not player_choice == "2":
         print("ERROR!!!!")
     if not player_choice=="2":
-        print("<<|Achievement Unlocked: Stop breaking intendly|>>")
+        print("<<|Achievement Unlocked: Throughout Heaven and Earth, I alone am The Special One|>>")

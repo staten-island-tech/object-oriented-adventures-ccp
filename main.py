@@ -5,7 +5,7 @@ from actionyoucantake import actionchoice
 ## Open the JSON file of movie data
 ## create variable "data" that represents the enitre movie list
 
-errormessage = ("<<|Achievement Unlocked: Stop breaking intendly|>>")
+errormessage = ("<<|Achievement Unlocked: The Special One (There was an error) |>>")
 playerstatpoint=60
 player_choice="none"
 with open("json/inventory.json", "r") as f:
@@ -77,8 +77,9 @@ def testing():
                 print("This will be a turn-based game")
                 print("You have 4 actions that you can do when you're in battle")
                 print("Attack - Certain items can be used for dealing damage")
-                print("Eat - You relive your dream of being a mukbanger and eat certain items to gain status effects.")
-                print("Rizz - You relive your life as a past gambler, trying to charm anyone you meet. A number is randomly chosen between 1-20. If you get a number that's 15 or above, you successfully 'rizzed' your person of choice, avoiding all battles")
+                print("Rizz - You relive your life as a past gambler, but instead of hitting the jackpot, you're just trying to charm anyone you meet. A number is randomly chosen between 1-20. If you get a number that's 15 or above, you successfully 'rizzed' your person of choice, avoiding all battles")
+                print("Use Item - Use any item you currently have")
+                print("Run Away - You run away obviously")
                 print("There are 3 types of items you can acquire.")
                 print("You can gain healing, buffs, or attack items")
                 print("You can go to the shop to buy all of these items")
@@ -87,7 +88,7 @@ def testing():
                 print("Retry the game")
                 quit()
         elif player_choice=="2":
-            print("Thank for playing this very amazing game about the CCP")
+            print("You must play again!!!")
             quit()
         else:
             print("Achievement Unlocked <<|The Special One|>>")
@@ -123,7 +124,7 @@ def testing():
             elif player_choice=="7" and playerstatpoint==0:
                 menu_location="Game_start"
             else:
-                print("You can't do that")
+                print(errormessage)
                 e=input("")
             os.system('cls')
         while True:

@@ -90,6 +90,7 @@ class actionchoice():
             print(f"attack: {characterstat.attack}")
         else:
             print("attack:", characterstat.attack*weaponstat[0][data[2]["Weapon"]])
+        print("Coin:", data[4]["coin"])
     def weaponchecktypedisplay(x):
         if x=="1":
             return "sword"

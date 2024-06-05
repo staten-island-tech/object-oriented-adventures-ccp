@@ -26,13 +26,21 @@ class shop():
             print("You can't do that")
     def shop(iven, characterstat):
         numberselection=0
-        firsttime=True
         player=input("1.Buy item\n2.Buy armor\n3.Exit")
         os.system('cls')
         if player=="1":
             itemselected=[i for i in helpme[0]]
             for i in helpme[0]:
                 numberselection+=1
+                if i =="Marshmallow":
+                    print("Healing")
+                    print("-"*40)
+                elif i =="Salt":
+                    print("Attack")
+                    print("-"*40)
+                elif i=="Vitamins":
+                    print("Buff")
+                    print("-"*40)
                 print(f"{numberselection}, "+i)
                 print("price: " + str(math.ceil(helpme[0][i]/characterstat.intellgence)))
                 for j in data2[0]:
@@ -42,14 +50,8 @@ class shop():
                                 print(f"Heal {data2[0][j][x]} hp")
                             elif j=="attack":
                                 print(f"Deal {data2[0][j][x]} damages")
-                                if firsttime==True:
-                                    print("-"*40)
-                                    firsttime=False
-                            else:
+                            else:    
                                 print(f"Increase your attack {data2[0][j][x]} times")
-                                if firsttime==False:
-                                    print("-"*40)
-                                    firsttime=True
                 print("")
             print(f"{numberselection+1}, "+"Exit")
             print("Coin: "+f"{iven[4]['coin']}")
@@ -58,11 +60,13 @@ class shop():
             if int(player)<=len(itemselected):
                 for i in helpme[0]:
                     if i==itemselected[int(player)-1]:
-                        if iven[4]['coin']>=int(helpme[0][i]/characterstat.intellgence):
-                            iven[4]['coin']-=int(helpme[0][i]/characterstat.intellgence)
-                            iven[0][i]+=1
-                            print(f"You bought 1 {i}")
-                            print(f"{i}: {iven[0][i]}")
+                        player_choice=int(input("How much do you wanted to buy?: "))
+                        if iven[4]['coin']>=int(helpme[0][i]/characterstat.intellgence*player_choice):
+                            print(f"You bought {player_choice} {i}")
+                            print(f"{i}: {iven[0][i]}+{player_choice}")
+                            print(f"Coin: {iven[4]['coin']}-{int(helpme[0][i]/characterstat.intellgence*player_choice)}")
+                            iven[4]['coin']-=int(helpme[0][i]/characterstat.intellgence*player_choice)
+                            iven[0][i]+=player_choice
                         else:
                             print("You can't do that")
         elif player=="2":

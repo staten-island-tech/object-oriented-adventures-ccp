@@ -1,37 +1,37 @@
 [
     {
         "tier1eq": {
-            "sword": 149,
-            "axe": 110,
-            "spear": 121,
-            "bow": 133,
-            "pan": 172,
-            "armorh": 321,
-            "armorba": 524,
-            "armorl": 202,
-            "armorb": 100
+            "sword": 1490,
+            "axe": 1100,
+            "spear": 1210,
+            "bow": 1330,
+            "pan": 1720,
+            "armorh": 3210,
+            "armorba": 5240,
+            "armorl": 2020,
+            "armorb": 1000
         },
         "tier2eq": {
-            "sword": 994,
-            "axe": 288,
-            "spear": 391,
-            "bow": 590,
-            "pan": 1833,
-            "armorh": 1362,
-            "armorba": 4888,
-            "armorl": 652,
-            "armorb": 206
+            "sword": 9940,
+            "axe": 2880,
+            "spear": 3910,
+            "bow": 5900,
+            "pan": 18330,
+            "armorh": 13620,
+            "armorba": 48880,
+            "armorl": 6520,
+            "armorb": 2060
         },
         "tier3eq": {
-            "sword": 34822,
-            "axe": 3705,
-            "spear": 7729,
-            "bow": 16360,
-            "pan": 74083,
-            "armorh": 10107,
-            "armorba": 25764,
-            "armorl": 2130,
-            "armorb": 345
+            "sword": 348220,
+            "axe": 37050,
+            "spear": 77290,
+            "bow": 163600,
+            "pan": 740830,
+            "armorh": 101070,
+            "armorba": 257640,
+            "armorl": 21300,
+            "armorb": 3450
         }
     },
     {

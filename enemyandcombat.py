@@ -30,9 +30,11 @@ class combat():
     def combating(x, e, inventory):
         buff_amount=1
         maxhealth=x.health
+        maxehealth=e.health
         while x.health > 0 and e.health > 0:
-            print(x.name, x.health)
-            print(e.name, e.health)
+            print(x.name, + x.health, "/", + maxhealth)
+            print(e.name, + e.health, "/", + maxehealth)
+            print("Attack Mutipler: ", + buff_amount)
             player = input("1. Attack\n2. Retreat\n3. Use item\n4. Rizz")
             os.system('cls')
             if player == "1":
@@ -53,6 +55,16 @@ class combat():
                     if inventory[0][items]>0:
                         number_selection+=1
                         print(f"{number_selection}, {items}: {inventory[0][items]}")
+                        for i in itemstatuseffect:
+                            for j in i:
+                                for y in itemstatuseffect[0][j]:
+                                    if y == listofitemuseable[int(player_choice)-1]:
+                                        if j == 'healing':
+                                            print(f"Heal {itemstatuseffect[0][j][y]}")
+                                        elif j == 'attack':
+                                            print(f"Do {itemstatuseffect[0][j][y]}")
+                                        else:
+                                            print(f"Buff your attack by {itemstatuseffect[0][j][y]} times")
                 if number_selection==0:
                     print("You have nothing")
                 print(f"{number_selection+1}, Exit")

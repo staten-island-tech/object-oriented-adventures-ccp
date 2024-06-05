@@ -11,19 +11,29 @@ with open("json/inventory.json", "r") as f:
 class itsclassingtime():
     def compare(z):
         global playerstatpoint
-        add_minus=int(input("How much point do you want to spend?: "))
+        add_minus=input("How much point do you want to spend?: ")
+        for i in add_minus:
+            if i.isnumeric():
+                allnumber=True
+            else:
+                allnumber=False
+                break
         os.system('cls')
-        if add_minus <= playerstatpoint and add_minus >=1:
-            z+=add_minus
-            playerstatpoint-=add_minus
-            return z
-        elif abs(add_minus) <= z-1 and add_minus<=0:
-            z+=add_minus
-            playerstatpoint-=add_minus
-            return z
+        if allnumber==True:
+            add_minus=int(add_minus)
+            if add_minus <= playerstatpoint and add_minus >=1:
+                z+=add_minus
+                playerstatpoint-=add_minus
+                return z
+            elif abs(add_minus) <= z-1 and add_minus<=0:
+                z+=add_minus
+                playerstatpoint-=add_minus
+                return z
+            else:
+                print("Try again")
+                return z 
         else:
-            print("Try again")
-            return z 
+            return z
     def leveldetermine(characterstat):
         while characterstat.exp>=characterstat.level*characterstat.level:
             characterstat.level+=1
@@ -58,67 +68,70 @@ class itsclassingtime():
                 break
             else:
                 print("You can't do that")
-                e=input("")
-            os.system('cls')
-try:
-    menu_location="starting"
-    while True:
+listformenulocation=["start"]
+def testing():
+    while listformenulocation[0]=="start":  
         print("The story of the MSG King")
         print("1. Start game")
         print("2. End game")
         player_choice=input("input: ")
         os.system('cls')
-        if player_choice=="1":
+        while player_choice=="1":
             name=input("What's your name: ")
             os.system('cls')
+            if not name.strip():
+                print("Try again")
+            else:
+                listformenulocation[0]="stat_creation"
+                break
         if player_choice=="2":
             print("Thank for playing this very amazing game about the CCP")
             quit()
-        print(f"Hello, {name}")
-        print("Your goal is simple.")
-        print("You have to defeat all of the enemies and rescue the CCP.")
-        print("But first, stat selection")
-        x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 1, 1)
-        menu_location="stat_creation"
-        while menu_location=="stat_creation":
-            print(f"Point to spend: {playerstatpoint}")
-            print(f"1. attack: {x.attack}")
-            print(f"2. defense: {x.defense}")
-            print(f"3. health: {x.health}")
-            print(f"4. rizz: {x.rizz}")
-            print(f"5. Coin mutipler: {x.score_mutipler}")
-            print(f"6. Barter: {x.intellgence}")
-            print("7. Start the game")
-            player_choice=input("Select the stat you want to change: ")
-            os.system('cls')
-            if player_choice=="1":
-                x.attack=itsclassingtime.compare(x.attack)
-            elif player_choice=="2":
-                x.defense=itsclassingtime.compare(x.defense)
-            elif player_choice=="3":
-                x.health=itsclassingtime.compare(x.health)
-            elif player_choice=="4":
-                x.rizz=itsclassingtime.compare(x.rizz)
-            elif player_choice=="5":
-                x.score_mutipler=itsclassingtime.compare(x.score_mutipler)
-            elif player_choice=="6":
-                x.intellgence=itsclassingtime.compare(x.intellgence)
-            elif player_choice=="7" and playerstatpoint==0:
-                menu_location="Game_start"
-            else:
-                print("You can't do that")
-                e=input("")
-            os.system('cls')
-        while True:
-            if x.worldtype==5:
-                print("YOU WIN and became I guess a good cooks")
-                quit()
-            itsclassingtime.leveldetermine(x)
-            itsclassingtime.playerstatpoint_selection(x)
-            actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
-except:
+        elif not player_choice=="1":
+            print("You can't do that")
+    print(f"Hello, {name}")
+    print("Your goal is simple.")
+    print("You have to defeat all of the enemies and rescue the CCP.")
+    print("But first, stat selection")
+    x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 1, 1)
+    while listformenulocation[0]=="stat_creation":
+        print(f"Point to spend: {playerstatpoint}")
+        print(f"1. attack: {x.attack}")
+        print(f"2. defense: {x.defense}")
+        print(f"3. health: {x.health}")
+        print(f"4. rizz: {x.rizz}")
+        print(f"5. Coin mutipler: {x.score_mutipler}")
+        print(f"6. Barter: {x.intellgence}")
+        print("7. Start the game")
+        player_choice=input("Select the stat you want to change: ")
+        os.system('cls')
+        if player_choice=="1":
+            x.attack=itsclassingtime.compare(x.attack)
+        elif player_choice=="2":
+            x.defense=itsclassingtime.compare(x.defense)
+        elif player_choice=="3":
+            x.health=itsclassingtime.compare(x.health)
+        elif player_choice=="4":
+            x.rizz=itsclassingtime.compare(x.rizz)
+        elif player_choice=="5":
+            x.score_mutipler=itsclassingtime.compare(x.score_mutipler)
+        elif player_choice=="6":
+            x.intellgence=itsclassingtime.compare(x.intellgence)
+        elif player_choice=="7" and playerstatpoint==0:
+            listformenulocation[0]="Game_start"
+        else:
+            print("You can't do that")
+    while True:
+        if x.worldtype==5:
+            print("YOU WIN and became you guess a good cooks")
+            quit()
+        itsclassingtime.leveldetermine(x)
+        itsclassingtime.playerstatpoint_selection(x)
+        actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
+testing()
+""" except:
     if not player_choice == "2":
         print("ERROR!!!!")
         print("<<|Achievement Unlocked: Stop breaking intendly|>>")
     else:
-        print("good idea")
+        print("good idea") """

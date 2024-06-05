@@ -95,7 +95,7 @@ class combat():
                     print("You have successfully rizzed up",e.name)
                     break
                 else:
-                    print("Rizz failed due to too little rizz you ugly")
+                    print("Rizz failed, L rizz, lvl 0 Gyatt")
                     x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*3
         else:
             if x.health > 0 and e.health <=0:

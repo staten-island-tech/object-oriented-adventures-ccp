@@ -71,7 +71,7 @@ class actionchoice():
                 print("")
             print("-"*40)
         print("-"*40)
-        print("What you have equid")
+        print("What you have equipped")
         for armor_and_weapon_equiped in data[2]:
       #This check the tier of the armor and the type of armor
             x=[i for i in data[2][armor_and_weapon_equiped] if i.isdigit()]
@@ -124,32 +124,32 @@ class actionchoice():
                 print("You can't do that")
         else:
             print("You can't do that")
-#This combine the previous function together to create a unequid and equid armor and weapon
+#This combine the previous function together to create a unequip and equip armor and weapon
     def equip_and_unequip(data):
         player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Weapon\n6. Exit")
         os.system('cls')
         if player_choice=="1":
             for tier in data[1]:
                 print(f"{tier[4]},", actionchoice.weaponamedisplay(tier, 'armorh', data), data[1][tier]['armorh'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorh', data)
         elif player_choice=="2":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorba', data), data[1][tier]['armorba'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Body', 'armorba', data)
         elif player_choice=="3":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorl', data), data[1][tier]['armorl'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Leg', 'armorl', data)
         elif player_choice=="4":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorb', data), data[1][tier]['armorb'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Toe', 'armorb', data)
         elif player_choice=="5":
@@ -196,7 +196,7 @@ class actionchoice():
     def choice(characterstat, weight_chance, enemyencounter, data):
         print(f"Exp: {characterstat.exp}/{characterstat.level*characterstat.level}")
         print(f"Level {characterstat.level}")
-        player_choice=input("1. Walk\n2. Open inventory\n3. Shop")
+        player_choice=input("1. Walk\n2. Open inventory\n3. Shop\ninput:")
         os.system('cls')
         if player_choice=="1":
             actionchoice.walking(characterstat, enemyencounter, weight_chance, data)

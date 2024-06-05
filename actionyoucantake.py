@@ -203,5 +203,6 @@ class actionchoice():
         elif player_choice=="2":
             actionchoice.inventorydisplay(data, characterstat)
             actionchoice.equip_and_unequip(data)
-        else:
+        elif player_choice=="3":
             shop.shop(data, characterstat)
+        else: print("You can't do that")

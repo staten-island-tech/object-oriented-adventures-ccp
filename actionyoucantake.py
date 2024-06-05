@@ -32,8 +32,16 @@ class actionchoice():
 #This display item
     def inventorydisplay(data, characterstat):
     #This is the inventory display
-        firsttime=True
         for items in data[0]:
+            if items =="Marshmallow":
+                print("Healing")
+                print("-"*40)
+            elif items =="Salt":
+                print("Attack")
+                print("-"*40)
+            elif items=="Vitamins":
+                print("Buff")
+                print("-"*40)
             print(f"{items}: {data[0][items]}")
             for j in data2[0]:
                     for x in data2[0][j]:
@@ -42,14 +50,8 @@ class actionchoice():
                                 print(f"Heal {data2[0][j][x]} hp")
                             elif j=="attack":
                                 print(f"Deal {data2[0][j][x]} damages")
-                                if firsttime==True:
-                                    print("-"*40)
-                                    firsttime=False
                             else:
                                 print(f"Increase your attack {data2[0][j][x]} times")
-                                if firsttime==False:
-                                    print("-"*40)
-                                    firsttime=True
             print("")
         print("-"*40)
     #This display armor and weapons

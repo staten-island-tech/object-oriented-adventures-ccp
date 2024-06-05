@@ -50,25 +50,28 @@ class combat():
                     x.total_step-=1
                     break
             elif player == "3":
+                listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
                 number_selection=0
                 for items in inventory[0]:
                     if inventory[0][items]>0:
                         number_selection+=1
                         print(f"{number_selection}, {items}: {inventory[0][items]}")
-                        for i in itemstatuseffect:
-                            for j in i:
-                                for y in itemstatuseffect[0][j]:
-                                    if y == listofitemuseable[int(player_choice)-1]:
-                                        if j == 'healing':
-                                            print(f"Heal {itemstatuseffect[0][j][y]}")
-                                        elif j == 'attack':
-                                            print(f"Do {itemstatuseffect[0][j][y]}")
-                                        else:
-                                            print(f"Buff your attack by {itemstatuseffect[0][j][y]} times")
+                    for ll in listofitemuseable:
+                        for i in itemstatuseffect[0]:
+                            for j in itemstatuseffect[0][i]:
+                                if ll==j:
+                                    print(i)
+                                    print(j)
+                                    if i == 'healing':
+                                        print(f"Heal {itemstatuseffect[0][i][j]}")
+                                    elif i == 'attack':
+                                        print(f"Do {itemstatuseffect[0][i][j]} damages")
+                                    else:
+                                        print(f"Buff your attack by {itemstatuseffect[0][i][j]} times")
                 if number_selection==0:
                     print("You have nothing")
                 print(f"{number_selection+1}, Exit")
-                listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
+                
                 player_choice=input("What do you want to do?")
                 os.system('cls')
                 if int(player_choice)<=number_selection:    

@@ -131,9 +131,10 @@ def testing():
             listformenulocation[0]="Game_start"
         else:
             print("You can't do that")
+            print("<<|Achievement Unlocked: Thoughout Heaven and Earth, I Alone am the Special One |>>")
     while True:
         if x.worldtype==5:
-            print("YOU WIN and became you guess a good cooks")
+            print("YOU WIN and became a good cook")
             quit()
         itsclassingtime.leveldetermine(x)
         itsclassingtime.playerstatpoint_selection(x)

@@ -71,7 +71,7 @@ class actionchoice():
                 print("")
             print("-"*40)
         print("-"*40)
-        print("What you have equid")
+        print("What you have equipped")
         for armor_and_weapon_equiped in data[2]:
       #This check the tier of the armor and the type of armor
             x=[i for i in data[2][armor_and_weapon_equiped] if i.isdigit()]

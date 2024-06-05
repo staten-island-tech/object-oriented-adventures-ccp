@@ -25,24 +25,29 @@ class combat():
         if y>0:
             return math.ceil(enemy_attack/(y*x))
         else:
-            return enemy_attack/x
+            return math.ceil(enemy_attack/x)
 #This combine everything to make a working combat system
     def combating(x, e, inventory):
         buff_amount=1
         maxhealth=x.health
+        maxehealth=e.health
         while x.health > 0 and e.health > 0:
-            print(x.name, x.health)
-            print(e.name, e.health)
+            print(x.name, + x.health, "/", + maxhealth)
+            print(e.name, + e.health, "/", + maxehealth)
+            print("Attack Mutipler: ", + buff_amount)
             player = input("1. Attack\n2. Retreat\n3. Use item\n4. Rizz")
             os.system('cls')
             if player == "1":
                 e.health -= combat.damagedealcal(x.attack, inventory, buff_amount)
                 x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)
             elif player == "2":
-                x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*5
                 if random.choice((1, 2))==1:
                     print("Haha, YOU FAIL")
+                    x.health -= combat.damagetakencalcaltor(e.attack, inventory, x.defense)*5
                 else:
+                    print("You ran away")
+                    x.health=maxhealth
+                    x.total_step-=1
                     break
             elif player == "3":
                 number_selection=0
@@ -50,6 +55,16 @@ class combat():
                     if inventory[0][items]>0:
                         number_selection+=1
                         print(f"{number_selection}, {items}: {inventory[0][items]}")
+                        for i in itemstatuseffect:
+                            for j in i:
+                                for y in itemstatuseffect[0][j]:
+                                    if y == listofitemuseable[int(player_choice)-1]:
+                                        if j == 'healing':
+                                            print(f"Heal {itemstatuseffect[0][j][y]}")
+                                        elif j == 'attack':
+                                            print(f"Do {itemstatuseffect[0][j][y]}")
+                                        else:
+                                            print(f"Buff your attack by {itemstatuseffect[0][j][y]} times")
                 if number_selection==0:
                     print("You have nothing")
                 print(f"{number_selection+1}, Exit")
@@ -86,7 +101,7 @@ class combat():
             if x.health > 0 and e.health <=0:
                 print(x.name,x.health)
                 print(e.name,e.health)
-                print(f"{x.exp}+{e.exp}/{x.level*x.level*x.level} exp")
+                print(f"{x.exp}+{e.exp}/{x.level*x.level} exp")
                 x.exp+=e.exp
                 print(f"Coin: {inventory[4]['coin']}+{e.coin*x.score_mutipler}")
                 inventory[4]['coin']+=(e.coin*x.score_mutipler)

@@ -34,7 +34,7 @@
             "armorh": 0,
             "armorba": 0,
             "armorl": 0,
-            "armorb": 2
+            "armorb": 0
         },
         "tier2eq": {
             "sword": 0,
@@ -101,6 +101,6 @@
             "Rain boot"
         ]
     }, 
-    {"coin": 100000000000
+    {"coin": 0
 }
 ]

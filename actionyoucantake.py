@@ -32,8 +32,16 @@ class actionchoice():
 #This display item
     def inventorydisplay(data, characterstat):
     #This is the inventory display
-        firsttime=True
         for items in data[0]:
+            if items =="Marshmallow":
+                print("Healing")
+                print("-"*40)
+            elif items =="Salt":
+                print("Attack")
+                print("-"*40)
+            elif items=="Vitamins":
+                print("Buff")
+                print("-"*40)
             print(f"{items}: {data[0][items]}")
             for j in data2[0]:
                     for x in data2[0][j]:
@@ -42,14 +50,8 @@ class actionchoice():
                                 print(f"Heal {data2[0][j][x]} hp")
                             elif j=="attack":
                                 print(f"Deal {data2[0][j][x]} damages")
-                                if firsttime==True:
-                                    print("-"*40)
-                                    firsttime=False
                             else:
                                 print(f"Increase your attack {data2[0][j][x]} times")
-                                if firsttime==False:
-                                    print("-"*40)
-                                    firsttime=True
             print("")
         print("-"*40)
     #This display armor and weapons
@@ -114,42 +116,43 @@ class actionchoice():
                 print(f"{whereonbody}: none")
             else:
                 print("You can't do that")
-        elif int(player_choice)>=1 and int(player_choice)<=3 and data[2][whereonbody]=="none":
-            if data[1][f"tier{player_choice}eq"][armortype]>=1:
-                data[2][whereonbody]=f"{armortype}{player_choice}"
-                data[1][f"tier{player_choice}eq"][armortype]-=1
-                print(actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype, data),":",data[1][f"tier{player_choice}eq"][armortype])
-                print(f"{whereonbody}: ",actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype, data))
-            else:
-                print("You can't do that")
+        if player_choice.isdigit():
+            if int(player_choice)>=1 and int(player_choice)<=3 and data[2][whereonbody]=="none":
+                if data[1][f"tier{player_choice}eq"][armortype]>=1:
+                    data[2][whereonbody]=f"{armortype}{player_choice}"
+                    data[1][f"tier{player_choice}eq"][armortype]-=1
+                    print(actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype, data),":",data[1][f"tier{player_choice}eq"][armortype])
+                    print(f"{whereonbody}: ",actionchoice.weaponamedisplay(f"tier{player_choice}eq", armortype, data))
+                else:
+                    print("You can't do that")
         else:
             print("You can't do that")
-#This combine the previous function together to create a unequid and equid armor and weapon
+#This combine the previous function together to create a unequip and equip armor and weapon
     def equip_and_unequip(data):
         player_choice=input("What equipment do you want to equip?\n1.Helmet\n2.Body armor\n3.Leggings\n4.Boots\n5. Weapon\n6. Exit")
         os.system('cls')
         if player_choice=="1":
             for tier in data[1]:
                 print(f"{tier[4]},", actionchoice.weaponamedisplay(tier, 'armorh', data), data[1][tier]['armorh'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Head', 'armorh', data)
         elif player_choice=="2":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorba', data), data[1][tier]['armorba'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Body', 'armorba', data)
         elif player_choice=="3":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorl', data), data[1][tier]['armorl'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Leg', 'armorl', data)
         elif player_choice=="4":
             for tier in data[1]:
                 print(f"{tier[4]},",actionchoice.weaponamedisplay(tier, 'armorb', data), data[1][tier]['armorb'])
-            player_choice=input("4. Uneqip\n5. Exit")
+            player_choice=input("4. Unequip\n5. Exit")
             os.system('cls')
             actionchoice.unequipandequipingweapon(player_choice, 'Toe', 'armorb', data)
         elif player_choice=="5":
@@ -174,29 +177,35 @@ class actionchoice():
                     print(actionchoice.weaponamedisplay(f"tier{x[0]}eq", weapon, data),": ",data[1][f"tier{x[0]}eq"][weapon])
                     data[2]['Weapon']="none"
                     print(data[2]['Weapon'])
+            elif player_choice.isdigit():
+                if int(player_choice)<=5 and int(player_choice)>=1:
+                    for touhou in data[1]:
+                        numberselection=[i for i in touhou if i.isdigit()]
+                        print(f"{numberselection[0]}, {actionchoice.weaponamedisplay(touhou, actionchoice.weaponchecktypedisplay(player_choice), data)}: {data[1][touhou][actionchoice.weaponchecktypedisplay(player_choice)]}")
+                    print("4. Exit")
+                    this_remember_what_weapon_we_are_on=actionchoice.weaponchecktypedisplay(player_choice)
+                    player_choice=input("")
+                    os.system('cls')
+                    if player_choice=="4":
+                        pass
+                    elif player_choice.isdigit():
+                        if int(player_choice)>=1 and int(player_choice)<=3:
+                            if data[2]['Weapon'] == "none" and data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]>=1:
+                                data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]-=1
+                                data[2]['Weapon']=f"{this_remember_what_weapon_we_are_on}{player_choice}"
+                                print(actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data),":", data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on])
+                                print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data))
+                            else:
+                                print("You can't do that")
+                else:
+                    print("You can't do that")
             else:
-                for touhou in data[1]:
-                    numberselection=[i for i in touhou if i.isdigit()]
-                    print(f"{numberselection[0]}, {actionchoice.weaponamedisplay(touhou, actionchoice.weaponchecktypedisplay(player_choice), data)}: {data[1][touhou][actionchoice.weaponchecktypedisplay(player_choice)]}")
-                print("4. Exit")
-                this_remember_what_weapon_we_are_on=actionchoice.weaponchecktypedisplay(player_choice)
-                player_choice=input("")
-                os.system('cls')
-                if player_choice=="4":
-                    pass
-                elif int(player_choice)>=1 and int(player_choice)<=3:
-                    if data[2]['Weapon'] == "none" and data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]>=1:
-                        data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on]-=1
-                        data[2]['Weapon']=f"{this_remember_what_weapon_we_are_on}{player_choice}"
-                        print(actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data),":", data[1][f"tier{player_choice}eq"][this_remember_what_weapon_we_are_on])
-                        print("Weapon:", actionchoice.weaponamedisplay(f"tier{player_choice}eq" ,this_remember_what_weapon_we_are_on, data))
-                    else:
-                        print("You can't do that")
+                print("You can't do that")
 #This is where all the stuff go
     def choice(characterstat, weight_chance, enemyencounter, data):
         print(f"Exp: {characterstat.exp}/{characterstat.level*characterstat.level}")
         print(f"Level {characterstat.level}")
-        player_choice=input("1. Walk\n2. Open inventory\n3. Shop")
+        player_choice=input("1. Walk\n2. Open inventory\n3. Shop\ninput:")
         os.system('cls')
         if player_choice=="1":
             actionchoice.walking(characterstat, enemyencounter, weight_chance, data)

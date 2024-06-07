@@ -57,18 +57,27 @@ class shop():
             print("Coin: "+f"{iven[4]['coin']}")
             player=input("What do you wanted to buy?:")
             os.system('cls')
-            if int(player)<=len(itemselected):
-                for i in helpme[0]:
-                    if i==itemselected[int(player)-1]:
-                        player_choice=int(input("How much do you wanted to buy?: "))
-                        if iven[4]['coin']>=int(helpme[0][i]/characterstat.intellgence*player_choice):
-                            print(f"You bought {player_choice} {i}")
-                            print(f"{i}: {iven[0][i]}+{player_choice}")
-                            print(f"Coin: {iven[4]['coin']}-{int(helpme[0][i]/characterstat.intellgence*player_choice)}")
-                            iven[4]['coin']-=int(helpme[0][i]/characterstat.intellgence*player_choice)
-                            iven[0][i]+=player_choice
-                        else:
-                            print("You can't do that")
+            if player.isdigit():
+                if not "." in player:
+                    if int(player)<=len(itemselected):
+                        for i in helpme[0]:
+                            if i==itemselected[int(player)-1]:
+                                player_choice=input("How much do you wanted to buy?: ")
+                                if player_choice.isdigit():
+                                    if not "." in player_choice:
+                                        player_choice=int(player_choice)
+                                        if iven[4]['coin']>=int(helpme[0][i]/characterstat.intellgence*player_choice):
+                                            print(f"You bought {player_choice} {i}")
+                                            print(f"{i}: {iven[0][i]}+{player_choice}")
+                                            print(f"Coin: {iven[4]['coin']}-{int(helpme[0][i]/characterstat.intellgence*player_choice)}")
+                                            iven[4]['coin']-=int(helpme[0][i]/characterstat.intellgence*player_choice)
+                                            iven[0][i]+=player_choice
+                                        else:
+                                            print("You can't do that")
+                                else:
+                                    print("You can't do that")
+            else:
+                print("You can't do that")
         elif player=="2":
             numberselection=0
             for i in helpme2thebetterone[0]:
@@ -88,12 +97,13 @@ class shop():
             print("Coin: "+f"{iven[4]['coin']}")
             player=input("What do you wanted to buy")
             os.system('cls')
-            if int(player)<=len(itemselected):
-                if int(player)<=9:
-                    shop.joebiden('tier1eq', itemselected[int(player)-1], iven, characterstat.intellgence)
-                elif int(player)<=18:
-                    shop.joebiden('tier2eq', itemselected[int(player)-1], iven, characterstat.intellgence)
-                else:
-                    shop.joebiden('tier3eq', itemselected[int(player)-1], iven, characterstat.intellgence)
+            if player.isdigit():
+                if int(player)<=len(itemselected):
+                    if int(player)<=9:
+                        shop.joebiden('tier1eq', itemselected[int(player)-1], iven, characterstat.intellgence)
+                    elif int(player)<=18:
+                        shop.joebiden('tier2eq', itemselected[int(player)-1], iven, characterstat.intellgence)
+                    else:
+                        shop.joebiden('tier3eq', itemselected[int(player)-1], iven, characterstat.intellgence)
             else:
-                pass
+                print("You can't do that")

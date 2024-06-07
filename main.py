@@ -14,12 +14,21 @@ class itsclassingtime():
     def compare(z):
         global playerstatpoint
         add_minus=input("How much point do you want to spend?: ")
-        for i in add_minus:
-            if i.isnumeric():
-                allnumber=True
-            else:
-                allnumber=False
-                break
+        if not add_minus[0]=="-":
+            for i in add_minus:
+                if i.isnumeric():
+                    allnumber=True
+                else:
+                    allnumber=False
+                    break
+        else:
+            print(add_minus[0:1])
+            for i in add_minus[1:]:
+                if i.isnumeric():
+                    allnumber=True
+                else:
+                    allnumber=False
+                    break
         os.system('cls')
         if allnumber==True:
             add_minus=int(add_minus)
@@ -35,6 +44,7 @@ class itsclassingtime():
                 print("Try again")
                 return z 
         else:
+            print("You can't do that")
             return z
     def leveldetermine(characterstat):
         while characterstat.exp>=characterstat.level*characterstat.level:
@@ -71,7 +81,7 @@ class itsclassingtime():
             else:
                 print("You can't do that")
 listformenulocation=["start"]
-def testing():
+try:
     while listformenulocation[0]=="start":  
         print("The story of the MSG King")
         print("1. Start game")
@@ -146,17 +156,18 @@ def testing():
             listformenulocation[0]="Game_start"
         else:
             print("You can't do that")
+            print("<<|Achievement Unlocked: Thoughout Heaven and Earth, I Alone am the Special One |>>")
     while True:
         if x.worldtype==5:
-            print("YOU WIN and became you guess a good cooks")
+            print("YOU WIN and became a good cook")
             quit()
         itsclassingtime.leveldetermine(x)
         itsclassingtime.playerstatpoint_selection(x)
         actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
-testing()
-""" except:
+#testing()
+except:
     if not player_choice == "2":
         print("ERROR!!!!")
         print("<<|Achievement Unlocked: Stop breaking intendly|>>")
     else:
-        print("good idea") """
+        print("good idea")

@@ -79,7 +79,7 @@ class itsclassingtime():
             else:
                 print("You can't do that")
 listformenulocation=["start"]
-def testing():
+try:
     while listformenulocation[0]=="start":  
         print("The story of the MSG King")
         print("1. Start game")
@@ -139,10 +139,10 @@ def testing():
         itsclassingtime.leveldetermine(x)
         itsclassingtime.playerstatpoint_selection(x)
         actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
-testing()
-""" except:
+#testing()
+except:
     if not player_choice == "2":
         print("ERROR!!!!")
         print("<<|Achievement Unlocked: Stop breaking intendly|>>")
     else:
-        print("good idea") """
+        print("good idea")

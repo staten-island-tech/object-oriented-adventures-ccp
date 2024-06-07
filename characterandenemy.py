@@ -75,10 +75,10 @@ class characterdata(enemy):
                 return MasterChef
     def joe(worldtype):
         if worldtype==3:
-            print("Your are close to the end")
+            print("Hell's Kitchen")
         elif worldtype==4:
-            print("HOWOOWOWOWOOWOW")
+            print("The Metaverse")
         elif worldtype==1:
-            print("I actually forgot what world this is so hi, not sure if this game is beatable but I know you are smart")
+            print("MSG Mountain")
         else:
-            print("wow, this game may actually be beatable")
+            print("Jamacia")

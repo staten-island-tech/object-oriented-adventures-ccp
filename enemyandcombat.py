@@ -111,4 +111,5 @@ class combat():
                 print(x.name,x.health)
                 print(e.name,e.health)
                 print("you lose!!")
+                x.error="no"
                 quit()

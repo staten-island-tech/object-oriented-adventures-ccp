@@ -50,6 +50,7 @@ class characterdata(enemy):
         elif typenumber=="b":
             if worldtype == 1:
                 NoobChef = enemy("Noob Chef", 50, 20, 125, 2, 20)
+                print("Hello Gordon")
                 return NoobChef
             elif worldtype == 2:
                 ThreeStarChef = enemy("3 Star Chef", 70, 25, 250, 5, 50)

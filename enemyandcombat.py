@@ -35,7 +35,7 @@ class combat():
             print(x.name, + x.health, "/", + maxhealth)
             print(e.name, + e.health, "/", + maxehealth)
             print("Attack Mutipler: ", + buff_amount)
-            player = input("1. Attack\n2. Retreat\n3. Use item\n4. Rizz")
+            player = input("1. Attack\n2. Retreat\n3. Use item\n4. Rizz\nInput Action: ")
             os.system('cls')
             if player == "1":
                 e.health -= combat.damagedealcal(x.attack, inventory, buff_amount)
@@ -105,7 +105,7 @@ class combat():
                 inventory[4]['coin']+=(e.coin*x.score_mutipler)
                 print("you won!!")
                 x.health=maxhealth
-                player=input("")    
+                player=input("Press Enter To Continue: ")    
                 os.system('cls')
             else:
                 print(x.name,x.health)

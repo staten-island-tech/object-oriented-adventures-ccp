@@ -95,7 +95,7 @@ class shop():
                 print("-"*40)
             print(f"{numberselection+1}, Exit" )
             print("Coin: "+f"{iven[4]['coin']}")
-            player=input("What do you wanted to buy")
+            player=input("What do you want to buy")
             os.system('cls')
             if player.isdigit():
                 if int(player)<=len(itemselected):

@@ -93,6 +93,7 @@ try:
             if not name.strip():
                 print("Try again")
             else:
+                print("Tutorial: ")
                 print("This will be a turn-based game")
                 time.sleep(1)
                 print("You will venture through various restaurants, challenging each chef to a 'cookoff'")
@@ -120,8 +121,7 @@ try:
             quit()
         elif not player_choice=="1":
             print("You can't do that")
-    print(f"Hello, {name}")
-    print("Your goal is simple.")
+    print(f"Hello {name}")
     print("You have to defeat all of the enemies and rescue the CCP.")
     print("But first, stat selection")
     x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 1, 1, "why")
@@ -165,6 +165,6 @@ try:
 except:
     if not player_choice == "2" and x.error=="why" and not listformenulocation[0]=="Game_start":
         print("ERROR!!!!")
-        print("<<|Achievement Unlocked: Stop breaking intendly|>>")
+        print("<<|Achievement Unlocked: Thoughout Heaven and Earth, I Alone am the Special One |>>")
     else:
         print("good idea")

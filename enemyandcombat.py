@@ -17,7 +17,7 @@ class combat():
         if not inventory[2]["Weapon"]=="none":
             return math.ceil(attack*weaponstat[0][inventory[2]["Weapon"]]*buff_amount)
         else:
-            return math.ceil(attack)
+            return math.ceil(attack*buff_amount)
 #This calculate the amount of damage you take    
     def damagetakencalcaltor(enemy_attack, inventory, x):
         z=[armorstat[0][inventory[2][i]] for i in inventory[2] if not i =="Weapon" if not inventory[2][i]=="none"]
@@ -52,47 +52,42 @@ class combat():
             elif player == "3":
                 listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
                 number_selection=0
-                for items in inventory[0]:
-                    if inventory[0][items]>0:
-                        number_selection+=1
-                        print(f"{number_selection}, {items}: {inventory[0][items]}")
-                    for ll in listofitemuseable:
-                        for i in itemstatuseffect[0]:
-                            for j in itemstatuseffect[0][i]:
-                                if ll==j:
-                                    print(i)
-                                    print(j)
-                                    if i == 'healing':
-                                        print(f"Heal {itemstatuseffect[0][i][j]}")
-                                    elif i == 'attack':
-                                        print(f"Do {itemstatuseffect[0][i][j]} damages")
-                                    else:
-                                        print(f"Buff your attack by {itemstatuseffect[0][i][j]} times")
-                if number_selection==0:
-                    print("You have nothing")
-                print(f"{number_selection+1}, Exit")
-                
-                player_choice=input("What do you want to do?")
-                os.system('cls')
-                if int(player_choice)<=number_selection:    
+                if not len(listofitemuseable)==0:
                     for i in itemstatuseffect:
                         for j in i:
                             for y in itemstatuseffect[0][j]:
-                                if y == listofitemuseable[int(player_choice)-1]:
+                                if y == listofitemuseable[number_selection]:
+                                    number_selection+=1
+                                    print(f"{number_selection}, {y}: {inventory[0][y]}")
                                     if j == 'healing':
-                                        if x.health+itemstatuseffect[0][j][y]<=maxhealth:
-                                            x.health+=itemstatuseffect[0][j][y]
+                                        print("Heal", itemstatuseffect[0][j][y], "hp")
+                                    elif j == 'attack':
+                                        print("Do", itemstatuseffect[0][j][y], "damage to enemy")
+                                    else:
+                                        print("buff your attack up to", itemstatuseffect[0][j][y], "times(stackable)")
+                if number_selection==0:
+                    print("You have nothing")
+                print(f"{number_selection+1}, Exit")
+                player_choice=input("What do you want to do?")
+                os.system('cls')
+                if player_choice.isdigit():
+                    if int(player_choice)<=number_selection:    
+                        for i in itemstatuseffect:
+                            for j in i:
+                                for y in itemstatuseffect[0][j]:
+                                    if y == listofitemuseable[int(player_choice)-1]:
+                                        if j == 'healing':
+                                            if x.health+itemstatuseffect[0][j][y]<=maxhealth:
+                                                x.health+=itemstatuseffect[0][j][y]
+                                                inventory[0][listofitemuseable[int(player_choice)-1]]-=1
+                                            else:
+                                                x.health=maxhealth
+                                        elif j == 'attack':
+                                            e.health-=itemstatuseffect[0][j][y]
                                             inventory[0][listofitemuseable[int(player_choice)-1]]-=1
                                         else:
-                                            x.health=maxhealth
-                                    elif j == 'attack':
-                                        e.health-=itemstatuseffect[0][j][y]
-                                        inventory[0][listofitemuseable[int(player_choice)-1]]-=1
-                                    else:
-                                        buff_amount+=itemstatuseffect[0][j][y]
-                                        inventory[0][listofitemuseable[int(player_choice)-1]]-=1
-                else:
-                    pass
+                                            buff_amount+=itemstatuseffect[0][j][y]
+                                            inventory[0][listofitemuseable[int(player_choice)-1]]-=1
             elif player == "4":
                 if x.rizz >= random.randint(1,1000):
                     print("You have successfully rizzed up",e.name)
@@ -116,4 +111,5 @@ class combat():
                 print(x.name,x.health)
                 print(e.name,e.health)
                 print("you lose!!")
+                x.error="no"
                 quit()

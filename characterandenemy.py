@@ -7,7 +7,7 @@ class enemy():
         self.coin=coin
         self.exp=exp
 class characterdata(enemy):
-    def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp, coin, level):
+    def __init__(self, attack, defense, health, rizz, score_mutipler, intellgence, total_step, weight_chance, enemyencounter, name, worldtype, exp, coin, level, error):
         super().__init__(name, health, attack, defense, coin, exp)
         self.rizz=rizz
         self.score_mutipler=score_mutipler
@@ -18,6 +18,7 @@ class characterdata(enemy):
         self.name=name
         self.worldtype=worldtype
         self.level=level
+        self.error=error
     def __str__(self):
         return f"{self.attack}, {self.defense}, {self.health}, {self.rizz}, {self.score_mutipler}, {self.intellgence}, {self.total_step}, {self.weight_chance}, {self.enemyencounter}, {self.name}"
     def enemytypestat(worldtype, typenumber):
@@ -75,10 +76,10 @@ class characterdata(enemy):
                 return MasterChef
     def joe(worldtype):
         if worldtype==3:
-            print("Your are close to the end")
+            print("Hell's Kitchen")
         elif worldtype==4:
-            print("HOWOOWOWOWOOWOW")
+            print("The Metaverse")
         elif worldtype==1:
-            print("I actually forgot what world this is so hi, not sure if this game is beatable but I know you are smart")
+            print("MSG Mountain")
         else:
-            print("wow, this game may actually be beatable")
+            print("Jamacia")

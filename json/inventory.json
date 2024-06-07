@@ -1,6 +1,6 @@
 [
     {
-        "Marshmallow": 1,
+        "Marshmallow": 0,
         "Boiled Egg": 0,
         "Chocolate": 0, 
         "Watermelon": 0,
@@ -9,7 +9,7 @@
         "Broccoli": 0, 
         "Cheesecake": 0, 
         "Ice Cream": 0, 
-        "Salt": 20, 
+        "Salt": 0, 
         "Chicken": 0, 
         "Pepper": 0,
         "Cheese Stick": 0, 
@@ -22,7 +22,7 @@
         "Steak": 0, 
         "Koolaid": 0, 
         "Milk": 0, 
-        "Mountain Dew": 469
+        "Mountain Dew": 0
     },
     {
         "tier1eq": {
@@ -34,7 +34,7 @@
             "armorh": 0,
             "armorba": 0,
             "armorl": 0,
-            "armorb": 2
+            "armorb": 0
         },
         "tier2eq": {
             "sword": 0,
@@ -101,6 +101,6 @@
             "Rain boot"
         ]
     }, 
-    {"coin": 100000000000
+    {"coin": 0
 }
 ]

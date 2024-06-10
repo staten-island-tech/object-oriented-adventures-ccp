@@ -1,8 +1,8 @@
 [
     {
         "healing": {
-            "Blue Berry": 5,
-            "Boil Egg": 10,
+            "Marshmallow": 5,
+            "Boiled Egg": 10,
             "Chocolate":15,
             "Watermelon": 20, 
             "Lollipop": 25, 
@@ -21,7 +21,7 @@
             "California Reaper": 1500
         },
         "buff": {
-            "Vitanims": 1,
+            "Vitamins": 1,
             "Coffee": 2,
             "Sugar Cube": 3, 
             "Steak": 20, 

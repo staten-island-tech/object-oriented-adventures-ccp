@@ -3,17 +3,31 @@
         "healing": {
             "Blue Berry": 5,
             "Boil Egg": 10,
-            "Chicken Nugget": 15
+            "Chocolate":15,
+            "Watermelon": 20, 
+            "Lollipop": 25, 
+            "Oreos": 40, 
+            "Broccoli": 45, 
+            "Cheesecake": 100, 
+            "Ice Cream": 500
         },
         "attack": {
             "Salt": 5,
-            "Jerk Chicken": 10,
-            "Pepper": 15
+            "Chicken": 10,
+            "Pepper": 15, 
+            "Cheese Stick": 100, 
+            "Dominos Pizza": 120, 
+            "Egg Fried Rice": 200, 
+            "California Reaper": 1500
         },
         "buff": {
             "Vitanims": 1,
             "Coffee": 2,
-            "MSG": 3
+            "Sugar Cube": 3, 
+            "Steak": 20, 
+            "Koolaid": 25, 
+            "Milk": 50, 
+            "Mountain Dew": 150
         }
     }
 ]

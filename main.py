@@ -80,7 +80,7 @@ class itsclassingtime():
             else:
                 print("You can't do that")
 listformenulocation=["start"]
-try:
+def testing():
     while listformenulocation[0]=="start":  
         print("The story of the MSG King")
         print("1. Start game")
@@ -93,7 +93,7 @@ try:
             if not name.strip():
                 print("Try again")
             else:
-                print("Tutorial: ")
+                """ print("Tutorial: ")
                 print("This will be a turn-based game")
                 time.sleep(1)
                 print("You will venture through various restaurants, challenging each chef to a 'cookoff'")
@@ -113,7 +113,7 @@ try:
                 print("You can gain healing, buffs, or attack items")
                 time.sleep(1)
                 print("You can go to the shop to buy all of these items")
-                time.sleep(3)
+                time.sleep(3) """
                 listformenulocation[0]="stat_creation"
                 break
         if player_choice=="2":
@@ -161,10 +161,10 @@ try:
         itsclassingtime.leveldetermine(x)
         itsclassingtime.playerstatpoint_selection(x)
         actionchoice.choice(x, x.weight_chance, x.enemyencounter, data)
-#testing()
-except:
+testing()
+""" except:
     if not player_choice == "2" and x.error=="why" and not listformenulocation[0]=="Game_start":
         print("ERROR!!!!")
         print("<<|Achievement Unlocked: Thoughout Heaven and Earth, I Alone am the Special One |>>")
     else:
-        print("good idea")
+        print("good idea") """

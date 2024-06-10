@@ -56,15 +56,16 @@ class combat():
                     for i in itemstatuseffect:
                         for j in i:
                             for y in itemstatuseffect[0][j]:
-                                if y == listofitemuseable[number_selection]:
-                                    number_selection+=1
-                                    print(f"{number_selection}, {y}: {inventory[0][y]}")
-                                    if j == 'healing':
-                                        print("Heal", itemstatuseffect[0][j][y], "hp")
-                                    elif j == 'attack':
-                                        print("Do", itemstatuseffect[0][j][y], "damage to enemy")
-                                    else:
-                                        print("buff your attack up to", itemstatuseffect[0][j][y], "times(stackable)")
+                                if len(listofitemuseable)>number_selection:
+                                    if y == listofitemuseable[number_selection]:
+                                        number_selection+=1
+                                        print(f"{number_selection}, {y}: {inventory[0][y]}")
+                                        if j == 'healing':
+                                            print("Heal", itemstatuseffect[0][j][y], "hp")
+                                        elif j == 'attack':
+                                            print("Do", itemstatuseffect[0][j][y], "damage to enemy")
+                                        else:
+                                            print("buff your attack up to", itemstatuseffect[0][j][y], "times(stackable)")
                 if number_selection==0:
                     print("You have nothing")
                 print(f"{number_selection+1}, Exit")

@@ -53,6 +53,7 @@ class combat():
                 listofitemuseable=[i for i in inventory[0] if inventory[0][i]>0]
                 number_selection=0
                 if not len(listofitemuseable)==0:
+                    print(len(listofitemuseable))
                     for i in itemstatuseffect:
                         for j in i:
                             for y in itemstatuseffect[0][j]:

@@ -104,7 +104,7 @@ try:
                 print("NO")
             elif "KRAM" in name.upper():
                 print("Still no")
-            elif letter.upper()=="MARK" or letter.upper()=="KRAM":
+            elif "MARK" in letter.upper() or "KRAM" in letter.upper():
                 print()
             else:
                 if name.upper()=="XIN JINPING":

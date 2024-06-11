@@ -97,7 +97,7 @@ try:
             if not name.strip():
                 print("Try again")
             elif "MARK" in name.upper():
-                print("LOL, NO")
+                print("NO")
             else:
                 if name.upper()=="XIN JINPING":
                     pass

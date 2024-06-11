@@ -99,6 +99,8 @@ def testing():
                 print("LOL, NO")
             else:
                 if name.upper()=="XIN JINPING":
+                    global playerstatpoint
+                    playerstatpoint=1000000000000000000000
                     pass
                 else:
                     print("Tutorial: ")
@@ -132,7 +134,7 @@ def testing():
     print(f"Hello {name}")
     print("You have to defeat all of the enemies and rescue the CCP.")
     print("But first, stat selection")
-    x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 1, 1, "why")
+    x=characterdata(10, 10, 10, 10, 10, 10, 0, (0.15, 0.35, 0.5), ('a', 'b', 'c'), name, 1, 0, 1, 10000000000, "why")
     while listformenulocation[0]=="stat_creation":
         print(f"Point to spend: {playerstatpoint}")
         print(f"1. attack: {x.attack}")

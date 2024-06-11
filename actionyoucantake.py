@@ -203,6 +203,14 @@ class actionchoice():
                 print("You can't do that")
 #This is where all the stuff go
     def choice(characterstat, weight_chance, enemyencounter, data):
+        if characterstat.name=="Xin Jinping":
+            for i in data[0]:
+                data[0][i]+=100
+            for i in data[1]:
+                for j in data[1][i]:
+                    data[1][i][j]+=100
+            data[4]["coin"]+=1000000
+            print("Homeless")
         print(f"Exp: {characterstat.exp}/{characterstat.level*characterstat.level}")
         print(f"Level {characterstat.level}")
         player_choice=input("1. Walk\n2. Open inventory\n3. Shop\ninput:")

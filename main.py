@@ -95,28 +95,33 @@ def testing():
             os.system('cls')
             if not name.strip():
                 print("Try again")
+            elif "MARK" in name.upper():
+                print("LOL, NO")
             else:
-                """ print("Tutorial: ")
-                print("This will be a turn-based game")
-                time.sleep(1)
-                print("You will venture through various restaurants, challenging each chef to a 'cookoff'")
-                time.sleep(1)
-                print("You have 4 actions that you can do when you're in battle")
-                time.sleep(1)
-                print("1 - Attack - Certain items can be used for dealing damage")
-                time.sleep(1)
-                print("2 - Rizz - You relive your life as a past gambler, but instead of hitting the jackpot, you're just trying to charm anyone you meet. Your base rizz is 1%, every point you put into rizz will incease it by 0.1%. When you successfully 'rizzed' your person of choice, you will avoid the battle.")
-                time.sleep(2)
-                print("3 - Run Away - You run away obviously")
-                time.sleep(1)
-                print("4 - Use Item - Use any item you currently have")
-                time.sleep(1)
-                print("There are 3 types of items you can acquire.")
-                time.sleep(1)
-                print("You can gain healing, buffs, or attack items")
-                time.sleep(1)
-                print("You can go to the shop to buy all of these items")
-                time.sleep(3) """
+                if name.upper()=="XIN JINPING":
+                    pass
+                else:
+                    print("Tutorial: ")
+                    print("This will be a turn-based game")
+                    time.sleep(1)
+                    print("You will venture through various restaurants, challenging each chef to a 'cookoff'")
+                    time.sleep(1)
+                    print("You have 4 actions that you can do when you're in battle")
+                    time.sleep(1)
+                    print("1 - Attack - Certain items can be used for dealing damage")
+                    time.sleep(1)
+                    print("2 - Rizz - You relive your life as a past gambler, but instead of hitting the jackpot, you're just trying to charm anyone you meet. Your base rizz is 1%, every point you put into rizz will incease it by 0.1%. When you successfully 'rizzed' your person of choice, you will avoid the battle.")
+                    time.sleep(2)
+                    print("3 - Run Away - You run away obviously")
+                    time.sleep(1)
+                    print("4 - Use Item - Use any item you currently have")
+                    time.sleep(1)
+                    print("There are 3 types of items you can acquire.")
+                    time.sleep(1)
+                    print("You can gain healing, buffs, or attack items")
+                    time.sleep(1)
+                    print("You can go to the shop to buy all of these items")
+                    time.sleep(3)
                 listformenulocation[0]="stat_creation"
                 break
         if player_choice=="2":

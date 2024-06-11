@@ -94,10 +94,18 @@ try:
         while player_choice=="1":
             name=input("What's your name: ")
             os.system('cls')
+            letter=""
+            for i in name():
+                if i.isalpha():
+                    letter+=i
             if not name.strip():
                 print("Try again")
             elif "MARK" in name.upper():
                 print("NO")
+            elif "KARM" in name.upper():
+                print("Still no")
+            if letter.upper()=="MARK" or letter.upper()=="KRAM":
+                print()
             else:
                 if name.upper()=="XIN JINPING":
                     pass

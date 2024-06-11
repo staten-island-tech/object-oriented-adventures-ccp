@@ -12,22 +12,25 @@ with open("json/inventory.json", "r") as f:
 class itsclassingtime():
     def compare(z):
         global playerstatpoint
+        allnumber="None"
         add_minus=input("How much point do you want to spend?: ")
-        if not add_minus[0]=="-":
-            for i in add_minus:
-                if i.isnumeric():
-                    allnumber=True
-                else:
-                    allnumber=False
-                    break
-        else:
-            print(add_minus[0:1])
-            for i in add_minus[1:]:
-                if i.isnumeric():
-                    allnumber=True
-                else:
-                    allnumber=False
-                    break
+        if not add_minus.isspace() and not len(add_minus)==0:
+            print(add_minus.isspace())
+            if not add_minus[0]=="-":
+                for i in add_minus:
+                    if i.isnumeric():
+                        allnumber=True
+                    else:
+                        allnumber=False
+                        break
+            else:
+                print(add_minus[0:1])
+                for i in add_minus[1:]:
+                    if i.isnumeric():
+                        allnumber=True
+                    else:
+                        allnumber=False
+                        break
         os.system('cls')
         if allnumber==True:
             add_minus=int(add_minus)
